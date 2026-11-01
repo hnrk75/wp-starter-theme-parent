@@ -1,7 +1,7 @@
 {
   "type": "module",
   "name": "wp-starter-theme",
-  "version": "1.4.1",
+  "version": "2.0.0",
   "description": "Modern WordPress starter theme with Gulp build pipeline",
   "author": {
     "name": "Henrik Pettersson"

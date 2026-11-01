@@ -21,13 +21,16 @@ if ( ! function_exists( 'wpst_posted_on' ) ) :
 		);
 
 		$posted_on = sprintf(
-			esc_html_x( 'Publicerad %s', 'post date', 'wp-starter-theme' ),
+			/* translators: %s: post date */
+			esc_html_x( 'Posted on %s', 'post date', 'wp-starter-theme' ),
 			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 		);
 
+		// Name only: author archives are not public.
 		$byline = sprintf(
-			esc_html_x( 'av %s', 'post author', 'wp-starter-theme' ),
-			'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( (int) get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
+			/* translators: %s: post author */
+			esc_html_x( 'by %s', 'post author', 'wp-starter-theme' ),
+			'<span class="author vcard"><span class="fn">' . esc_html( get_the_author() ) . '</span></span>'
 		);
 
 		echo '<span class="posted-on">' . wp_kses_post( $posted_on ) . '</span>';
@@ -181,7 +184,8 @@ if ( ! function_exists( 'wpst_post_thumbnail' ) ) :
 		echo '<div class="' . esc_attr( $wrapper_class ) . '">';
 
 		if ( $a['link'] ) {
-			echo '<a href="' . esc_url( get_permalink() ) . '">';
+			// Duplicates the title link, so hidden from screen readers and keyboard.
+			echo '<a href="' . esc_url( get_permalink() ) . '" aria-hidden="true" tabindex="-1">';
 			the_post_thumbnail( $a['size'], $img_attrs );
 			echo '</a>';
 		} else {

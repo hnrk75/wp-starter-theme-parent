@@ -124,11 +124,12 @@ if ( ! function_exists( 'wpst_button' ) ) {
 		$html = '';
 
 		if ( ! empty( $a['href'] ) ) {
-			$attr['href'] = esc_url( $a['href'] );
-
 			if ( $a['disabled'] ) {
+				// Without href it cannot be clicked; role keeps it announced as a link.
+				$attr['role']          = 'link';
 				$attr['aria-disabled'] = 'true';
-				$attr['tabindex']      = '-1';
+			} else {
+				$attr['href'] = esc_url( $a['href'] );
 			}
 
 			if ( ! empty( $a['target'] ) ) {

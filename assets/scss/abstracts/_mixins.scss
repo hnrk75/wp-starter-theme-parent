@@ -7,10 +7,12 @@
 // =============================================================
 
 // --- Focus visible ring ---------------------------------------
+// The outline meets WCAG 3:1 and stays visible in forced-colors mode; $alpha is the halo.
 @mixin focus-visible-shadow($color: $color-primary, $alpha: 0.25, $size: 0.25rem) {
 	&:focus-visible {
-		outline: none;
-		box-shadow: 0 0 0 #{$size} color-mix(in srgb, #{$color} #{math.percentage($alpha)}, transparent);
+		outline: 0.125rem solid #{$color};
+		outline-offset: 0.125rem;
+		box-shadow: 0 0 0 calc(#{$size} + 0.125rem) color-mix(in srgb, #{$color} #{math.percentage($alpha)}, transparent);
 		transition: box-shadow 0.2s ease;
 	}
 }

@@ -2,14 +2,13 @@
 /**
  * Functions and definitions
  *
- * The theme's own files are always loaded from this (parent) theme, so a child theme
- * can never replace a whole file and miss future updates to it. Child themes customize
- * through hooks, filters and pluggable functions (wrapped in function_exists()).
+ * Loaded from the parent theme, so a child theme cannot replace these files.
  *
  * @package WP Starter Theme
  */
 
 require_once get_parent_theme_file_path( 'inc/setup.php' );
+require_once get_parent_theme_file_path( 'inc/navwalker.php' );
 require_once get_parent_theme_file_path( 'inc/admin.php' );
 require_once get_parent_theme_file_path( 'inc/breadcrumbs.php' );
 require_once get_parent_theme_file_path( 'inc/helpers-buttons.php' );

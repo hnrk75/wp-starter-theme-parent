@@ -1,52 +1,97 @@
 <?php
 /**
- * SEO meta tags: canonical, description, Open Graph, Twitter Card, JSON-LD, robots.
+ * SEO meta tags: canonical, description, Open Graph, Twitter Card and JSON-LD.
+ * Off when Yoast SEO or Rank Math is active.
  *
  * @package WP Starter Theme
  */
 
-// Remove WordPress built-in canonical — we output our own for all contexts.
-remove_action( 'wp_head', 'rel_canonical' );
+/**
+ * Whether the theme outputs its own meta tags.
+ *
+ * @return bool
+ */
+function wpst_output_meta_tags() {
+	$seo_plugin_active = defined( 'WPSEO_VERSION' ) || class_exists( 'RankMath' );
+
+	return (bool) apply_filters( 'wpst_output_meta_tags', ! $seo_plugin_active );
+}
+
+add_action(
+	'wp',
+	function () {
+		if ( ! wpst_output_meta_tags() ) {
+			return;
+		}
+
+		remove_action( 'wp_head', 'rel_canonical' );
+		add_action( 'wp_head', 'wpst_meta_tags', 1 );
+	}
+);
+
+// Search results already get noindex from WordPress.
+add_filter(
+	'wp_robots',
+	function ( $robots ) {
+		if ( is_404() ) {
+			$robots['noindex'] = true;
+		}
+		return $robots;
+	}
+);
+
+/**
+ * Plain text: no HTML, no entities.
+ *
+ * @param string $text Text that may contain HTML or entities.
+ * @return string
+ */
+function wpst_meta_text( $text ) {
+	return trim( html_entity_decode( wp_strip_all_tags( (string) $text ), ENT_QUOTES | ENT_HTML5, 'UTF-8' ) );
+}
 
 function wpst_meta_tags() {
-
-	// --- Robots -------------------------------------------------
 	if ( is_search() || is_404() ) {
-		echo '<meta name="robots" content="noindex, follow">' . "\n";
 		return;
 	}
 
+	$paged = max( 1, (int) get_query_var( 'paged' ) );
+
 	// --- URL / Canonical ----------------------------------------
 	if ( is_front_page() ) {
-		$url = home_url( '/' );
-	} elseif ( is_home() ) {
-		$url = get_permalink( get_option( 'page_for_posts' ) );
+		$url = $paged > 1 ? get_pagenum_link( $paged ) : home_url( '/' );
 	} elseif ( is_singular() ) {
 		$url = get_permalink();
-	} elseif ( is_archive() ) {
-		$url = get_pagenum_link( 1 );
+	} elseif ( is_home() || is_archive() ) {
+		$url = get_pagenum_link( $paged );
 	} else {
 		$url = home_url( add_query_arg( array() ) );
 	}
 
 	// --- Title --------------------------------------------------
-	if ( is_front_page() || is_home() ) {
+	if ( is_front_page() ) {
 		$title = get_bloginfo( 'name' );
+	} elseif ( is_home() ) {
+		$posts_page_id = (int) get_option( 'page_for_posts' );
+		$title         = $posts_page_id ? get_the_title( $posts_page_id ) : get_bloginfo( 'name' );
 	} elseif ( is_archive() ) {
 		$title = get_the_archive_title();
 	} else {
 		$title = get_the_title();
 	}
+	$title = wpst_meta_text( $title );
 
 	// --- Description --------------------------------------------
 	if ( is_singular() ) {
-		$description = has_excerpt() ? get_the_excerpt() : wp_trim_words( get_the_content(), 30 );
+		$description = has_excerpt()
+			? get_the_excerpt()
+			: wp_trim_words( strip_shortcodes( excerpt_remove_blocks( get_the_content() ) ), 30 );
 	} elseif ( is_archive() ) {
 		$description = get_the_archive_description();
 	} else {
 		$description = get_bloginfo( 'description' );
 	}
-	$description = wp_strip_all_tags( (string) $description );
+	$description = wpst_meta_text( $description );
 
 	// --- OG type ------------------------------------------------
 	$og_type = is_singular( 'post' ) ? 'article' : 'website';
@@ -84,7 +129,7 @@ function wpst_meta_tags() {
 	<?php endif; ?>
 
 <!-- Open Graph -->
-<meta property="og:site_name" content="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">
+<meta property="og:site_name" content="<?php echo esc_attr( wpst_meta_text( get_bloginfo( 'name' ) ) ); ?>">
 <meta property="og:type" content="<?php echo esc_attr( $og_type ); ?>">
 <meta property="og:url" content="<?php echo esc_url( $url ); ?>">
 <meta property="og:title" content="<?php echo esc_attr( $title ); ?>">
@@ -112,10 +157,9 @@ function wpst_meta_tags() {
 	<?php
 	wpst_json_ld( $url, $title, $description, $image_url );
 }
-add_action( 'wp_head', 'wpst_meta_tags', 1 );
 
 function wpst_json_ld( $url, $title, $description, $image_url ) {
-	$site_name = get_bloginfo( 'name' );
+	$site_name = wpst_meta_text( get_bloginfo( 'name' ) );
 	$schemas   = array();
 
 	// --- WebSite (front page only) ------------------------------
@@ -125,35 +169,24 @@ function wpst_json_ld( $url, $title, $description, $image_url ) {
 			'@type'    => 'WebSite',
 			'name'     => $site_name,
 			'url'      => home_url( '/' ),
-			'potentialAction' => array(
-				'@type'       => 'SearchAction',
-				'target'      => array(
-					'@type'       => 'EntryPoint',
-					'urlTemplate' => home_url( '/?s={search_term_string}' ),
-				),
-				'query-input' => 'required name=search_term_string',
-			),
 		);
 	}
 
 	// --- Article (singular posts) --------------------------------
+	// No author URL: author archives are not public.
 	if ( is_singular( 'post' ) ) {
-		$author_id   = get_the_author_meta( 'ID' );
-		$author_name = get_the_author_meta( 'display_name' );
-
 		$article = array(
-			'@context'         => 'https://schema.org',
-			'@type'            => 'Article',
-			'headline'         => $title,
-			'url'              => $url,
-			'datePublished'    => get_the_date( 'c' ),
-			'dateModified'     => get_the_modified_date( 'c' ),
-			'author'           => array(
+			'@context'      => 'https://schema.org',
+			'@type'         => 'Article',
+			'headline'      => $title,
+			'url'           => $url,
+			'datePublished' => get_the_date( 'c' ),
+			'dateModified'  => get_the_modified_date( 'c' ),
+			'author'        => array(
 				'@type' => 'Person',
-				'name'  => $author_name,
-				'url'   => get_author_posts_url( (int) $author_id ),
+				'name'  => wpst_meta_text( get_the_author_meta( 'display_name', (int) get_post_field( 'post_author' ) ) ),
 			),
-			'publisher'        => array(
+			'publisher'     => array(
 				'@type' => 'Organization',
 				'name'  => $site_name,
 				'url'   => home_url( '/' ),
@@ -172,50 +205,26 @@ function wpst_json_ld( $url, $title, $description, $image_url ) {
 	}
 
 	// --- BreadcrumbList -----------------------------------------
-	if ( ! is_front_page() && function_exists( 'wpst_the_breadcrumb' ) ) {
-		$crumbs = wpst_breadcrumb_items();
-		if ( ! empty( $crumbs ) ) {
-			$list_items = array();
-			foreach ( $crumbs as $position => $crumb ) {
-				$list_items[] = array(
-					'@type'    => 'ListItem',
-					'position' => $position + 1,
-					'name'     => $crumb['name'],
-					'item'     => $crumb['url'],
-				);
-			}
-			$schemas[] = array(
-				'@context'        => 'https://schema.org',
-				'@type'           => 'BreadcrumbList',
-				'itemListElement' => $list_items,
+	$crumbs = wpst_breadcrumb_items();
+	if ( count( $crumbs ) > 1 ) {
+		$list_items = array();
+		foreach ( $crumbs as $index => $crumb ) {
+			$list_items[] = array(
+				'@type'    => 'ListItem',
+				'position' => $index + 1,
+				'name'     => wpst_meta_text( $crumb['name'] ),
+				'item'     => $crumb['url'],
 			);
 		}
+		$schemas[] = array(
+			'@context'        => 'https://schema.org',
+			'@type'           => 'BreadcrumbList',
+			'itemListElement' => $list_items,
+		);
 	}
 
+	// JSON_HEX_TAG: a "</script>" in a title cannot close the tag.
 	foreach ( $schemas as $schema ) {
-		echo '<script type="application/ld+json">' . wp_json_encode( $schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE ) . '</script>' . "\n";
+		echo '<script type="application/ld+json">' . wp_json_encode( $schema, JSON_HEX_TAG | JSON_HEX_AMP | JSON_UNESCAPED_UNICODE ) . '</script>' . "\n";
 	}
-}
-
-function wpst_breadcrumb_items() {
-	$items = array();
-
-	$items[] = array(
-		'name' => get_bloginfo( 'name' ),
-		'url'  => home_url( '/' ),
-	);
-
-	if ( is_singular() ) {
-		$items[] = array(
-			'name' => get_the_title(),
-			'url'  => get_permalink(),
-		);
-	} elseif ( is_archive() ) {
-		$items[] = array(
-			'name' => get_the_archive_title(),
-			'url'  => get_pagenum_link( 1 ),
-		);
-	}
-
-	return $items;
 }

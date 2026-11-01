@@ -8,7 +8,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-09-07T09:19:09+00:00\n"
-"PO-Revision-Date: 2026-11-01T12:12:16+00:00\n"
+"PO-Revision-Date: 2026-11-01T13:41:59+00:00\n"
 "Language: sv_SE\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
@@ -42,24 +42,18 @@ msgid "Oops! This page could not be found."
 msgstr "Oops! Den här sidan kunde inte hittas."
 
 #: 404.php:26
-msgid "It seems nothing was found here. You can try a search or use one of the buttons below."
-msgstr "Det verkar inte finnas något här. Du kan prova att söka eller använda någon av knapparna nedan."
+msgid "It seems nothing was found here. You can try a search or go to the homepage."
+msgstr "Det verkar inte finnas något här. Du kan prova att söka eller gå till startsidan."
 
 #: 404.php:31
 msgid "Alternative links for the 404 page"
 msgstr "Alternativa länkar för 404-sidan"
 
 #: 404.php:35
-#: 404.php:38
 #: template-parts/content/content-none.php:40
 #: template-parts/content/content-none.php:55
 msgid "Go to homepage"
 msgstr "Gå till startsidan"
-
-#: 404.php:44
-#: 404.php:47
-msgid "Search again"
-msgstr "Sök igen"
 
 #: archive.php:15
 #: index.php:16
@@ -85,7 +79,7 @@ msgstr "Nästa sida"
 msgid "Post page navigation"
 msgstr "Navigering för inläggssidor"
 
-#: footer.php:44
+#: footer.php:47
 #: inc/widgets.php:14
 #: inc/widgets.php:26
 #: inc/widgets.php:38
@@ -94,7 +88,7 @@ msgstr "Navigering för inläggssidor"
 msgid "Add widgets here."
 msgstr "Lägg till widgets här."
 
-#: footer.php:62
+#: footer.php:66
 #: inc/setup.php:52
 msgid "Footer menu"
 msgstr "Sidfotsmeny"
@@ -120,103 +114,41 @@ msgstr "Meny"
 msgid "Close menu"
 msgstr "Stäng meny"
 
-#: inc/admin.php:55
-msgid "Recommended Plugins"
-msgstr "Rekommenderade plugins"
-
-#: inc/admin.php:99
-msgid "Active"
-msgstr "Aktiv"
-
-#: inc/admin.php:103
-msgid "Not activated"
-msgstr "Inte aktiverad"
-
-#: inc/admin.php:107
-msgid "Pending"
-msgstr "Väntande"
-
-#: inc/admin.php:111
-msgid "Not installed"
-msgstr "Inte installerad"
-
-#: inc/admin.php:123
-msgid "Activate"
-msgstr "Aktivera"
-
-#: inc/admin.php:126
-msgid "Run in terminal: composer install"
-msgstr "Kör i terminalen: composer install"
-
-#: inc/admin.php:134
-msgid "Add to composer.json"
-msgstr "Lägg till i composer.json"
-
-#: inc/admin.php:181
-msgid "Unauthorized."
-msgstr "Ej behörig."
-
-#: inc/admin.php:189
-msgid "Missing package name."
-msgstr "Paketnamn saknas."
-
-#: inc/admin.php:201
-#, php-format
-msgid "composer.json not found at: %s"
-msgstr "composer.json hittades inte på: %s"
-
-#: inc/admin.php:205
-msgid "composer.json is not writable."
-msgstr "composer.json kan inte skrivas till."
-
-#: inc/admin.php:211
-msgid "Could not parse composer.json."
-msgstr "Kunde inte parsa composer.json."
-
-#: inc/admin.php:241
-msgid "Already in composer.json."
-msgstr "Redan i composer.json."
-
-#: inc/admin.php:247
-msgid "Failed to write composer.json."
-msgstr "Misslyckades att skriva composer.json."
-
-#: inc/admin.php:250
-msgid "Added. Run composer install to complete."
-msgstr "Tillagd. Kör composer install för att slutföra."
-
-#: inc/breadcrumbs.php:18
-#, php-format
-msgid "Go to page %s"
-msgstr "Gå till sidan %s"
-
-#: inc/breadcrumbs.php:41
-msgid "Category:"
-msgstr "Kategori:"
-
-#: inc/breadcrumbs.php:154
-msgid "Articles posted by"
-msgstr "Artiklar postade av"
-
-#: inc/breadcrumbs.php:162
-msgid "Page"
-msgstr "Sida"
-
-#: inc/breadcrumbs.php:168
+#: inc/breadcrumbs.php:29
 msgid "Home"
 msgstr "Startsida"
 
-#: inc/breadcrumbs.php:183
-msgid "Breadcrumbs"
-msgstr "Brödsmulor"
+#. translators: %s: category name
+#: inc/breadcrumbs.php:72
+#, php-format
+msgid "Category: %s"
+msgstr "Kategori: %s"
 
-#: inc/breadcrumbs.php:202
-msgid "Search results for"
-msgstr "Sökresultat för"
+#. translators: %s: search query
+#: inc/breadcrumbs.php:78
+#, php-format
+msgid "Search results for \"%s\""
+msgstr "Sökresultat för \"%s\""
 
-#: inc/breadcrumbs.php:234
+#. translators: %s: author name
+#: inc/breadcrumbs.php:124
+#, php-format
+msgid "Articles posted by %s"
+msgstr "Artiklar publicerade av %s"
+
+#: inc/breadcrumbs.php:127
 msgid "Error 404: Page not found"
 msgstr "Fel 404: Sidan hittades inte"
+
+#. translators: %d: page number
+#: inc/breadcrumbs.php:134
+#, php-format
+msgid "Page %d"
+msgstr "Sida %d"
+
+#: inc/breadcrumbs.php:164
+msgid "Breadcrumbs"
+msgstr "Brödsmulor"
 
 #: inc/privacy.php:60
 msgid "Privacy Policy"
@@ -226,52 +158,54 @@ msgstr "Integritetspolicy"
 msgid "Cookie Policy"
 msgstr "Cookiepolicy"
 
-#: inc/setup.php:86
+#: inc/setup.php:76
 msgid "1:1 Square (800×800)"
 msgstr "1:1 Kvadrat (800×800)"
 
-#: inc/setup.php:87
+#: inc/setup.php:77
 msgid "4:3 Landscape (800×600)"
 msgstr "4:3 Liggande (800×600)"
 
-#: inc/setup.php:88
+#: inc/setup.php:78
 msgid "3:4 Portrait (600×800)"
 msgstr "3:4 Stående (600×800)"
 
-#: inc/setup.php:89
+#: inc/setup.php:79
 msgid "16:9 Landscape (1280×720)"
 msgstr "16:9 Liggande (1280×720)"
 
-#: inc/setup.php:90
+#: inc/setup.php:80
 msgid "9:16 Portrait (720×1280)"
 msgstr "9:16 Stående (720×1280)"
 
-#: inc/setup.php:91
+#: inc/setup.php:81
 msgid "Hero (1920×1080)"
 msgstr "Hero (1920×1080)"
 
-#: inc/setup.php:92
+#: inc/setup.php:82
 msgid "Open Graph (1200×630)"
 msgstr "Open Graph (1200×630)"
 
-#: inc/template-tags.php:24
+#. translators: %s: post date
+#: inc/template-tags.php:25
 #, php-format
 msgctxt "post date"
-msgid "Publicerad %s"
+msgid "Posted on %s"
 msgstr "Publicerad %s"
 
-#: inc/template-tags.php:29
+#. translators: %s: post author
+#: inc/template-tags.php:32
 #, php-format
 msgctxt "post author"
-msgid "av %s"
+msgid "by %s"
 msgstr "av %s"
 
-#: inc/template-tags.php:51
+#: inc/template-tags.php:54
 #, php-format
 msgid "Leave a comment<span class=\"screen-reader-text\"> on %s</span>"
 msgstr "Lämna en kommentar<span class=\"screen-reader-text\"> på %s</span>"
 
-#: inc/template-tags.php:76
+#: inc/template-tags.php:79
 #, php-format
 msgid "Edit %s"
 msgstr "Redigera %s"
@@ -283,10 +217,7 @@ msgid "There is a new version of %1$s available. <a href=\"%2$s\" target=\"_blan
 msgstr "Det finns en ny version tillgänglig av %1$s. <a href=\"%2$s\" target=\"_blank\" rel=\"noopener noreferrer\">Visa uppgifter om version %3$s</a>."
 
 #: inc/widgets.php:12
-#: index.php:46
-#: sidebar.php:13
-#: single.php:65
-#: templates/page-with-sidebar.php:28
+#: sidebar.php:16
 msgid "Sidebar"
 msgstr "Sidopanel"
 
@@ -308,8 +239,7 @@ msgstr "Sidfot fyra"
 
 #: index.php:34
 #: search.php:37
-#: single.php:35
-#: template-parts/content/content-page.php:39
+#: template-parts/content/content-page.php:42
 #: template-parts/content/content.php:54
 msgid "Page navigation"
 msgstr "Sidnavigering"
@@ -323,28 +253,24 @@ msgstr "Sökresultat"
 msgid "Search results for: %s"
 msgstr "Sökresultat för: %s"
 
-#: searchform.php:11
+#: searchform.php:14
 msgid "Search form"
 msgstr "Sökformulär"
 
-#: searchform.php:15
+#: searchform.php:18
 msgid "Search for:"
 msgstr "Sök efter:"
 
-#: searchform.php:22
+#: searchform.php:25
 msgctxt "placeholder"
-msgid "Sök …"
+msgid "Search …"
 msgstr "Sök …"
 
-#: searchform.php:34
+#: searchform.php:37
 msgid "Search"
 msgstr "Sök"
 
-#: single.php:45
-msgid "Edit"
-msgstr "Redigera"
-
-#: single.php:56
+#: single.php:28
 msgid "Post navigation"
 msgstr "Inläggsnavigering"
 
@@ -370,7 +296,7 @@ msgstr "Alternativ när inget hittas"
 msgid "It seems we cannot find what you are looking for. Perhaps a search can help."
 msgstr "Vi verkar inte hitta det du letar efter. Prova gärna att söka."
 
-#: template-parts/content/content-page.php:39
+#: template-parts/content/content-page.php:42
 #: template-parts/content/content.php:54
 msgid "Pages:"
 msgstr "Sidor:"

@@ -5,11 +5,7 @@
 // =============================================================
 
 :root {
-	// Colors are defined once, in the theme.json palette. WordPress outputs them as
-	// --wp--preset--color--{slug} on the front end and in the editor, so a child theme
-	// changes a color everywhere by changing it in its own theme.json.
-	// The second value is a fallback with the same color as the parent's palette, so the
-	// theme still works if a child theme's palette leaves a color out. Keep them in sync.
+	// Colors come from the theme.json palette. Fallbacks match it — keep them in sync.
 
 	// --- Colors — Brand -------------------------------------------
 	--color-primary: var(--wp--preset--color--primary, #2563eb);

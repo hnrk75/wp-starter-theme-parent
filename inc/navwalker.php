@@ -79,7 +79,8 @@ class Wpst_Navwalker extends Walker_Nav_Menu {
 				. '>';
 		} else {
 			$href         = ! empty( $item->url ) ? ' href="' . esc_url( $item->url ) . '"' : '';
-			$aria_current = $is_active ? ' aria-current="page"' : '';
+			// Only the current page, not its ancestors.
+			$aria_current = ! empty( $item->current ) ? ' aria-current="page"' : '';
 			$attr_title   = ! empty( $item->attr_title ) ? ' title="' . esc_attr( $item->attr_title ) . '"' : '';
 			$target       = ! empty( $item->target ) ? ' target="' . esc_attr( $item->target ) . '"' : '';
 			$rel          = '';

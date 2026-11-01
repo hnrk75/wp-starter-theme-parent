@@ -12,18 +12,20 @@ $footer_widgets = array_filter(
 	fn( $sidebar ) => str_starts_with( $sidebar['id'], 'footer-' )
 );
 
-// Count active widget areas; fall back to all registered when none are active (dev/preview).
-$active_sidebars = array_filter( array_column( $footer_widgets, 'id' ), 'is_active_sidebar' );
-$active_count    = count( $active_sidebars );
-$has_active      = $active_count > 0;
-$col_count       = $has_active ? $active_count : count( $footer_widgets );
-$cols_class      = 'site-footer__widgets--cols-' . $col_count;
+// Without active widgets, only users who can manage them see placeholders.
+$active_sidebars   = array_filter( array_column( $footer_widgets, 'id' ), 'is_active_sidebar' );
+$active_count      = count( $active_sidebars );
+$has_active        = $active_count > 0;
+$show_placeholders = ! $has_active && current_user_can( 'edit_theme_options' );
+$col_count         = $has_active ? $active_count : count( $footer_widgets );
+$cols_class        = 'site-footer__widgets--cols-' . $col_count;
 ?>
 
 	</div>
 
 	<footer id="colophon" class="site-footer">
 		<div class="container">
+			<?php if ( $has_active || $show_placeholders ) : ?>
 			<div class="site-footer__widgets <?php echo esc_attr( $cols_class ); ?>">
 
 				<?php
@@ -47,6 +49,7 @@ $cols_class      = 'site-footer__widgets--cols-' . $col_count;
 				<?php endforeach; ?>
 
 			</div>
+			<?php endif; ?>
 
 			<div class="site-footer__copyright">
 				<span>

@@ -67,16 +67,6 @@ if ( ! function_exists( 'wpst_setup' ) ) :
 endif;
 add_action( 'after_setup_theme', 'wpst_setup' );
 
-// Polyfill for wp_body_open (WP < 5.2).
-if ( ! function_exists( 'wp_body_open' ) ) {
-	// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound
-	function wp_body_open() {
-		// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
-		do_action( 'wp_body_open' );
-	}
-}
-
-
 add_filter(
 	'image_size_names_choose',
 	function ( $sizes ) {
@@ -94,13 +84,3 @@ add_filter(
 		);
 	}
 );
-
-if ( ! function_exists( 'wpst_register_navwalker' ) ) :
-	function wpst_register_navwalker() {
-		$walker_path = get_parent_theme_file_path( 'inc/navwalker.php' );
-		if ( file_exists( $walker_path ) ) {
-			require_once $walker_path;
-		}
-	}
-endif;
-add_action( 'after_setup_theme', 'wpst_register_navwalker' );

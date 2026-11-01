@@ -52,3 +52,14 @@
 		width: auto;
 	}
 }
+
+// SVG logo in the text color. Override in the child theme for a multi-color logo.
+.site-logo {
+	[fill]:not([fill='none']) {
+		fill: currentcolor;
+	}
+
+	[stroke]:not([stroke='none']) {
+		stroke: currentcolor;
+	}
+}

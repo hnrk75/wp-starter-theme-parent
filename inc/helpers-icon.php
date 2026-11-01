@@ -38,11 +38,12 @@ if ( ! function_exists( 'wpst_icon' ) ) {
 			return '';
 		}
 
+		// The file may use single or double quotes.
 		$class = esc_attr( $args['class'] );
-		if ( preg_match( '/<svg[^>]+class=["\']/', $svg ) ) {
-			$svg = preg_replace( '/(<svg[^>]+class=["\'])([^"\']*)["\']/', '$1' . $class . '"', $svg );
+		if ( preg_match( '/<svg\b[^>]*\bclass=(["\'])/', $svg ) ) {
+			$svg = preg_replace( '/(<svg\b[^>]*\bclass=)(["\'])[^"\']*\2/', '$1"' . $class . '"', $svg, 1 );
 		} else {
-			$svg = preg_replace( '/<svg/', '<svg class="' . $class . '"', $svg );
+			$svg = preg_replace( '/<svg\b/', '<svg class="' . $class . '"', $svg, 1 );
 		}
 
 		if ( ! empty( $args['title'] ) ) {
@@ -55,10 +56,46 @@ if ( ! function_exists( 'wpst_icon' ) ) {
 			$svg = preg_replace( '/<svg/', '<svg aria-hidden="true" focusable="false"', $svg );
 		}
 
+		// Lowercase names: wp_kses() compares them that way.
+		$paint = array(
+			'id'                => true,
+			'class'             => true,
+			'fill'              => true,
+			'fill-rule'         => true,
+			'fill-opacity'      => true,
+			'clip-rule'         => true,
+			'clip-path'         => true,
+			'mask'              => true,
+			'opacity'           => true,
+			'transform'         => true,
+			'stroke'            => true,
+			'stroke-width'      => true,
+			'stroke-linecap'    => true,
+			'stroke-linejoin'   => true,
+			'stroke-opacity'    => true,
+			'stroke-dasharray'  => true,
+			'stroke-dashoffset' => true,
+		);
+
+		$gradient = array(
+			'id'                => true,
+			'x1'                => true,
+			'y1'                => true,
+			'x2'                => true,
+			'y2'                => true,
+			'cx'                => true,
+			'cy'                => true,
+			'r'                 => true,
+			'fx'                => true,
+			'fy'                => true,
+			'gradientunits'     => true,
+			'gradienttransform' => true,
+		);
+
 		$output = wp_kses(
 			$svg,
 			array(
-				'svg'      => array(
+				'svg'            => array(
 					'class'           => true,
 					'aria-hidden'     => true,
 					'aria-label'      => true,
@@ -74,62 +111,56 @@ if ( ! function_exists( 'wpst_icon' ) ) {
 					'stroke-linecap'  => true,
 					'stroke-linejoin' => true,
 				),
-				'title'    => array(),
-				'path'     => array(
-					'd'               => true,
-					'fill'            => true,
-					'fill-rule'       => true,
-					'stroke'          => true,
-					'stroke-width'    => true,
-					'stroke-linecap'  => true,
-					'stroke-linejoin' => true,
-					'clip-rule'       => true,
+				'title'          => array(),
+				'path'           => $paint + array( 'd' => true ),
+				'circle'         => $paint + array(
+					'cx' => true,
+					'cy' => true,
+					'r'  => true,
 				),
-				'circle'   => array(
-					'cx'           => true,
-					'cy'           => true,
-					'r'            => true,
-					'fill'         => true,
-					'stroke'       => true,
-					'stroke-width' => true,
+				'ellipse'        => $paint + array(
+					'cx' => true,
+					'cy' => true,
+					'rx' => true,
+					'ry' => true,
 				),
-				'rect'     => array(
+				'rect'           => $paint + array(
 					'x'      => true,
 					'y'      => true,
 					'width'  => true,
 					'height' => true,
 					'rx'     => true,
-					'fill'   => true,
+					'ry'     => true,
 				),
-				'line'     => array(
-					'x1'             => true,
-					'y1'             => true,
-					'x2'             => true,
-					'y2'             => true,
-					'stroke'         => true,
-					'stroke-width'   => true,
-					'stroke-linecap' => true,
+				'line'           => $paint + array(
+					'x1' => true,
+					'y1' => true,
+					'x2' => true,
+					'y2' => true,
 				),
-				'polyline' => array(
-					'points'          => true,
-					'fill'            => true,
-					'stroke'          => true,
-					'stroke-width'    => true,
-					'stroke-linecap'  => true,
-					'stroke-linejoin' => true,
+				'polyline'       => $paint + array( 'points' => true ),
+				'polygon'        => $paint + array( 'points' => true ),
+				'g'              => $paint,
+				'defs'           => array(),
+				'lineargradient' => $gradient,
+				'radialgradient' => $gradient,
+				'stop'           => array(
+					'offset'       => true,
+					'stop-color'   => true,
+					'stop-opacity' => true,
 				),
-				'polygon'  => array(
-					'points' => true,
-					'fill'   => true,
-					'stroke' => true,
+				'clippath'       => array(
+					'id'            => true,
+					'clippathunits' => true,
 				),
-				'g'        => array(
-					'fill'      => true,
-					'stroke'    => true,
-					'transform' => true,
+				'mask'           => array(
+					'id'     => true,
+					'x'      => true,
+					'y'      => true,
+					'width'  => true,
+					'height' => true,
 				),
-				'defs'     => array(),
-				'use'      => array(
+				'use'            => array(
 					'href'       => true,
 					'xlink:href' => true,
 				),

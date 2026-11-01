@@ -25,9 +25,7 @@ get_header(); ?>
 			?>
 		</main>
 
-		<aside class="content-sidebar" aria-label="<?php echo esc_attr__( 'Sidebar', 'wp-starter-theme' ); ?>">
-			<?php get_sidebar(); ?>
-		</aside>
+		<?php get_sidebar(); ?>
 	</div>
 </div>
 

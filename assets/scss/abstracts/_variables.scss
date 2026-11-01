@@ -3,10 +3,7 @@
 // =============================================================
 
 // --- Colors ---------------------------------------------------
-// The values live in the theme.json palette (see base/_root.scss). These SCSS
-// variables are shorthands for the CSS custom properties, so the colors are
-// resolved in the browser and a child theme can change them without a build.
-// Sass cannot compute with them (color.adjust, rgba): use color-mix() instead.
+// Shorthands for the CSS custom properties: use color-mix(), not color.adjust() or rgba().
 
 // --- Colors — Brand -------------------------------------------
 $color-primary: var(--color-primary);

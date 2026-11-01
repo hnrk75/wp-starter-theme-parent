@@ -23,7 +23,7 @@ get_header(); ?>
 
 			<div class="page-content">
 				<p>
-					<?php esc_html_e( 'It seems nothing was found here. You can try a search or use one of the buttons below.', 'wp-starter-theme' ); ?>
+					<?php esc_html_e( 'It seems nothing was found here. You can try a search or go to the homepage.', 'wp-starter-theme' ); ?>
 				</p>
 
 				<?php get_search_form(); ?>
@@ -32,19 +32,9 @@ get_header(); ?>
 					<?php
 					wpst_button(
 						array(
-							'label'      => __( 'Go to homepage', 'wp-starter-theme' ),
-							'variant'    => 'primary',
-							'href'       => home_url( '/' ),
-							'aria_label' => __( 'Go to homepage', 'wp-starter-theme' ),
-						)
-					);
-
-					wpst_button(
-						array(
-							'label'      => __( 'Search again', 'wp-starter-theme' ),
-							'variant'    => 'secondary',
-							'href'       => home_url( '/?s=' ),
-							'aria_label' => __( 'Search again', 'wp-starter-theme' ),
+							'label'   => __( 'Go to homepage', 'wp-starter-theme' ),
+							'variant' => 'primary',
+							'href'    => home_url( '/' ),
 						)
 					);
 					?>

@@ -14,6 +14,59 @@ the new version.
 
 ## [Unreleased]
 
+## [2.0.0] - 2026-11-01
+
+Fixes from the first client site built on the theme (svenssonsmetropol).
+
+### Added
+- `wpst_breadcrumb_items()` builds the breadcrumb trail once as data; the visible breadcrumb and the JSON-LD `BreadcrumbList` are both rendered from it. Filter: `wpst_breadcrumb_items`.
+- `wpst_output_meta_tags` filter to turn off the theme's meta tags. They are turned off automatically when Yoast SEO or Rank Math is active.
+- `wpst_hero_blocks` filter: which block names count as a hero block at the top of a page (default `acf/hero-block`). The hero block must then output the page's `<h1>`.
+- HNRK Cookie Consent's banner links to the theme's cookie policy page (through the plugin's `hnrk_cookie_page_url` filter) once that page is published.
+
+### Changed
+- Single posts use `template-parts/content/content.php` (or `content-{post-type}.php`), so they show the featured image, date, author and tags.
+- The footer shows "Add widgets here" placeholders only to users who can manage widgets; visitors see no widget section when none are active.
+- The author is shown as a name without a link (in `wpst_posted_on()` and the Article schema), since author archives are not public.
+- 404 pages get `noindex` through WordPress's `wp_robots` filter instead of a separate robots tag.
+- `aria-current="page"` is only set on the current menu item; parents keep the `is-active` class.
+- Focus indicator (`focus-visible-shadow` mixin): a solid outline in full color with a soft halo, instead of `outline: none` and a 25 % shadow. It meets WCAG 1.4.11 / 2.4.7 and is visible in Windows high contrast mode.
+- The SVG logo's color rules (`currentColor`) live in the theme CSS, scoped to `.site-logo` and skipping `fill="none"`. Override them in the child theme for a multi-color logo.
+- Source strings "Publicerad %s" / "av %s" / "Sök …" are now English ("Posted on %s" / "by %s" / "Search …"), translated in `sv_SE.po`.
+- The theme script is deferred with WordPress's `strategy` argument.
+- `wpst_icon()` allows more SVG elements and attributes: `ellipse`, gradients, `stop`, `clipPath`, `mask`, and `opacity`, `transform`, `clip-path`, `mask` on shapes.
+- A disabled `wpst_button()` link has no `href`, so it cannot be clicked with the mouse either.
+- The navwalker is loaded directly from `functions.php`.
+
+### Fixed
+- Breadcrumb microdata was stripped by `wp_kses_post()`, and the JSON-LD breadcrumb only had the home page and the current page. Both now show the full trail (parent pages, categories, archives).
+- Year and month archives showed the month and day of the first post in the breadcrumb.
+- "(Page 2)" was printed inside `<ol>` but outside `<li>` (invalid HTML); it is now its own breadcrumb item.
+- Search results could get two robots tags, and contradicting ones when the site is hidden from search engines.
+- Page 2 and onwards of archives and the blog had the canonical URL of page 1, so search engines would not index them.
+- `og:title` / `twitter:title` could show the archive title's HTML, and JSON-LD contained HTML entities like `&#8211;`.
+- JSON-LD is encoded with `JSON_HEX_TAG | JSON_HEX_AMP`, so a `</script>` in a title cannot close the script tag.
+- Meta descriptions built from the post content no longer include shortcodes or block markup.
+- An empty line was printed before `<!DOCTYPE html>`.
+- The SVG logo's inline `<style>` applied to every SVG on the page (filling outlined icons such as the search icon). It is removed.
+- The SVG logo lost `width`/`height` on inner shapes (`<rect>`, `<image>`, `<mask>`); only the `<svg>` element's size is removed now.
+- The logo's `<title>` id is unique, so the logo can appear twice on a page. A missing logo file no longer prints the server's file path in an HTML comment.
+- Linked post thumbnails in archives and search results were links without an accessible name (WCAG 2.4.4 / 4.1.2). The duplicate link is now hidden from screen readers and the tab order.
+- The sidebar was two nested `<aside>` landmarks with the same name, and an empty landmark when it had no widgets. `sidebar.php` now outputs the only `<aside>`, and only when the sidebar has widgets.
+- The search field had a fixed id, which was duplicated when the form appeared twice on a page.
+- The search icon had both `role="img"` and `aria-hidden="true"`.
+- `defer` on the theme script had no effect (WordPress reads `strategy`).
+- The blog page title was printed without escaping.
+- The 404 page's "Search again" button went to the front page (an empty search); the search form above it is enough.
+- `wpst_icon()` broke the HTML when an SVG's class attribute used single quotes.
+- Navigation: widening the window while the mobile menu was open left scrolling locked and the page inert; Escape in a submenu now returns focus to its button; desktop submenus close when focus leaves them; an anchor link in the mobile menu moves focus to its target instead of the menu button.
+
+### Removed
+- The "Recommended Plugins" dashboard widget and its AJAX handler, which could write to `composer.json` on the server (`wpst_get_recommended_plugins()`, `wpst_render_recommended_plugins_widget()`, `wpst_ajax_add_composer_plugin()` and related functions). The starter template already requires the plugins.
+- The `SearchAction` in the WebSite schema (Google no longer uses the sitelinks search box).
+- The `wp_body_open()` polyfill for WordPress < 5.2.
+- Internal breadcrumb helpers `wpst_generate_breadcrumb_link()` and `wpst_handle_*()`, and `wpst_register_navwalker()`. Use `wpst_the_breadcrumb()` / `wpst_breadcrumb_items()`.
+
 ## [1.4.1] - 2026-11-01
 
 ### Added

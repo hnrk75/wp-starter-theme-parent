@@ -51,7 +51,6 @@ No Bootstrap — custom container system, spacing scale with clamp(), and self-h
 - Readable line length for running text via a single `--measure` variable
 - Accessibility — skip link, aria-labels, screen-reader-text, focus-visible, no automatic hyphenation
 - Code linting via ESLint, Stylelint, Prettier, PHPCS and PHPStan
-- Dashboard widget for recommended plugins with composer.json integration
 - Update notices for our Composer packages (theme, plugins) — on the Dashboard and as an update row in the plugin list
 - Auto-generated privacy policy and cookie policy pages on theme activation
 - i18n-ready with Swedish (sv_SE) translation included
@@ -67,7 +66,7 @@ Install it in a Bedrock site with an exact version:
   { "type": "vcs", "url": "https://github.com/hnrk75/wp-starter-theme-parent" }
 ],
 "require": {
-  "hnrk75/wp-starter-theme-parent": "1.4.1"
+  "hnrk75/wp-starter-theme-parent": "2.0.0"
 }
 ```
 

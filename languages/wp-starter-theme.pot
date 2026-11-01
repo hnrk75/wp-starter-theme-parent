@@ -2,14 +2,14 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: WP Starter Theme 1.3.0\n"
+"Project-Id-Version: WP Starter Theme 1.4.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/wp-starter-theme-parent\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-11-01T12:12:15+00:00\n"
+"POT-Creation-Date: 2026-11-01T13:41:58+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: wp-starter-theme\n"
@@ -44,7 +44,7 @@ msgid "Oops! This page could not be found."
 msgstr ""
 
 #: 404.php:26
-msgid "It seems nothing was found here. You can try a search or use one of the buttons below."
+msgid "It seems nothing was found here. You can try a search or go to the homepage."
 msgstr ""
 
 #: 404.php:31
@@ -52,15 +52,9 @@ msgid "Alternative links for the 404 page"
 msgstr ""
 
 #: 404.php:35
-#: 404.php:38
 #: template-parts/content/content-none.php:40
 #: template-parts/content/content-none.php:55
 msgid "Go to homepage"
-msgstr ""
-
-#: 404.php:44
-#: 404.php:47
-msgid "Search again"
 msgstr ""
 
 #: archive.php:15
@@ -87,7 +81,7 @@ msgstr ""
 msgid "Post page navigation"
 msgstr ""
 
-#: footer.php:44
+#: footer.php:47
 #: inc/widgets.php:14
 #: inc/widgets.php:26
 #: inc/widgets.php:38
@@ -96,7 +90,7 @@ msgstr ""
 msgid "Add widgets here."
 msgstr ""
 
-#: footer.php:62
+#: footer.php:66
 #: inc/setup.php:52
 msgid "Footer menu"
 msgstr ""
@@ -122,102 +116,40 @@ msgstr ""
 msgid "Close menu"
 msgstr ""
 
-#: inc/admin.php:55
-msgid "Recommended Plugins"
-msgstr ""
-
-#: inc/admin.php:99
-msgid "Active"
-msgstr ""
-
-#: inc/admin.php:103
-msgid "Not activated"
-msgstr ""
-
-#: inc/admin.php:107
-msgid "Pending"
-msgstr ""
-
-#: inc/admin.php:111
-msgid "Not installed"
-msgstr ""
-
-#: inc/admin.php:123
-msgid "Activate"
-msgstr ""
-
-#: inc/admin.php:126
-msgid "Run in terminal: composer install"
-msgstr ""
-
-#: inc/admin.php:134
-msgid "Add to composer.json"
-msgstr ""
-
-#: inc/admin.php:181
-msgid "Unauthorized."
-msgstr ""
-
-#: inc/admin.php:189
-msgid "Missing package name."
-msgstr ""
-
-#: inc/admin.php:201
-#, php-format
-msgid "composer.json not found at: %s"
-msgstr ""
-
-#: inc/admin.php:205
-msgid "composer.json is not writable."
-msgstr ""
-
-#: inc/admin.php:211
-msgid "Could not parse composer.json."
-msgstr ""
-
-#: inc/admin.php:241
-msgid "Already in composer.json."
-msgstr ""
-
-#: inc/admin.php:247
-msgid "Failed to write composer.json."
-msgstr ""
-
-#: inc/admin.php:250
-msgid "Added. Run composer install to complete."
-msgstr ""
-
-#: inc/breadcrumbs.php:18
-#, php-format
-msgid "Go to page %s"
-msgstr ""
-
-#: inc/breadcrumbs.php:41
-msgid "Category:"
-msgstr ""
-
-#: inc/breadcrumbs.php:154
-msgid "Articles posted by"
-msgstr ""
-
-#: inc/breadcrumbs.php:162
-msgid "Page"
-msgstr ""
-
-#: inc/breadcrumbs.php:168
+#: inc/breadcrumbs.php:29
 msgid "Home"
 msgstr ""
 
-#: inc/breadcrumbs.php:183
-msgid "Breadcrumbs"
+#. translators: %s: category name
+#: inc/breadcrumbs.php:72
+#, php-format
+msgid "Category: %s"
 msgstr ""
 
-#: inc/breadcrumbs.php:202
-msgid "Search results for"
+#. translators: %s: search query
+#: inc/breadcrumbs.php:78
+#, php-format
+msgid "Search results for \"%s\""
 msgstr ""
 
-#: inc/breadcrumbs.php:234
+#. translators: %s: author name
+#: inc/breadcrumbs.php:124
+#, php-format
+msgid "Articles posted by %s"
+msgstr ""
+
+#: inc/breadcrumbs.php:127
 msgid "Error 404: Page not found"
+msgstr ""
+
+#. translators: %d: page number
+#: inc/breadcrumbs.php:134
+#, php-format
+msgid "Page %d"
+msgstr ""
+
+#: inc/breadcrumbs.php:164
+msgid "Breadcrumbs"
 msgstr ""
 
 #: inc/privacy.php:60
@@ -228,52 +160,54 @@ msgstr ""
 msgid "Cookie Policy"
 msgstr ""
 
-#: inc/setup.php:86
+#: inc/setup.php:76
 msgid "1:1 Square (800×800)"
 msgstr ""
 
-#: inc/setup.php:87
+#: inc/setup.php:77
 msgid "4:3 Landscape (800×600)"
 msgstr ""
 
-#: inc/setup.php:88
+#: inc/setup.php:78
 msgid "3:4 Portrait (600×800)"
 msgstr ""
 
-#: inc/setup.php:89
+#: inc/setup.php:79
 msgid "16:9 Landscape (1280×720)"
 msgstr ""
 
-#: inc/setup.php:90
+#: inc/setup.php:80
 msgid "9:16 Portrait (720×1280)"
 msgstr ""
 
-#: inc/setup.php:91
+#: inc/setup.php:81
 msgid "Hero (1920×1080)"
 msgstr ""
 
-#: inc/setup.php:92
+#: inc/setup.php:82
 msgid "Open Graph (1200×630)"
 msgstr ""
 
-#: inc/template-tags.php:24
+#. translators: %s: post date
+#: inc/template-tags.php:25
 #, php-format
 msgctxt "post date"
-msgid "Publicerad %s"
+msgid "Posted on %s"
 msgstr ""
 
-#: inc/template-tags.php:29
+#. translators: %s: post author
+#: inc/template-tags.php:32
 #, php-format
 msgctxt "post author"
-msgid "av %s"
+msgid "by %s"
 msgstr ""
 
-#: inc/template-tags.php:51
+#: inc/template-tags.php:54
 #, php-format
 msgid "Leave a comment<span class=\"screen-reader-text\"> on %s</span>"
 msgstr ""
 
-#: inc/template-tags.php:76
+#: inc/template-tags.php:79
 #, php-format
 msgid "Edit %s"
 msgstr ""
@@ -285,10 +219,7 @@ msgid "There is a new version of %1$s available. <a href=\"%2$s\" target=\"_blan
 msgstr ""
 
 #: inc/widgets.php:12
-#: index.php:46
-#: sidebar.php:13
-#: single.php:65
-#: templates/page-with-sidebar.php:28
+#: sidebar.php:16
 msgid "Sidebar"
 msgstr ""
 
@@ -310,8 +241,7 @@ msgstr ""
 
 #: index.php:34
 #: search.php:37
-#: single.php:35
-#: template-parts/content/content-page.php:39
+#: template-parts/content/content-page.php:42
 #: template-parts/content/content.php:54
 msgid "Page navigation"
 msgstr ""
@@ -325,28 +255,24 @@ msgstr ""
 msgid "Search results for: %s"
 msgstr ""
 
-#: searchform.php:11
+#: searchform.php:14
 msgid "Search form"
 msgstr ""
 
-#: searchform.php:15
+#: searchform.php:18
 msgid "Search for:"
 msgstr ""
 
-#: searchform.php:22
+#: searchform.php:25
 msgctxt "placeholder"
-msgid "Sök …"
+msgid "Search …"
 msgstr ""
 
-#: searchform.php:34
+#: searchform.php:37
 msgid "Search"
 msgstr ""
 
-#: single.php:45
-msgid "Edit"
-msgstr ""
-
-#: single.php:56
+#: single.php:28
 msgid "Post navigation"
 msgstr ""
 
@@ -372,7 +298,7 @@ msgstr ""
 msgid "It seems we cannot find what you are looking for. Perhaps a search can help."
 msgstr ""
 
-#: template-parts/content/content-page.php:39
+#: template-parts/content/content-page.php:42
 #: template-parts/content/content.php:54
 msgid "Pages:"
 msgstr ""

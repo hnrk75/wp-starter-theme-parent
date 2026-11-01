@@ -327,8 +327,9 @@ body:has(.has-hero-top) .site-header {
   display: none;
 }
 .site-header .custom-logo-link:focus-visible {
-  outline: none;
-  box-shadow: 0 0 0 0.25rem color-mix(in srgb, var(--color-primary) 25%, transparent);
+  outline: 0.125rem solid var(--color-primary);
+  outline-offset: 0.125rem;
+  box-shadow: 0 0 0 calc(0.25rem + 0.125rem) color-mix(in srgb, var(--color-primary) 25%, transparent);
   transition: box-shadow 0.2s ease;
 }
 .site-header .custom-logo-link:hover {
@@ -338,6 +339,13 @@ body:has(.has-hero-top) .site-header {
   display: block;
   height: clamp(2rem, 4vw, 3rem);
   width: auto;
+}
+
+.site-logo [fill]:not([fill=none]) {
+  fill: currentcolor;
+}
+.site-logo [stroke]:not([stroke=none]) {
+  stroke: currentcolor;
 }
 
 .site-content {
@@ -506,8 +514,9 @@ a:not(.btn, .skip-link, .screen-reader-text):hover, a:not(.btn, .skip-link, .scr
 }
 
 .btn:focus-visible {
-  outline: none;
-  box-shadow: 0 0 0 0.25rem color-mix(in srgb, var(--color-primary) 25%, transparent);
+  outline: 0.125rem solid var(--color-primary);
+  outline-offset: 0.125rem;
+  box-shadow: 0 0 0 calc(0.25rem + 0.125rem) color-mix(in srgb, var(--color-primary) 25%, transparent);
   transition: box-shadow 0.2s ease;
 }
 .btn {
@@ -654,8 +663,9 @@ a:not(.btn, .skip-link, .screen-reader-text):hover, a:not(.btn, .skip-link, .scr
   cursor: pointer;
 }
 .site-nav__toggle:focus-visible {
-  outline: none;
-  box-shadow: 0 0 0 0.25rem color-mix(in srgb, var(--color-primary) 25%, transparent);
+  outline: 0.125rem solid var(--color-primary);
+  outline-offset: 0.125rem;
+  box-shadow: 0 0 0 calc(0.25rem + 0.125rem) color-mix(in srgb, var(--color-primary) 25%, transparent);
   transition: box-shadow 0.2s ease;
 }
 .site-nav__toggle span {
@@ -748,8 +758,9 @@ a:not(.btn, .skip-link, .screen-reader-text):hover, a:not(.btn, .skip-link, .scr
   flex-shrink: 0;
 }
 .site-nav__close:focus-visible {
-  outline: none;
-  box-shadow: 0 0 0 0.25rem color-mix(in srgb, var(--color-primary) 25%, transparent);
+  outline: 0.125rem solid var(--color-primary);
+  outline-offset: 0.125rem;
+  box-shadow: 0 0 0 calc(0.25rem + 0.125rem) color-mix(in srgb, var(--color-primary) 25%, transparent);
   transition: box-shadow 0.2s ease;
 }
 .site-nav__close span {
@@ -822,8 +833,9 @@ a:not(.btn, .skip-link, .screen-reader-text):hover, a:not(.btn, .skip-link, .scr
   transition: background-color 0.3s ease;
 }
 .site-nav__link:focus-visible {
-  outline: none;
-  box-shadow: 0 0 0 0.25rem color-mix(in srgb, var(--color-primary) 25%, transparent);
+  outline: 0.125rem solid var(--color-primary);
+  outline-offset: 0.125rem;
+  box-shadow: 0 0 0 calc(0.25rem + 0.125rem) color-mix(in srgb, var(--color-primary) 25%, transparent);
   transition: box-shadow 0.2s ease;
 }
 .site-nav__link:hover {

@@ -20,7 +20,7 @@ get_header(); ?>
 
 				if ( is_home() && ! is_front_page() ) {
 					echo '<header>';
-					echo '<h1 class="page-title screen-reader-text">' . single_post_title( '', false ) . '</h1>';
+					echo '<h1 class="page-title screen-reader-text">' . esc_html( single_post_title( '', false ) ) . '</h1>';
 					echo '</header>';
 				}
 
@@ -43,9 +43,7 @@ get_header(); ?>
 			?>
 		</main>
 
-		<aside class="content-sidebar" aria-label="<?php echo esc_attr__( 'Sidebar', 'wp-starter-theme' ); ?>">
-			<?php get_sidebar(); ?>
-		</aside>
+		<?php get_sidebar(); ?>
 	</div>
 </div>
 

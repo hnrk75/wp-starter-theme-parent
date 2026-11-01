@@ -1,12 +1,7 @@
 /**
- * Release a new theme version.
+ * Release a new theme version: build, bump the version and move Unreleased in CHANGELOG.md.
  *
  * Usage: npm run release -- patch | minor | major | 1.2.3
- *
- * Runs a production build (the built CSS/JS are part of the release, since sites install
- * the theme with Composer and do not build it), updates the version in style.css,
- * package.json and package-lock.json, and turns the "Unreleased" section in CHANGELOG.md
- * into the new version. Does not commit or tag — the next steps are printed at the end.
  */
 
 import { execSync } from 'node:child_process';

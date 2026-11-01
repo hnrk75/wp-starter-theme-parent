@@ -16,8 +16,7 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 	overflow-wrap: break-word;
 
-	// Automatic hyphenation makes running text harder to read (e.g. with dyslexia).
-	// Editors can still add soft hyphens (&shy;) where needed.
+	// Automatic hyphenation makes text harder to read, e.g. with dyslexia.
 	hyphens: manual;
 }
 
@@ -25,9 +24,7 @@ p {
 	text-wrap: pretty;
 }
 
-// Readable line length for running text. Aligned paragraphs and paragraphs
-// with a background keep the full width, so they are aligned and filled
-// across the content area and not just within the measure.
+// Aligned paragraphs and paragraphs with a background keep the full width.
 p:not(.has-text-align-center, .has-text-align-right, .has-background) {
 	max-width: var(--measure);
 }

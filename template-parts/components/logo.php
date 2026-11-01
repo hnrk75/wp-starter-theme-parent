@@ -38,26 +38,31 @@ if ( is_string( $logo_path ) && is_readable( $logo_path ) ) {
 			$svg = preg_replace( '/<svg\b([^>]*)>/i', '<svg focusable="false"$1>', $svg, 1 );
 		}
 		if ( false === strpos( $svg, '<title' ) ) {
-			$svg = preg_replace( '/(<svg\b[^>]*>)/i', '$1<title id="logo-title">' . esc_html( $site_name ) . '</title>', $svg, 1 );
+			// Unique id: the logo can appear twice on a page.
+			$title_id = wp_unique_id( 'logo-title-' );
+			$svg      = preg_replace( '/(<svg\b[^>]*>)/i', '$1<title id="' . esc_attr( $title_id ) . '">' . esc_html( $site_name ) . '</title>', $svg, 1 );
 			if ( ! preg_match( '/<svg[^>]*\baria-labelledby=/i', $svg ) ) {
-				$svg = preg_replace( '/<svg\b([^>]*)>/i', '<svg$1 aria-labelledby="logo-title">', $svg, 1 );
+				$svg = preg_replace( '/<svg\b([^>]*)>/i', '<svg$1 aria-labelledby="' . esc_attr( $title_id ) . '">', $svg, 1 );
 			}
 		}
 
+		// Only on <svg>: inner shapes need their own width/height.
 		$has_viewbox = (bool) preg_match( '/<svg[^>]*\bviewBox\s*=\s*"[^\"]*"/i', $svg );
 		if ( $has_viewbox ) {
-			$svg = preg_replace( '/\s(?:width|height)="[^"]*"/i', '', $svg );
+			$svg = preg_replace_callback(
+				'/<svg\b[^>]*>/i',
+				function ( $svg_tag ) {
+					return preg_replace( '/\s(?:width|height)="[^"]*"/i', '', $svg_tag[0] );
+				},
+				$svg,
+				1
+			);
 		}
 
-		if ( false === strpos( $svg, '<style' ) ) {
-			$style = '<style>*[fill]{fill:currentColor !important} *[stroke]{stroke:currentColor !important}</style>';
-			$svg   = preg_replace( '/(<svg\b[^>]*>)/i', '$1' . $style, $svg, 1 );
-		}
+		// Colors: .site-logo in _header.scss. A <style> here would affect every SVG on the page.
 	} else {
 		$svg = '';
 	}
-} else {
-	echo '<!-- SVG not readable: ' . esc_html( (string) $logo_path ) . ' -->';
 }
 
 $link_url   = isset( $args['link_url'] ) ? $args['link_url'] : '';

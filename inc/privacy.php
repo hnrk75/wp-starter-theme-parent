@@ -1,23 +1,12 @@
 <?php
 /**
- * Privacy policy page setup and Policy Guide suggestion.
- *
- * On theme activation the privacy policy page is created (or updated) with
- * our GDPR-compliant Swedish template as native Gutenberg blocks.
- * Replace all [HAKPARENTES] placeholders with project-specific info before going live.
- * Links between the two policy pages (href="#wpst-privacy-policy" / "#wpst-cookie-policy")
- * are resolved automatically and should be left as they are.
+ * Privacy and cookie policy pages, created from Swedish templates on theme activation.
  *
  * @package WP Starter Theme
  */
 
 /**
- * Creates a policy page from our template, or fills an existing one.
- *
- * An existing page is only filled once, and only while it is still a draft
- * (e.g. the page WordPress creates on install). Pages that already have our
- * template, or have been published, are left untouched so that edited
- * content is never overwritten when the theme is reactivated.
+ * Creates a policy page, or fills an existing draft once. Never overwrites edited pages.
  *
  * @param string $option  Option that stores the page ID.
  * @param string $title   Title for a new page.
@@ -72,9 +61,18 @@ function wpst_get_cookie_policy_url() {
 	return $page_id && 'publish' === get_post_status( $page_id ) ? get_permalink( $page_id ) : '';
 }
 
+// HNRK Cookie Consent links to the theme's cookie policy page once it is published.
+add_filter(
+	'hnrk_cookie_page_url',
+	function ( $url ) {
+		$policy_url = wpst_get_cookie_policy_url();
+
+		return $policy_url ? $policy_url : $url;
+	}
+);
+
 /**
- * The templates link to each other with placeholder hrefs that are resolved on output,
- * so the links follow the pages' current URLs. A link to an unpublished page becomes plain text.
+ * Resolves the #wpst-* links between the policy pages; links to unpublished pages become text.
  *
  * @param string $content Post content.
  * @return string
