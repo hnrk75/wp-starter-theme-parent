@@ -14,6 +14,17 @@ the new version.
 
 ## [Unreleased]
 
+## [1.4.0] - 2026-11-01
+
+### Added
+- Update row below our plugins in the plugin list (e.g. HNRK Cookie Consent), styled like WordPress's own update rows, instead of the notice at the top of the Plugins screen. The Dashboard and Themes screens keep the notice.
+
+### Changed
+- Shorter update message worded like WordPress's own ("There is a new version of … available. View version … details."), linking to the changelog.
+
+### Fixed
+- Update notices could be up to 12 hours late: a newly released version or a package added to the site was not noticed until the next check. The check now runs every hour, and right away (in the background) when the installed packages or their versions change, e.g. after `composer require`. Sites with the old twice-daily schedule are moved to hourly automatically.
+
 ## [1.3.0] - 2026-11-01
 
 ### Added
