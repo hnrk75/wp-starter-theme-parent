@@ -67,7 +67,7 @@ Install it in a Bedrock site with an exact version:
   { "type": "vcs", "url": "https://github.com/hnrk75/wp-starter-theme-parent" }
 ],
 "require": {
-  "hnrk75/wp-starter-theme-parent": "1.4.0"
+  "hnrk75/wp-starter-theme-parent": "1.4.1"
 }
 ```
 

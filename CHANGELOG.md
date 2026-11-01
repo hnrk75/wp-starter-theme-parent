@@ -14,6 +14,8 @@ the new version.
 
 ## [Unreleased]
 
+## [1.4.1] - 2026-11-01
+
 ### Added
 - The repo has its own dev tools: `composer install` gives PHPCS, PHPStan and WP-CLI i18n, with `composer lint`, `composer analyze` and `composer i18n` / `composer i18n:mo`. Nothing of this is part of the package sites install.
 
