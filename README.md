@@ -1,6 +1,7 @@
 # WP Starter Theme
 
-A modern WordPress starter theme built with SCSS (ITCSS), Gulp, and Bedrock.
+Parent theme for client sites, built with SCSS (ITCSS) and Gulp. Sites install it with
+Composer and do all site-specific work in a child theme, so the theme can be updated.
 Follows WordPress Coding Standards (WPCS) with built-in linting for PHP, JS, and SCSS.
 
 ---
@@ -51,6 +52,7 @@ No Bootstrap — custom container system, spacing scale with clamp(), and self-h
 - Accessibility — skip link, aria-labels, screen-reader-text, focus-visible, no automatic hyphenation
 - Code linting via ESLint, Stylelint, Prettier, PHPCS and PHPStan
 - Dashboard widget for recommended plugins with composer.json integration
+- Update notices for our Composer packages (theme, plugins) — on the Dashboard and as an update row in the plugin list
 - Auto-generated privacy policy and cookie policy pages on theme activation
 - i18n-ready with Swedish (sv_SE) translation included
 
@@ -58,23 +60,37 @@ No Bootstrap — custom container system, spacing scale with clamp(), and self-h
 
 ## Installation
 
-This theme is part of a Bedrock project and is managed via Composer.
-See the project root `README.md` for full setup instructions.
+Install it in a Bedrock site with an exact version:
 
-To activate, log in to WordPress admin and go to **Appearance › Themes**.
+```json
+"repositories": [
+  { "type": "vcs", "url": "https://github.com/hnrk75/wp-starter-theme-parent" }
+],
+"require": {
+  "hnrk75/wp-starter-theme-parent": "1.4.0"
+}
+```
+
+It is installed in `web/app/themes/wp-starter-theme/` (the folder name child themes
+expect in `Template:`). New sites start from the
+[wp-starter-theme](https://github.com/hnrk75/wp-starter-theme) template, which already
+requires it and contains a child theme. Activate the child theme, not this one.
 
 ---
 
 ## Development
 
-Run from inside `web/app/themes/wp-starter-theme/`:
+Work in a clone of this repo. To see changes in a site, link the clone into the
+starter template's Local site with `composer dev:link` (see the template's README).
 
 ```bash
-npm install        # Install dependencies
+composer install   # PHP dev tools: PHPCS, PHPStan, WP-CLI i18n (dev only)
+npm install        # Build tools
 npm run dev        # Watch + BrowserSync
 npm run build      # Production build
 npm run lint       # Lint JS, CSS and PHP
 npm run fix        # Auto-fix JS, CSS and PHP
+composer analyze   # PHPStan
 ```
 
 ---
@@ -219,14 +235,12 @@ pages as drafts with Swedish GDPR templates. Replace all bracketed placeholders 
 ## Translations
 
 The theme text domain is `wp-starter-theme` and the Swedish translation lives in
-`languages/`. After adding or changing strings, run from the project root:
+`languages/`. After adding or changing strings, run in this repo:
 
 ```bash
-cd web/app/themes/wp-starter-theme
-../../../../vendor/bin/wp i18n make-pot . languages/wp-starter-theme.pot --domain=wp-starter-theme --exclude=node_modules,assets
-../../../../vendor/bin/wp i18n update-po languages/wp-starter-theme.pot languages/sv_SE.po
+composer i18n      # update the .pot and merge new strings into sv_SE.po
 # Translate the new strings in sv_SE.po, then:
-../../../../vendor/bin/wp i18n make-mo languages/sv_SE.po languages/
+composer i18n:mo   # compile sv_SE.mo
 ```
 
 Check that no translations are marked `#, fuzzy` — fuzzy entries are left out of the

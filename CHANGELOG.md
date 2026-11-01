@@ -14,6 +14,13 @@ the new version.
 
 ## [Unreleased]
 
+### Added
+- The repo has its own dev tools: `composer install` gives PHPCS, PHPStan and WP-CLI i18n, with `composer lint`, `composer analyze` and `composer i18n` / `composer i18n:mo`. Nothing of this is part of the package sites install.
+
+### Changed
+- README describes the theme as a standalone parent theme: Composer installation, development in a clone, and the new commands. No paths into a Bedrock project any more.
+- `npm run lint:php` uses the repo's own PHPCS (`composer lint`).
+
 ## [1.4.0] - 2026-11-01
 
 ### Added

@@ -220,9 +220,8 @@ add_action(
 				continue;
 			}
 
-			$list_table = _get_list_table( 'WP_Plugins_List_Table' );
-			$colspan    = $list_table ? $list_table->get_column_count() : 3;
-			$active     = is_plugin_active( $plugin_file ) ? ' active' : '';
+			$colspan = _get_list_table( 'WP_Plugins_List_Table' )->get_column_count();
+			$active  = is_plugin_active( $plugin_file ) ? ' active' : '';
 
 			printf(
 				'<tr class="plugin-update-tr%1$s"><td colspan="%2$d" class="plugin-update colspanchange"><div class="update-message notice inline notice-warning notice-alt"><p>%3$s</p></div></td></tr>',

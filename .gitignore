@@ -1,5 +1,6 @@
-# Dependencies
+# Dependencies (vendor/ only holds dev tools: PHPCS, PHPStan, WP-CLI i18n)
 node_modules/
+vendor/
 
 # Built CSS/JS ARE committed (assets/css, assets/js/dist): sites install the
 # theme with Composer and never build it. Only sourcemaps are ignored.

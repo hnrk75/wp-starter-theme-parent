@@ -6,6 +6,10 @@
 /.npmrc               export-ignore
 /.nvmrc               export-ignore
 /.prettierrc.json     export-ignore
+/composer.lock        export-ignore
+/phpcs.xml            export-ignore
+/phpstan.neon         export-ignore
+/phpstan-bootstrap.php export-ignore
 /.stylelintrc.json    export-ignore
 /eslint.config.mjs    export-ignore
 /gulpfile.mjs         export-ignore

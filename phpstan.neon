@@ -1,0 +1,26 @@
+parameters:
+    level: 5
+    paths:
+        - .
+    excludePaths:
+        - node_modules
+        - vendor
+        - assets
+        - languages
+        - phpstan-bootstrap.php
+    bootstrapFiles:
+        - phpstan-bootstrap.php
+    ignoreErrors:
+        # wp_nav_menu() stubs do not declare container: false|string but WordPress does support it.
+        - message: '#Parameter \#1 \$args of function wp_nav_menu expects#'
+          path: header.php
+          reportUnmatched: false
+        # Standard WordPress loop: have_posts() is impure — PHPStan cannot infer side effects.
+        - message: '#While loop condition is always true\.#'
+          reportUnmatched: false
+        - message: '#Unreachable statement - code above always terminates\.#'
+          reportUnmatched: false
+        # WP_Nav_Menu_Item is a runtime-typed WP_Post; declared in bootstrap for PHPStan only.
+        - identifier: method.childParameterType
+          path: inc/navwalker.php
+          reportUnmatched: false
