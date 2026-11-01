@@ -1,0 +1,80 @@
+@use '../abstracts' as *;
+
+// =============================================================
+// CSS Custom Properties
+// =============================================================
+
+:root {
+	// Colors are defined once, in the theme.json palette. WordPress outputs them as
+	// --wp--preset--color--{slug} on the front end and in the editor, so a child theme
+	// changes a color everywhere by changing it in its own theme.json.
+	// The second value is a fallback with the same color as the parent's palette, so the
+	// theme still works if a child theme's palette leaves a color out. Keep them in sync.
+
+	// --- Colors — Brand -------------------------------------------
+	--color-primary: var(--wp--preset--color--primary, #2563eb);
+
+	// --- Colors — Neutrals ----------------------------------------
+	--color-white:    var(--wp--preset--color--white, #fff);
+	--color-gray-50:  var(--wp--preset--color--gray-50, #f9fafb);
+	--color-gray-100: var(--wp--preset--color--gray-100, #f3f4f6);
+	--color-gray-200: var(--wp--preset--color--gray-200, #e5e7eb);
+	--color-gray-300: var(--wp--preset--color--gray-300, #d1d5db);
+	--color-gray-400: var(--wp--preset--color--gray-400, #9ca3af);
+	--color-gray-500: var(--wp--preset--color--gray-500, #6b7280);
+	--color-gray-600: var(--wp--preset--color--gray-600, #4b5563);
+	--color-gray-700: var(--wp--preset--color--gray-700, #374151);
+	--color-gray-800: var(--wp--preset--color--gray-800, #1f2937);
+	--color-gray-900: var(--wp--preset--color--gray-900, #111827);
+	--color-black:    var(--wp--preset--color--black, #030712);
+
+	// --- Colors — Semantic ----------------------------------------
+	--color-success:        var(--wp--preset--color--success, #16a34a);
+	--color-success-subtle: var(--wp--preset--color--success-subtle, #dcfce7);
+	--color-warning:        var(--wp--preset--color--warning, #d97706);
+	--color-warning-subtle: var(--wp--preset--color--warning-subtle, #fef3c7);
+	--color-error:          var(--wp--preset--color--error, #dc2626);
+	--color-error-subtle:   var(--wp--preset--color--error-subtle, #fee2e2);
+	--color-info:           var(--wp--preset--color--info, #0284c7);
+	--color-info-subtle:    var(--wp--preset--color--info-subtle, #e0f2fe);
+
+	// --- Links ----------------------------------------------------
+	--link-color: var(--color-primary);
+
+	// --- Typography -----------------------------------------------
+	--font-family-body:    #{$font-family-body};
+	--font-family-heading: #{$font-family-heading};
+	--font-weight-regular: #{$font-weight-regular};
+	--font-weight-bold:    #{$font-weight-bold};
+	--line-height-body:    #{$line-height-body};
+	--line-height-heading: #{$line-height-heading};
+
+	// --- Layout ---------------------------------------------------
+	--container-max-width:    82.5rem;
+	--container-padding-inline: var(--space-sm);
+	--measure:                42rem; // Readable line length for running text (~72 characters in Montserrat). Not ch: Montserrat's wide "0" makes ch overshoot.
+
+	// --- Spacing --------------------------------------------------
+	--spacer:    #{$spacer};
+	--space-xs:  clamp(0.375rem, 0.5vw, 0.625rem);
+	--space-sm:  clamp(0.625rem, 1vw, 1.25rem);
+	--space-md:  clamp(1.25rem, 2vw, 2.5rem);
+	--space-lg:  clamp(2.5rem, 4vw, 5rem);
+	--space-xl:  clamp(5rem, 8vw, 10rem);
+
+	// --- Borders --------------------------------------------------
+	--radius-base: #{$radius-base};
+	--radius-pill: #{$radius-pill};
+	--radius-sm:   0.25rem;
+	--radius-md:   0.5rem;
+	--radius-lg:   1rem;
+
+	// --- Shadows --------------------------------------------------
+	--shadow-sm: 0 0.0625rem 0.1875rem rgb(0 0 0 / 0.08), 0 0.0625rem 0.125rem rgb(0 0 0 / 0.06);
+	--shadow-md: 0 0.25rem 0.75rem rgb(0 0 0 / 0.1), 0 0.125rem 0.25rem rgb(0 0 0 / 0.06);
+	--shadow-lg: 0 0.625rem 1.875rem rgb(0 0 0 / 0.12), 0 0.25rem 0.5rem rgb(0 0 0 / 0.08);
+	--shadow-xl: 0 1.25rem 3.75rem rgb(0 0 0 / 0.16), 0 0.5rem 1rem rgb(0 0 0 / 0.08);
+
+	// --- Transitions ----------------------------------------------
+	--transition-base: #{$transition-base};
+}

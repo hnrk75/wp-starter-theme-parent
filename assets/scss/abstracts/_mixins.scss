@@ -1,0 +1,105 @@
+@use 'sass:map';
+@use 'sass:math';
+@use 'variables' as *;
+
+// =============================================================
+// Mixins
+// =============================================================
+
+// --- Focus visible ring ---------------------------------------
+@mixin focus-visible-shadow($color: $color-primary, $alpha: 0.25, $size: 0.25rem) {
+	&:focus-visible {
+		outline: none;
+		box-shadow: 0 0 0 #{$size} color-mix(in srgb, #{$color} #{math.percentage($alpha)}, transparent);
+		transition: box-shadow 0.2s ease;
+	}
+}
+
+// --- Animated underline ---------------------------------------
+@mixin link-underline {
+	position: relative;
+
+	&::before {
+		content: '';
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		width: 100%;
+		height: 0.05rem;
+		background-color: currentcolor;
+		transform-origin: right;
+		transform: scaleX(0);
+		transition: transform $transition-base;
+	}
+
+	&:hover,
+	&:focus-visible {
+		&::before {
+			transform-origin: left;
+			transform: scaleX(1);
+		}
+	}
+}
+
+// --- Clearfix -------------------------------------------------
+@mixin clearfix {
+	&::after {
+		content: '';
+		display: table;
+		clear: both;
+	}
+}
+
+// --- Visually hidden (accessible) ----------------------------
+@mixin visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip-path: inset(50%);
+	white-space: nowrap;
+	border: 0;
+}
+
+// --- Responsive aspect ratio ---------------------------------
+@mixin aspect-ratio($width: 16, $height: 9) {
+	aspect-ratio: #{$width} / #{$height};
+	width: 100%;
+}
+
+// --- Breakpoints ---------------------------------------------
+@function bp($key) {
+	$val: map.get($breakpoints, $key);
+
+	@if not $val {
+		@error "Unknown breakpoint: #{$key}. Available: #{map.keys($breakpoints)}";
+	}
+
+	@return $val;
+}
+
+@mixin mq-up($bp) {
+	@media (width >= bp($bp)) {
+		@content;
+	}
+}
+
+@mixin mq($bp) {
+	@include mq-up($bp) {
+		@content;
+	}
+}
+
+@mixin mq-down($bp) {
+	@media (width < bp($bp)) {
+		@content;
+	}
+}
+
+@mixin mq-between($from, $to) {
+	@media (bp($from) <= width < bp($to)) {
+		@content;
+	}
+}

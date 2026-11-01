@@ -1,0 +1,23 @@
+{
+  "name": "hnrk75/wp-starter-theme-parent",
+  "description": "WP Starter Theme — parent theme for client sites. Customize in a child theme.",
+  "type": "wordpress-theme",
+  "license": "GPL-2.0-or-later",
+  "homepage": "https://github.com/hnrk75/wp-starter-theme-parent",
+  "authors": [
+    {
+      "name": "Henrik Pettersson",
+      "homepage": "https://github.com/hnrk75"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/hnrk75/wp-starter-theme-parent/issues"
+  },
+  "require": {
+    "php": ">=8.4",
+    "composer/installers": "^2.3"
+  },
+  "extra": {
+    "installer-name": "wp-starter-theme"
+  }
+}

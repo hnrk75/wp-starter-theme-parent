@@ -1,0 +1,33 @@
+@use '../abstracts' as *;
+
+// =============================================================
+// Links
+// =============================================================
+
+// --- Standard <a>: neutral -----------------------------------
+a:not(.btn, .skip-link, .screen-reader-text) {
+	color: $link-color;
+	text-decoration: none;
+	transition: color $transition-base;
+
+	&:hover,
+	&:focus-visible {
+		color: color-mix(in srgb, #{$color-primary}, #000 25%);
+	}
+}
+
+// --- .link-animated: animated underline (opt-in) -------------
+.link-animated {
+	@include link-underline;
+}
+
+// --- .link-icon: link with icon after text (opt-in) ----------
+.link-icon {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5em;
+
+	.icon {
+		flex-shrink: 0;
+	}
+}

@@ -1,0 +1,69 @@
+{
+  "type": "module",
+  "name": "wp-starter-theme",
+  "version": "1.2.0",
+  "description": "Modern WordPress starter theme with Gulp build pipeline",
+  "author": {
+    "name": "Henrik Pettersson"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:hnrk75/wp-starter-theme.git"
+  },
+  "engines": {
+    "node": ">=24.0.0",
+    "npm": ">=11.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie 11"
+  ],
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development gulp",
+    "start": "npm run dev",
+    "build": "cross-env NODE_ENV=production gulp build",
+    "zip": "gulp zipFiles",
+    "release": "node scripts/release.mjs",
+    "lint:js": "eslint assets/js/src --cache",
+    "lint:js:fix": "eslint assets/js/src --fix --cache",
+    "lint:css": "stylelint \"assets/scss/**/*.scss\" \"inc/**/*.scss\"",
+    "lint:css:fix": "stylelint \"assets/scss/**/*.scss\" \"inc/**/*.scss\" --fix",
+    "lint:php": "../../../../vendor/bin/phpcs --standard=../../../../phpcs.xml .",
+    "lint:php:fix": "../../../../vendor/bin/phpcbf --standard=../../../../phpcs.xml .",
+    "lint": "npm run lint:js && npm run lint:css && npm run lint:php",
+    "fix": "npm run lint:js:fix && npm run lint:css:fix && npm run lint:php:fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "browser-sync": "^3.0.3",
+    "cross-env": "^10.1.0",
+    "eslint": "^10.9.1",
+    "eslint-config-prettier": "^10.1.8",
+    "globals": "^17.12.0",
+    "gulp": "^5.0.0",
+    "gulp-autoprefixer": "^10.0.0",
+    "gulp-eslint-new": "^2.6.1",
+    "gulp-notify": "^5.0.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^6.0.1",
+    "gulp-terser": "^2.1.0",
+    "gulp-zip": "^6.0.0",
+    "postcss-scss": "^4.0.9",
+    "prettier": "^3.9.6",
+    "sass": "^1.104.0",
+    "stylelint": "^17.14.1",
+    "stylelint-config-standard-scss": "^17.0.0"
+  },
+  "keywords": [
+    "wordpress",
+    "wordpress-theme",
+    "gulp",
+    "starter-theme"
+  ],
+  "license": "GPL-2.0-or-later"
+}

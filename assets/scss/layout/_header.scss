@@ -1,0 +1,54 @@
+@use '../abstracts' as *;
+
+// =============================================================
+// Site Header
+// =============================================================
+
+.site-header {
+	position: relative;
+	background-color: $color-gray-100;
+	margin-bottom: var(--space-lg);
+
+	// Remove margin when hero is the first block
+	body:has(.has-hero-top) & {
+		margin-bottom: 0;
+	}
+
+	&__inner {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: var(--space-md);
+		padding-block: var(--space-sm);
+	}
+
+	// Text fallback when no logo is uploaded
+	.custom-logo-link:not(:has(.custom-logo)) {
+		font-family: $font-family-heading;
+		font-weight: $font-weight-bold;
+		font-size: var(--wp--preset--font-size--h-3);
+	}
+
+	.custom-logo-link {
+		display: inline-block;
+		flex-shrink: 0;
+		color: $color-gray-900;
+		text-decoration: none;
+
+		&::before {
+			display: none;
+		}
+
+		@include focus-visible-shadow;
+
+		&:hover {
+			opacity: 0.75;
+		}
+	}
+
+	.custom-logo {
+		display: block;
+		height: clamp(2rem, 4vw, 3rem);
+		width: auto;
+	}
+}

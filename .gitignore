@@ -1,0 +1,23 @@
+# Dependencies
+node_modules/
+
+# Built CSS/JS ARE committed (assets/css, assets/js/dist): sites install the
+# theme with Composer and never build it. Only sourcemaps are ignored.
+*.map
+rev-manifest.json
+
+# Packaged zips
+*.zip
+
+# Tool caches
+.eslintcache
+.stylelintcache
+.prettier-cache
+.phpcs.cache
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+.claude/

@@ -1,0 +1,570 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: wp-starter-theme 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/wp-starter-theme\n"
+"Last-Translator: Henrik Pettersson <henrik.pettersson@knowit.se>\n"
+"Language-Team: Swedish <sv@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-09-07T09:19:09+00:00\n"
+"PO-Revision-Date: 2026-11-01T07:16:14+00:00\n"
+"Language: sv_SE\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. Theme Name of the theme
+#: style.css:2
+msgid "WP Starter Theme"
+msgstr ""
+
+#. Theme URI of the theme
+#: style.css:3
+msgid "http://wp-starter-theme.local/"
+msgstr ""
+
+#. Description of the theme
+#: style.css:6
+msgid "Modern WordPress starter theme"
+msgstr "Modernt startertema för WordPress"
+
+#. Author of the theme
+#: style.css:4
+msgid "Henrik Pettersson"
+msgstr ""
+
+#. Author URI of the theme
+#: style.css:5
+msgid "https://github.com/hnrk75"
+msgstr ""
+
+#: 404.php:20
+msgid "Oops! This page could not be found."
+msgstr "Oops! Den här sidan kunde inte hittas."
+
+#: 404.php:26
+msgid "It seems nothing was found here. You can try a search or use one of the buttons below."
+msgstr "Det verkar inte finnas något här. Du kan prova att söka eller använda någon av knapparna nedan."
+
+#: 404.php:31
+msgid "Alternative links for the 404 page"
+msgstr "Alternativa länkar för 404-sidan"
+
+#: 404.php:35
+#: 404.php:38
+#: template-parts/content/content-none.php:40
+#: template-parts/content/content-none.php:55
+msgid "Go to homepage"
+msgstr "Gå till startsidan"
+
+#: 404.php:44
+#: 404.php:47
+msgid "Search again"
+msgstr "Sök igen"
+
+#: archive.php:15
+#: index.php:16
+#: page.php:15
+#: single.php:16
+#: templates/page-with-sidebar.php:16
+msgid "Main content"
+msgstr "Huvudinnehåll"
+
+#: archive.php:33
+#: index.php:35
+#: search.php:38
+msgid "Previous page"
+msgstr "Föregående sida"
+
+#: archive.php:34
+#: index.php:36
+#: search.php:39
+msgid "Next page"
+msgstr "Nästa sida"
+
+#: archive.php:36
+msgid "Post page navigation"
+msgstr "Navigering för inläggssidor"
+
+#: footer.php:44
+#: inc/widgets.php:14
+#: inc/widgets.php:26
+#: inc/widgets.php:38
+#: inc/widgets.php:50
+#: inc/widgets.php:62
+msgid "Add widgets here."
+msgstr "Lägg till widgets här."
+
+#: footer.php:62
+#: inc/setup.php:52
+msgid "Footer menu"
+msgstr "Sidfotsmeny"
+
+#: header.php:22
+msgid "Skip to content"
+msgstr "Hoppa till innehåll"
+
+#: header.php:43
+msgid "Open menu"
+msgstr "Öppna meny"
+
+#: header.php:49
+#: inc/setup.php:51
+msgid "Main menu"
+msgstr "Huvudmeny"
+
+#: header.php:52
+msgid "Menu"
+msgstr "Meny"
+
+#: header.php:53
+msgid "Close menu"
+msgstr "Stäng meny"
+
+#: inc/admin.php:55
+msgid "Recommended Plugins"
+msgstr "Rekommenderade plugins"
+
+#: inc/admin.php:99
+msgid "Active"
+msgstr "Aktiv"
+
+#: inc/admin.php:103
+msgid "Not activated"
+msgstr "Inte aktiverad"
+
+#: inc/admin.php:107
+msgid "Pending"
+msgstr "Väntande"
+
+#: inc/admin.php:111
+msgid "Not installed"
+msgstr "Inte installerad"
+
+#: inc/admin.php:123
+msgid "Activate"
+msgstr "Aktivera"
+
+#: inc/admin.php:126
+msgid "Run in terminal: composer install"
+msgstr "Kör i terminalen: composer install"
+
+#: inc/admin.php:134
+msgid "Add to composer.json"
+msgstr "Lägg till i composer.json"
+
+#: inc/admin.php:181
+msgid "Unauthorized."
+msgstr "Ej behörig."
+
+#: inc/admin.php:189
+msgid "Missing package name."
+msgstr "Paketnamn saknas."
+
+#: inc/admin.php:201
+#, php-format
+msgid "composer.json not found at: %s"
+msgstr "composer.json hittades inte på: %s"
+
+#: inc/admin.php:205
+msgid "composer.json is not writable."
+msgstr "composer.json kan inte skrivas till."
+
+#: inc/admin.php:211
+msgid "Could not parse composer.json."
+msgstr "Kunde inte parsa composer.json."
+
+#: inc/admin.php:241
+msgid "Already in composer.json."
+msgstr "Redan i composer.json."
+
+#: inc/admin.php:247
+msgid "Failed to write composer.json."
+msgstr "Misslyckades att skriva composer.json."
+
+#: inc/admin.php:250
+msgid "Added. Run composer install to complete."
+msgstr "Tillagd. Kör composer install för att slutföra."
+
+#: inc/breadcrumbs.php:18
+#, php-format
+msgid "Go to page %s"
+msgstr "Gå till sidan %s"
+
+#: inc/breadcrumbs.php:41
+msgid "Category:"
+msgstr "Kategori:"
+
+#: inc/breadcrumbs.php:154
+msgid "Articles posted by"
+msgstr "Artiklar postade av"
+
+#: inc/breadcrumbs.php:162
+msgid "Page"
+msgstr "Sida"
+
+#: inc/breadcrumbs.php:168
+msgid "Home"
+msgstr "Startsida"
+
+#: inc/breadcrumbs.php:183
+msgid "Breadcrumbs"
+msgstr "Brödsmulor"
+
+#: inc/breadcrumbs.php:202
+msgid "Search results for"
+msgstr "Sökresultat för"
+
+#: inc/breadcrumbs.php:234
+msgid "Error 404: Page not found"
+msgstr "Fel 404: Sidan hittades inte"
+
+#: inc/privacy.php:60
+msgid "Privacy Policy"
+msgstr "Integritetspolicy"
+
+#: inc/privacy.php:65
+msgid "Cookie Policy"
+msgstr "Cookiepolicy"
+
+#: inc/setup.php:86
+msgid "1:1 Square (800×800)"
+msgstr "1:1 Kvadrat (800×800)"
+
+#: inc/setup.php:87
+msgid "4:3 Landscape (800×600)"
+msgstr "4:3 Liggande (800×600)"
+
+#: inc/setup.php:88
+msgid "3:4 Portrait (600×800)"
+msgstr "3:4 Stående (600×800)"
+
+#: inc/setup.php:89
+msgid "16:9 Landscape (1280×720)"
+msgstr "16:9 Liggande (1280×720)"
+
+#: inc/setup.php:90
+msgid "9:16 Portrait (720×1280)"
+msgstr "9:16 Stående (720×1280)"
+
+#: inc/setup.php:91
+msgid "Hero (1920×1080)"
+msgstr "Hero (1920×1080)"
+
+#: inc/setup.php:92
+msgid "Open Graph (1200×630)"
+msgstr "Open Graph (1200×630)"
+
+#: inc/template-tags.php:24
+#, php-format
+msgctxt "post date"
+msgid "Publicerad %s"
+msgstr "Publicerad %s"
+
+#: inc/template-tags.php:29
+#, php-format
+msgctxt "post author"
+msgid "av %s"
+msgstr "av %s"
+
+#: inc/template-tags.php:51
+#, php-format
+msgid "Leave a comment<span class=\"screen-reader-text\"> on %s</span>"
+msgstr "Lämna en kommentar<span class=\"screen-reader-text\"> på %s</span>"
+
+#: inc/template-tags.php:76
+#, php-format
+msgid "Edit %s"
+msgstr "Redigera %s"
+
+#: inc/widgets.php:12
+#: index.php:46
+#: sidebar.php:13
+#: single.php:65
+#: templates/page-with-sidebar.php:28
+msgid "Sidebar"
+msgstr "Sidopanel"
+
+#: inc/widgets.php:24
+msgid "Footer one"
+msgstr "Sidfot ett"
+
+#: inc/widgets.php:36
+msgid "Footer two"
+msgstr "Sidfot två"
+
+#: inc/widgets.php:48
+msgid "Footer three"
+msgstr "Sidfot tre"
+
+#: inc/widgets.php:60
+msgid "Footer four"
+msgstr "Sidfot fyra"
+
+#: index.php:34
+#: search.php:37
+#: single.php:35
+#: template-parts/content/content-page.php:39
+#: template-parts/content/content.php:54
+msgid "Page navigation"
+msgstr "Sidnavigering"
+
+#: search.php:15
+msgid "Search results"
+msgstr "Sökresultat"
+
+#: search.php:22
+#, php-format
+msgid "Search results for: %s"
+msgstr "Sökresultat för: %s"
+
+#: searchform.php:11
+msgid "Search form"
+msgstr "Sökformulär"
+
+#: searchform.php:15
+msgid "Search for:"
+msgstr "Sök efter:"
+
+#: searchform.php:22
+msgctxt "placeholder"
+msgid "Sök …"
+msgstr "Sök …"
+
+#: searchform.php:34
+msgid "Search"
+msgstr "Sök"
+
+#: single.php:45
+msgid "Edit"
+msgstr "Redigera"
+
+#: single.php:56
+msgid "Post navigation"
+msgstr "Inläggsnavigering"
+
+#: template-parts/content/content-none.php:12
+msgid "Nothing found"
+msgstr "Inget hittades"
+
+#: template-parts/content/content-none.php:23
+#, php-format
+msgid "Ready to publish your first post? <a href=\"%1$s\">Start here</a>."
+msgstr "Redo att publicera ditt första inlägg? <a href=\"%1$s\">Börja här</a>."
+
+#: template-parts/content/content-none.php:33
+msgid "Sorry, no results matched your search terms. Please try again with different keywords."
+msgstr "Tyvärr gav sökningen inga träffar. Försök igen med andra sökord."
+
+#: template-parts/content/content-none.php:36
+#: template-parts/content/content-none.php:51
+msgid "Alternative when nothing found"
+msgstr "Alternativ när inget hittas"
+
+#: template-parts/content/content-none.php:48
+msgid "It seems we cannot find what you are looking for. Perhaps a search can help."
+msgstr "Vi verkar inte hitta det du letar efter. Prova gärna att söka."
+
+#: template-parts/content/content-page.php:39
+#: template-parts/content/content.php:54
+msgid "Pages:"
+msgstr "Sidor:"
+
+#: template-parts/content/content.php:40
+#, php-format
+msgid "Continue reading <span class=\"screen-reader-text\">”%s”</span> <span aria-hidden=\"true\">→</span>"
+msgstr "Fortsätt läsa <span class=\"screen-reader-text\">”%s”</span> <span aria-hidden=\"true\">→</span>"
+
+#. Template Name of the theme
+#: templates/page-with-sidebar.php:3
+msgid "With Sidebar"
+msgstr "Med sidopanel"
+
+#: theme.json
+msgctxt "Font family name"
+msgid "Body (Montserrat)"
+msgstr "Brödtext (Montserrat)"
+
+#: theme.json
+msgctxt "Font family name"
+msgid "Heading (Fraunces)"
+msgstr "Rubrik (Fraunces)"
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Display"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "H1"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "H2"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "H3"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "H4"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "H5"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "H6"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Large (ingress)"
+msgstr "Stor (ingress)"
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Medium (body)"
+msgstr "Medium (brödtext)"
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Small (caption)"
+msgstr "Liten (bildtext)"
+
+#: theme.json
+msgctxt "Space size name"
+msgid "XS"
+msgstr ""
+
+#: theme.json
+msgctxt "Space size name"
+msgid "SM"
+msgstr ""
+
+#: theme.json
+msgctxt "Space size name"
+msgid "MD"
+msgstr ""
+
+#: theme.json
+msgctxt "Space size name"
+msgid "LG"
+msgstr ""
+
+#: theme.json
+msgctxt "Space size name"
+msgid "XL"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Primary"
+msgstr "Primär"
+
+#: theme.json
+msgctxt "Color name"
+msgid "White"
+msgstr "Vit"
+
+#: theme.json
+msgctxt "Color name"
+msgid "Gray 50"
+msgstr "Grå 50"
+
+#: theme.json
+msgctxt "Color name"
+msgid "Gray 100"
+msgstr "Grå 100"
+
+#: theme.json
+msgctxt "Color name"
+msgid "Gray 200"
+msgstr "Grå 200"
+
+#: theme.json
+msgctxt "Color name"
+msgid "Gray 300"
+msgstr "Grå 300"
+
+#: theme.json
+msgctxt "Color name"
+msgid "Gray 400"
+msgstr "Grå 400"
+
+#: theme.json
+msgctxt "Color name"
+msgid "Gray 500"
+msgstr "Grå 500"
+
+#: theme.json
+msgctxt "Color name"
+msgid "Gray 600"
+msgstr "Grå 600"
+
+#: theme.json
+msgctxt "Color name"
+msgid "Gray 700"
+msgstr "Grå 700"
+
+#: theme.json
+msgctxt "Color name"
+msgid "Gray 800"
+msgstr "Grå 800"
+
+#: theme.json
+msgctxt "Color name"
+msgid "Gray 900"
+msgstr "Grå 900"
+
+#: theme.json
+msgctxt "Color name"
+msgid "Black"
+msgstr "Svart"
+
+#: theme.json
+msgctxt "Color name"
+msgid "Success"
+msgstr "Lyckad"
+
+#: theme.json
+msgctxt "Color name"
+msgid "Success Subtle"
+msgstr "Lyckad (ljus)"
+
+#: theme.json
+msgctxt "Color name"
+msgid "Warning"
+msgstr "Varning"
+
+#: theme.json
+msgctxt "Color name"
+msgid "Warning Subtle"
+msgstr "Varning (ljus)"
+
+#: theme.json
+msgctxt "Color name"
+msgid "Error"
+msgstr "Fel"
+
+#: theme.json
+msgctxt "Color name"
+msgid "Error Subtle"
+msgstr "Fel (ljus)"
+
+#: theme.json
+msgctxt "Color name"
+msgid "Info"
+msgstr "Info"
+
+#: theme.json
+msgctxt "Color name"
+msgid "Info Subtle"
+msgstr "Info (ljus)"

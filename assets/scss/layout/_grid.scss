@@ -1,0 +1,19 @@
+@use '../abstracts' as *;
+
+// =============================================================
+// Grid & Containers
+// =============================================================
+
+// Base — fluid with a max-width cap, no stepped breakpoints
+.container {
+	width: 100%;
+	max-width: var(--container-max-width);
+	margin-inline: auto;
+	padding-inline: var(--space-md);
+}
+
+.container-fluid {
+	width: 100%;
+	margin-inline: auto;
+	padding-inline: var(--space-sm);
+}

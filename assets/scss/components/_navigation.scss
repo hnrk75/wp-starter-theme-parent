@@ -1,0 +1,276 @@
+@use '../abstracts' as *;
+
+// =============================================================
+// Navigation
+// =============================================================
+
+// --- Hamburger toggle ----------------------------------------
+.site-nav__toggle {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 5px;
+	width: 2.5rem;
+	height: 2.5rem;
+	padding: 0.375rem;
+	background: transparent;
+	border: 1px solid transparent;
+	border-radius: $radius-base;
+	cursor: pointer;
+
+	@include focus-visible-shadow;
+
+	span {
+		display: block;
+		height: 2px;
+		background-color: currentcolor;
+		border-radius: 1px;
+		transition:
+			transform $transition-base,
+			opacity $transition-base;
+	}
+
+	&[aria-expanded='true'] {
+		span:nth-child(1) {
+			transform: translateY(7px) rotate(45deg);
+		}
+
+		span:nth-child(2) {
+			opacity: 0;
+		}
+
+		span:nth-child(3) {
+			transform: translateY(-7px) rotate(-45deg);
+		}
+	}
+
+	@include mq-up(lg) {
+		display: none;
+	}
+}
+
+// --- Off-canvas overlay --------------------------------------
+.site-nav-overlay {
+	position: fixed;
+	inset: 0;
+	background-color: rgb(0 0 0 / 0.4);
+	z-index: 199;
+	opacity: 0;
+	visibility: hidden;
+	transition:
+		opacity 0.3s ease,
+		visibility 0.3s ease;
+
+	&.is-visible {
+		opacity: 1;
+		visibility: visible;
+	}
+}
+
+// --- Nav block -----------------------------------------------
+.site-nav {
+	@include mq-down(lg) {
+		position: fixed;
+		inset-block: 0;
+		inset-inline-end: 0;
+		width: 100%;
+		background-color: $color-white;
+		box-shadow: var(--shadow-xl);
+		overflow: hidden;
+		display: flex;
+		flex-direction: column;
+		z-index: 200;
+		transform: translateX(110%);
+		transition: transform 0.3s ease;
+		visibility: hidden;
+
+		&.is-open {
+			transform: translateX(0);
+			visibility: visible;
+		}
+	}
+
+	// --- Off-canvas header ---------------------------------------
+	&__header {
+		display: none;
+
+		@include mq-down(lg) {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			flex-shrink: 0;
+			padding: var(--space-sm) var(--space-md);
+			border-bottom: 1px solid $color-gray-200;
+		}
+	}
+
+	&__title {
+		font-family: $font-family-heading;
+		font-weight: $font-weight-bold;
+		font-size: var(--wp--preset--font-size--h-5);
+	}
+
+	// --- Close button (X) ----------------------------------------
+	&__close {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+		width: 2rem;
+		height: 2rem;
+		padding: 0;
+		background: transparent;
+		border: 1px solid transparent;
+		border-radius: $radius-base;
+		cursor: pointer;
+		flex-shrink: 0;
+
+		@include focus-visible-shadow;
+
+		span {
+			position: absolute;
+			display: block;
+			width: 1rem;
+			height: 2px;
+			background-color: currentcolor;
+			border-radius: 1px;
+
+			&:nth-child(1) {
+				transform: rotate(45deg);
+			}
+
+			&:nth-child(2) {
+				transform: rotate(-45deg);
+			}
+		}
+
+		&:hover {
+			background-color: rgb(0 0 0 / 0.05);
+		}
+	}
+
+	// --- Off-canvas body (scrollable) ----------------------------
+	&__body {
+		@include mq-down(lg) {
+			flex: 1;
+			overflow-y: auto;
+			padding: var(--space-sm) var(--space-md);
+		}
+	}
+
+	// --- Off-canvas footer ---------------------------------------
+	&__footer {
+		display: none;
+
+		@include mq-down(lg) {
+			display: block;
+			flex-shrink: 0;
+			padding: var(--space-sm) var(--space-md);
+			border-top: 1px solid $color-gray-200;
+		}
+	}
+
+	@include mq-up(lg) {
+		display: flex;
+		align-items: center;
+	}
+
+	// --- Menu list -----------------------------------------------
+	&__menu {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+
+		@include mq-up(lg) {
+			display: flex;
+			gap: 0.25rem;
+		}
+	}
+
+	// --- Menu item -----------------------------------------------
+	&__item {
+		position: relative;
+	}
+
+	// --- Links ---------------------------------------------------
+	&__link {
+		display: block;
+		width: 100%;
+		padding: 0.5rem 0.75rem;
+		background: transparent;
+		border: none;
+		border-radius: $radius-base;
+		font: inherit;
+		text-align: left;
+		text-decoration: none;
+		color: inherit;
+		cursor: pointer;
+		transition: background-color $transition-base;
+
+		@include focus-visible-shadow;
+
+		&:hover {
+			background-color: rgb(0 0 0 / 0.05);
+		}
+
+		&.is-active,
+		.is-active > & {
+			font-weight: $font-weight-bold;
+		}
+
+		&--parent::after {
+			content: '';
+			display: inline-block;
+			margin-inline-start: 0.4em;
+			border-left: 0.3em solid transparent;
+			border-right: 0.3em solid transparent;
+			border-top: 0.3em solid currentcolor;
+			vertical-align: middle;
+			transition: transform $transition-base;
+		}
+
+		&--parent[aria-expanded='true']::after {
+			transform: rotate(180deg);
+		}
+	}
+
+	// --- Submenu -------------------------------------------------
+	&__submenu {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: none;
+
+		@include mq-down(lg) {
+			padding-inline-start: 1rem;
+		}
+
+		@include mq-up(lg) {
+			position: absolute;
+			inset-block-start: 100%;
+			inset-inline-start: 0;
+			min-width: 12rem;
+			background-color: $color-white;
+			border: 1px solid $color-gray-300;
+			border-radius: $radius-base;
+			box-shadow: 0 4px 12px rgb(0 0 0 / 0.1);
+			z-index: 100;
+		}
+
+		.has-children.is-open > & {
+			display: block;
+		}
+
+		.site-nav__link--sub {
+			@include mq-up(lg) {
+				border-radius: 0;
+			}
+		}
+	}
+}
+
+// --- Active state --------------------------------------------
+.current-menu-item > .site-nav__link,
+.current-page-ancestor > .site-nav__link {
+	font-weight: $font-weight-bold;
+}

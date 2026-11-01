@@ -1,0 +1,34 @@
+// =============================================================
+// Editor Style
+// =============================================================
+
+// Loaded in the Gutenberg block editor only.
+
+// WordPress scopes editor styles with :where(.editor-styles-wrapper), which
+// adds no specificity, while its own layout rules for the root block list are
+// (0,2,0). Rules that must win over them therefore target the root list
+// directly instead of relying on the front-end selectors.
+
+@use 'abstracts';
+@use 'gutenberg/index';
+
+// Mirror the front-end .container side padding. WordPress rewrites `body` to
+// .editor-styles-wrapper, so this only affects the editor canvas.
+body {
+	padding-inline: var(--space-md);
+}
+
+// The root block list has a constrained layout that centers every block with
+// `margin: auto !important` and caps it at the literal contentSize (82.5rem).
+// On the front end the content sits in .container, which is 82.5rem including
+// its padding, and blocks are left-aligned. Do the same here.
+// Wide and full alignments keep their own margins.
+.block-editor-block-list__layout.is-root-container > :not(.alignleft, .alignright, .alignwide, .alignfull) {
+	max-width: calc(var(--container-max-width) - 2 * var(--space-md));
+	margin-inline: 0 !important;
+}
+
+// Running text keeps its readable line length, as in base/_typography.scss.
+.block-editor-block-list__layout.is-root-container > :is(p:not(.has-text-align-center, .has-text-align-right, .has-background), blockquote) {
+	max-width: var(--measure);
+}

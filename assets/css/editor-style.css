@@ -1,0 +1,41 @@
+.alignleft {
+  float: left;
+}
+
+.alignright {
+  float: right;
+}
+
+.aligncenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.alignwide {
+  margin-inline: calc(25% - 25vw);
+  max-width: 100vw;
+}
+
+.alignfull {
+  width: 100vw;
+  max-width: 100vw;
+  margin-inline-start: calc(50% - 50vw);
+}
+
+.wp-block-table th {
+  text-align: left;
+}
+
+body {
+  padding-inline: var(--space-md);
+}
+
+.block-editor-block-list__layout.is-root-container > :not(.alignleft, .alignright, .alignwide, .alignfull) {
+  max-width: calc(var(--container-max-width) - 2 * var(--space-md));
+  margin-inline: 0 !important;
+}
+
+.block-editor-block-list__layout.is-root-container > :is(p:not(.has-text-align-center, .has-text-align-right, .has-background), blockquote) {
+  max-width: var(--measure);
+}

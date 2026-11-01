@@ -1,0 +1,63 @@
+@use '../abstracts' as *;
+
+// =============================================================
+// Accessibility
+// =============================================================
+
+// --- Skip link -----------------------------------------------
+.skip-link {
+	display: block;
+	margin-top: -3.125rem;
+	padding: 0.75rem 1.25rem;
+	background-color: $color-gray-900;
+	color: $color-white;
+	text-decoration: none;
+	font-weight: $font-weight-bold;
+	text-align: center;
+	transition: margin-top 0.2s ease;
+
+	&:focus {
+		margin-top: 0;
+	}
+}
+
+// --- Screen reader only --------------------------------------
+.screen-reader-text {
+	@include visually-hidden;
+}
+
+// --- Focus outline -------------------------------------------
+:where(
+	a[href],
+	button,
+	[role='button'],
+	input,
+	select,
+	textarea,
+	summary,
+	[tabindex]:not([tabindex='-1'])
+):focus-visible {
+	outline: 0.125rem solid $color-primary;
+	outline-offset: 0.1875rem;
+	border-radius: $radius-base;
+}
+
+main:focus {
+	outline: none;
+}
+
+// --- Reduced motion ------------------------------------------
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+
+	.skip-link {
+		transition: none;
+	}
+}

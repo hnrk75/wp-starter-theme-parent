@@ -1,0 +1,151 @@
+{
+  "version": 3,
+  "settings": {
+    "useRootPaddingAwareAlignments": true,
+    "appearanceTools": true,
+    "typography": {
+      "fluid": true,
+      "defaultFontSizes": false,
+      "defaultFontFamilies": false,
+      "customFontSize": false,
+      "fontFamilies": [
+        {
+          "slug": "body",
+          "name": "Body (Montserrat)",
+          "fontFamily": "Montserrat, sans-serif",
+          "fontFace": [
+            {
+              "fontFamily": "Montserrat",
+              "fontStyle": "normal",
+              "fontWeight": "100 900",
+              "fontDisplay": "swap",
+              "src": [ "file:./assets/fonts/montserrat-latin-wght-normal.woff2" ]
+            }
+          ]
+        },
+        {
+          "slug": "heading",
+          "name": "Heading (Fraunces)",
+          "fontFamily": "Fraunces, serif",
+          "fontFace": [
+            {
+              "fontFamily": "Fraunces",
+              "fontStyle": "normal",
+              "fontWeight": "100 900",
+              "fontDisplay": "swap",
+              "src": [ "file:./assets/fonts/fraunces-latin-opsz-normal.woff2" ]
+            }
+          ]
+        }
+      ],
+      "fontSizes": [
+        {
+          "slug": "display-1",
+          "name": "Display",
+          "size": "4rem",
+          "fluid": { "min": "2.75rem", "max": "4rem" }
+        },
+        {
+          "slug": "h-1",
+          "name": "H1",
+          "size": "2.75rem",
+          "fluid": { "min": "2rem", "max": "2.75rem" }
+        },
+        {
+          "slug": "h-2",
+          "name": "H2",
+          "size": "2.25rem",
+          "fluid": { "min": "1.5rem", "max": "2.25rem" }
+        },
+        {
+          "slug": "h-3",
+          "name": "H3",
+          "size": "1.625rem",
+          "fluid": { "min": "1.25rem", "max": "1.625rem" }
+        },
+        {
+          "slug": "h-4",
+          "name": "H4",
+          "size": "1.375rem",
+          "fluid": { "min": "1.125rem", "max": "1.375rem" }
+        },
+        {
+          "slug": "h-5",
+          "name": "H5",
+          "size": "1.125rem"
+        },
+        {
+          "slug": "h-6",
+          "name": "H6",
+          "size": "1rem"
+        },
+        {
+          "slug": "large",
+          "name": "Large (ingress)",
+          "size": "1.25rem",
+          "fluid": { "min": "1.125rem", "max": "1.25rem" }
+        },
+        {
+          "slug": "medium",
+          "name": "Medium (body)",
+          "size": "1rem",
+          "fluid": { "min": "1rem", "max": "1rem" }
+        },
+        {
+          "slug": "small",
+          "name": "Small (caption)",
+          "size": "0.875rem",
+          "fluid": { "min": "0.75rem", "max": "0.875rem" }
+        }
+      ]
+    },
+    "layout": {
+      "contentSize": "82.5rem",
+      "wideSize": "100rem"
+    },
+    "spacing": {
+      "customSpacing": false,
+      "spacingScale": {
+        "operator": "linear",
+        "increment": 1,
+        "steps": 0
+      },
+      "spacingSizes": [
+        { "slug": "xs", "name": "XS", "size": "clamp(0.375rem, 0.5vw, 0.625rem)" },
+        { "slug": "sm", "name": "SM", "size": "clamp(0.625rem, 1vw, 1.25rem)" },
+        { "slug": "md", "name": "MD", "size": "clamp(1.25rem, 2vw, 2.5rem)" },
+        { "slug": "lg", "name": "LG", "size": "clamp(2.5rem, 4vw, 5rem)" },
+        { "slug": "xl", "name": "XL", "size": "clamp(5rem, 8vw, 10rem)" }
+      ]
+    },
+    "color": {
+      "defaultPalette": false,
+      "defaultGradients": false,
+      "customGradient": false,
+      "disableCustomColors": true,
+      "palette": [
+        { "slug": "primary",        "color": "#2563eb", "name": "Primary" },
+        { "slug": "white",          "color": "#ffffff", "name": "White" },
+        { "slug": "gray-50",        "color": "#f9fafb", "name": "Gray 50" },
+        { "slug": "gray-100",       "color": "#f3f4f6", "name": "Gray 100" },
+        { "slug": "gray-200",       "color": "#e5e7eb", "name": "Gray 200" },
+        { "slug": "gray-300",       "color": "#d1d5db", "name": "Gray 300" },
+        { "slug": "gray-400",       "color": "#9ca3af", "name": "Gray 400" },
+        { "slug": "gray-500",       "color": "#6b7280", "name": "Gray 500" },
+        { "slug": "gray-600",       "color": "#4b5563", "name": "Gray 600" },
+        { "slug": "gray-700",       "color": "#374151", "name": "Gray 700" },
+        { "slug": "gray-800",       "color": "#1f2937", "name": "Gray 800" },
+        { "slug": "gray-900",       "color": "#111827", "name": "Gray 900" },
+        { "slug": "black",          "color": "#030712", "name": "Black" },
+        { "slug": "success",        "color": "#16a34a", "name": "Success" },
+        { "slug": "success-subtle", "color": "#dcfce7", "name": "Success Subtle" },
+        { "slug": "warning",        "color": "#d97706", "name": "Warning" },
+        { "slug": "warning-subtle", "color": "#fef3c7", "name": "Warning Subtle" },
+        { "slug": "error",          "color": "#dc2626", "name": "Error" },
+        { "slug": "error-subtle",   "color": "#fee2e2", "name": "Error Subtle" },
+        { "slug": "info",           "color": "#0284c7", "name": "Info" },
+        { "slug": "info-subtle",    "color": "#e0f2fe", "name": "Info Subtle" }
+      ]
+    }
+  }
+}
