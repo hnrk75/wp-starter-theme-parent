@@ -19,3 +19,4 @@ require_once get_parent_theme_file_path( 'inc/template-tags.php' );
 require_once get_parent_theme_file_path( 'inc/widgets.php' );
 require_once get_parent_theme_file_path( 'inc/meta.php' );
 require_once get_parent_theme_file_path( 'inc/privacy.php' );
+require_once get_parent_theme_file_path( 'inc/updates.php' );

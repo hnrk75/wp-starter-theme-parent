@@ -99,10 +99,10 @@ console.log(`
   Built:   assets/css, assets/js/dist
   Updated: style.css, package.json, package-lock.json, CHANGELOG.md
 
-Next steps (tags only on main):
+Next steps:
   1. Check the changes:   git status && git diff
   2. Commit on dev:       git add -A && git commit -m "release: v${next}" && git push
   3. On GitHub:           PR dev → main, merge with "Create a merge commit" (not squash)
-  4. Tag on main:         git checkout main && git pull && git tag v${next} && git push origin v${next}
-  5. Back to work:        git checkout dev
+  4. Automatic:           the "Tag release" action tags v${next} on main — do not tag by hand
+  5. Check:               v${next} appears under Tags on GitHub
 `);

@@ -99,8 +99,10 @@ Workflow:
    ```
    This updates `style.css`, `package.json`, `package-lock.json` and moves the
    Unreleased entries to the new version in `CHANGELOG.md`. It stops if Unreleased is empty.
-3. Commit, tag and push as the script prints (`git tag v1.2.0`). Composer reads the
-   git tags as versions.
+3. Commit on `dev` and push, then PR `dev` → `main` with **Create a merge commit**.
+4. The **Tag release** GitHub Action tags the version from `style.css` (e.g. `v1.3.0`) on
+   `main`. Never create version tags by hand — the tag must match `style.css`.
+   Composer reads the git tags as versions.
 
 ---
 

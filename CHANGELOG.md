@@ -14,6 +14,17 @@ the new version.
 
 ## [Unreleased]
 
+## [1.3.0] - 2026-11-01
+
+### Added
+- Update notices: twice a day WP-Cron checks GitHub for newer tags of the parent theme, the security plugin and HNRK Cookie Consent (when installed), and admins see a notice on the Dashboard, Themes and Plugins screens when an update exists, with a link to the changelog. Updating is still done with Composer. More packages can be added with the `wpst_update_check_packages` filter.
+- GitHub Action that tags the version in `style.css` when something is merged to `main`.
+
+### Changed
+- Recommended plugins widget: HNRK Cookie Consent is added to `composer.json` with the exact version 1.0.4 instead of `^1.0`.
+- `npm run release` no longer tells you to tag by hand — tags are created by the GitHub Action.
+- Theme URI and the repository in `package.json` point to the `wp-starter-theme-parent` repo.
+
 ## [1.2.0] - 2026-11-01
 
 ### Added

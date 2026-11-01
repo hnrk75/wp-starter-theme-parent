@@ -1,6 +1,7 @@
 # Files left out of the package Composer downloads (GitHub's zip of a tag).
 # They are only needed to develop the theme, not to run it.
 /.gitattributes       export-ignore
+/.github              export-ignore
 /.gitignore           export-ignore
 /.npmrc               export-ignore
 /.nvmrc               export-ignore

@@ -64,7 +64,7 @@ function wpst_get_recommended_plugins() {
 			'file'     => 'hnrk-cookie-consent/hnrk-cookie-consent.php',
 			'package'  => 'hnrk75/hnrk-cookie-consent',
 			'repo_url' => 'https://github.com/hnrk75/hnrk-cookie-consent',
-			'version'  => '^1.0',
+			'version'  => '1.0.4',
 		),
 		array(
 			'name'     => 'Two Factor',

@@ -8,7 +8,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-09-07T09:19:09+00:00\n"
-"PO-Revision-Date: 2026-11-01T07:16:14+00:00\n"
+"PO-Revision-Date: 2026-11-01T08:34:45+00:00\n"
 "Language: sv_SE\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
@@ -19,7 +19,7 @@ msgstr ""
 
 #. Theme URI of the theme
 #: style.css:3
-msgid "http://wp-starter-theme.local/"
+msgid "https://github.com/hnrk75/wp-starter-theme-parent"
 msgstr ""
 
 #. Description of the theme
@@ -275,6 +275,12 @@ msgstr "Lämna en kommentar<span class=\"screen-reader-text\"> på %s</span>"
 #, php-format
 msgid "Edit %s"
 msgstr "Redigera %s"
+
+#. translators: 1: package name, 2: new version, 3: installed version, 4: Composer package name, 5: changelog URL
+#: inc/updates.php:149
+#, php-format
+msgid "<strong>%1$s %2$s is available</strong> (installed: %3$s). It is updated with Composer: set the version to %2$s in composer.json and run <code>composer update %4$s</code>. <a href=\"%5$s\" target=\"_blank\" rel=\"noopener noreferrer\">See what has changed</a>"
+msgstr "<strong>%1$s %2$s finns</strong> (installerad: %3$s). Uppdateras med Composer: ändra versionen till %2$s i composer.json och kör <code>composer update %4$s</code>. <a href=\"%5$s\" target=\"_blank\" rel=\"noopener noreferrer\">Se vad som är nytt</a>"
 
 #: inc/widgets.php:12
 #: index.php:46

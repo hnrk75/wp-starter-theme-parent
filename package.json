@@ -1,14 +1,14 @@
 {
   "type": "module",
   "name": "wp-starter-theme",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "Modern WordPress starter theme with Gulp build pipeline",
   "author": {
     "name": "Henrik Pettersson"
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:hnrk75/wp-starter-theme.git"
+    "url": "git@github.com:hnrk75/wp-starter-theme-parent.git"
   },
   "engines": {
     "node": ">=24.0.0",
