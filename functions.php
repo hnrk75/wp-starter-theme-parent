@@ -10,6 +10,7 @@
 require_once get_parent_theme_file_path( 'inc/setup.php' );
 require_once get_parent_theme_file_path( 'inc/navwalker.php' );
 require_once get_parent_theme_file_path( 'inc/admin.php' );
+require_once get_parent_theme_file_path( 'inc/blocks.php' );
 require_once get_parent_theme_file_path( 'inc/breadcrumbs.php' );
 require_once get_parent_theme_file_path( 'inc/helpers-buttons.php' );
 require_once get_parent_theme_file_path( 'inc/helpers-icon.php' );

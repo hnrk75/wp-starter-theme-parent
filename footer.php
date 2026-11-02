@@ -57,18 +57,7 @@ $cols_class        = 'site-footer__widgets--cols-' . $col_count;
 					<?php echo esc_html( get_bloginfo( 'name' ) ); ?>
 				</span>
 
-				<?php
-				wp_nav_menu(
-					array(
-						'theme_location'       => 'footer-menu',
-						'container'            => 'nav',
-						'container_aria_label' => __( 'Footer menu', 'wp-starter-theme' ),
-						'menu_class'           => 'footer-menu',
-						'depth'                => 1,
-						'fallback_cb'          => '__return_false',
-					)
-				);
-				?>
+				<?php do_action( 'wpst_footer_copyright_end' ); ?>
 			</div>
 		</div>
 	</footer>

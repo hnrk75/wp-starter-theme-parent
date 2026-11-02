@@ -2,14 +2,14 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: WP Starter Theme 1.4.1\n"
+"Project-Id-Version: WP Starter Theme 2.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/wp-starter-theme-parent\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-11-01T13:41:58+00:00\n"
+"POT-Creation-Date: 2026-11-02T11:06:18+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: wp-starter-theme\n"
@@ -81,18 +81,13 @@ msgstr ""
 msgid "Post page navigation"
 msgstr ""
 
-#: footer.php:47
+#: footer.php:46
 #: inc/widgets.php:14
 #: inc/widgets.php:26
 #: inc/widgets.php:38
 #: inc/widgets.php:50
 #: inc/widgets.php:62
 msgid "Add widgets here."
-msgstr ""
-
-#: footer.php:66
-#: inc/setup.php:52
-msgid "Footer menu"
 msgstr ""
 
 #: header.php:22
@@ -104,7 +99,7 @@ msgid "Open menu"
 msgstr ""
 
 #: header.php:49
-#: inc/setup.php:51
+#: inc/setup.php:54
 msgid "Main menu"
 msgstr ""
 
@@ -116,75 +111,75 @@ msgstr ""
 msgid "Close menu"
 msgstr ""
 
-#: inc/breadcrumbs.php:29
+#: inc/breadcrumbs.php:20
 msgid "Home"
 msgstr ""
 
 #. translators: %s: category name
-#: inc/breadcrumbs.php:72
+#: inc/breadcrumbs.php:63
 #, php-format
 msgid "Category: %s"
 msgstr ""
 
 #. translators: %s: search query
-#: inc/breadcrumbs.php:78
+#: inc/breadcrumbs.php:69
 #, php-format
 msgid "Search results for \"%s\""
 msgstr ""
 
 #. translators: %s: author name
-#: inc/breadcrumbs.php:124
+#: inc/breadcrumbs.php:115
 #, php-format
 msgid "Articles posted by %s"
 msgstr ""
 
-#: inc/breadcrumbs.php:127
+#: inc/breadcrumbs.php:118
 msgid "Error 404: Page not found"
 msgstr ""
 
 #. translators: %d: page number
-#: inc/breadcrumbs.php:134
+#: inc/breadcrumbs.php:125
 #, php-format
 msgid "Page %d"
 msgstr ""
 
-#: inc/breadcrumbs.php:164
+#: inc/breadcrumbs.php:155
 msgid "Breadcrumbs"
 msgstr ""
 
-#: inc/privacy.php:60
+#: inc/privacy.php:49
 msgid "Privacy Policy"
 msgstr ""
 
-#: inc/privacy.php:65
+#: inc/privacy.php:54
 msgid "Cookie Policy"
 msgstr ""
 
-#: inc/setup.php:76
+#: inc/setup.php:78
 msgid "1:1 Square (800×800)"
 msgstr ""
 
-#: inc/setup.php:77
+#: inc/setup.php:79
 msgid "4:3 Landscape (800×600)"
 msgstr ""
 
-#: inc/setup.php:78
+#: inc/setup.php:80
 msgid "3:4 Portrait (600×800)"
 msgstr ""
 
-#: inc/setup.php:79
+#: inc/setup.php:81
 msgid "16:9 Landscape (1280×720)"
 msgstr ""
 
-#: inc/setup.php:80
+#: inc/setup.php:82
 msgid "9:16 Portrait (720×1280)"
 msgstr ""
 
-#: inc/setup.php:81
+#: inc/setup.php:83
 msgid "Hero (1920×1080)"
 msgstr ""
 
-#: inc/setup.php:82
+#: inc/setup.php:84
 msgid "Open Graph (1200×630)"
 msgstr ""
 
@@ -213,13 +208,13 @@ msgid "Edit %s"
 msgstr ""
 
 #. translators: 1: package name, 2: changelog URL, 3: new version
-#: inc/updates.php:94
+#: inc/updates.php:83
 #, php-format
 msgid "There is a new version of %1$s available. <a href=\"%2$s\" target=\"_blank\" rel=\"noopener noreferrer\">View version %3$s details</a>."
 msgstr ""
 
 #: inc/widgets.php:12
-#: sidebar.php:16
+#: sidebar.php:13
 msgid "Sidebar"
 msgstr ""
 
@@ -241,7 +236,7 @@ msgstr ""
 
 #: index.php:34
 #: search.php:37
-#: template-parts/content/content-page.php:42
+#: template-parts/content/content-page.php:40
 #: template-parts/content/content.php:54
 msgid "Page navigation"
 msgstr ""
@@ -272,7 +267,7 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-#: single.php:28
+#: single.php:26
 msgid "Post navigation"
 msgstr ""
 
@@ -298,7 +293,7 @@ msgstr ""
 msgid "It seems we cannot find what you are looking for. Perhaps a search can help."
 msgstr ""
 
-#: template-parts/content/content-page.php:42
+#: template-parts/content/content-page.php:40
 #: template-parts/content/content.php:54
 msgid "Pages:"
 msgstr ""

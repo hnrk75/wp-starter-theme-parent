@@ -428,22 +428,13 @@ body:has(.has-hero-top) .site-header {
 .site-footer .widget-title {
   font-size: var(--wp--preset--font-size--h-3);
 }
-.site-footer .footer-menu {
+.site-footer .widget_nav_menu ul {
   display: flex;
   flex-direction: column;
-  gap: var(--space-sm);
+  gap: var(--space-xs);
   list-style: none;
   margin: 0;
   padding: 0;
-}
-@media (width >= 48rem) {
-  .site-footer .footer-menu {
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-}
-.site-footer .footer-menu li {
-  font-size: inherit;
 }
 
 .alignleft {

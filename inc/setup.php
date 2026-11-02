@@ -42,14 +42,16 @@ if ( ! function_exists( 'wpst_setup' ) ) :
 			)
 		);
 
+		// HNRK Cookie Consent: "Manage cookies" can be printed on the footer's copyright row.
+		add_theme_support( 'hnrk-cookie-consent-footer' );
+
 		add_theme_support( 'wp-block-styles' );
 		add_theme_support( 'align-wide' );
 		add_theme_support( 'responsive-embeds' );
 
 		register_nav_menus(
 			array(
-				'main-menu'   => __( 'Main menu', 'wp-starter-theme' ),
-				'footer-menu' => __( 'Footer menu', 'wp-starter-theme' ),
+				'main-menu' => __( 'Main menu', 'wp-starter-theme' ),
 			)
 		);
 

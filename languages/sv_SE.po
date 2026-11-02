@@ -8,7 +8,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-09-07T09:19:09+00:00\n"
-"PO-Revision-Date: 2026-11-01T13:41:59+00:00\n"
+"PO-Revision-Date: 2026-11-02T11:06:19+00:00\n"
 "Language: sv_SE\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
@@ -79,7 +79,7 @@ msgstr "Nästa sida"
 msgid "Post page navigation"
 msgstr "Navigering för inläggssidor"
 
-#: footer.php:47
+#: footer.php:46
 #: inc/widgets.php:14
 #: inc/widgets.php:26
 #: inc/widgets.php:38
@@ -87,11 +87,6 @@ msgstr "Navigering för inläggssidor"
 #: inc/widgets.php:62
 msgid "Add widgets here."
 msgstr "Lägg till widgets här."
-
-#: footer.php:66
-#: inc/setup.php:52
-msgid "Footer menu"
-msgstr "Sidfotsmeny"
 
 #: header.php:22
 msgid "Skip to content"
@@ -102,7 +97,7 @@ msgid "Open menu"
 msgstr "Öppna meny"
 
 #: header.php:49
-#: inc/setup.php:51
+#: inc/setup.php:54
 msgid "Main menu"
 msgstr "Huvudmeny"
 
@@ -114,75 +109,75 @@ msgstr "Meny"
 msgid "Close menu"
 msgstr "Stäng meny"
 
-#: inc/breadcrumbs.php:29
+#: inc/breadcrumbs.php:20
 msgid "Home"
 msgstr "Startsida"
 
 #. translators: %s: category name
-#: inc/breadcrumbs.php:72
+#: inc/breadcrumbs.php:63
 #, php-format
 msgid "Category: %s"
 msgstr "Kategori: %s"
 
 #. translators: %s: search query
-#: inc/breadcrumbs.php:78
+#: inc/breadcrumbs.php:69
 #, php-format
 msgid "Search results for \"%s\""
 msgstr "Sökresultat för \"%s\""
 
 #. translators: %s: author name
-#: inc/breadcrumbs.php:124
+#: inc/breadcrumbs.php:115
 #, php-format
 msgid "Articles posted by %s"
 msgstr "Artiklar publicerade av %s"
 
-#: inc/breadcrumbs.php:127
+#: inc/breadcrumbs.php:118
 msgid "Error 404: Page not found"
 msgstr "Fel 404: Sidan hittades inte"
 
 #. translators: %d: page number
-#: inc/breadcrumbs.php:134
+#: inc/breadcrumbs.php:125
 #, php-format
 msgid "Page %d"
 msgstr "Sida %d"
 
-#: inc/breadcrumbs.php:164
+#: inc/breadcrumbs.php:155
 msgid "Breadcrumbs"
 msgstr "Brödsmulor"
 
-#: inc/privacy.php:60
+#: inc/privacy.php:49
 msgid "Privacy Policy"
 msgstr "Integritetspolicy"
 
-#: inc/privacy.php:65
+#: inc/privacy.php:54
 msgid "Cookie Policy"
 msgstr "Cookiepolicy"
 
-#: inc/setup.php:76
+#: inc/setup.php:78
 msgid "1:1 Square (800×800)"
 msgstr "1:1 Kvadrat (800×800)"
 
-#: inc/setup.php:77
+#: inc/setup.php:79
 msgid "4:3 Landscape (800×600)"
 msgstr "4:3 Liggande (800×600)"
 
-#: inc/setup.php:78
+#: inc/setup.php:80
 msgid "3:4 Portrait (600×800)"
 msgstr "3:4 Stående (600×800)"
 
-#: inc/setup.php:79
+#: inc/setup.php:81
 msgid "16:9 Landscape (1280×720)"
 msgstr "16:9 Liggande (1280×720)"
 
-#: inc/setup.php:80
+#: inc/setup.php:82
 msgid "9:16 Portrait (720×1280)"
 msgstr "9:16 Stående (720×1280)"
 
-#: inc/setup.php:81
+#: inc/setup.php:83
 msgid "Hero (1920×1080)"
 msgstr "Hero (1920×1080)"
 
-#: inc/setup.php:82
+#: inc/setup.php:84
 msgid "Open Graph (1200×630)"
 msgstr "Open Graph (1200×630)"
 
@@ -211,13 +206,13 @@ msgid "Edit %s"
 msgstr "Redigera %s"
 
 #. translators: 1: package name, 2: changelog URL, 3: new version
-#: inc/updates.php:94
+#: inc/updates.php:83
 #, php-format
 msgid "There is a new version of %1$s available. <a href=\"%2$s\" target=\"_blank\" rel=\"noopener noreferrer\">View version %3$s details</a>."
 msgstr "Det finns en ny version tillgänglig av %1$s. <a href=\"%2$s\" target=\"_blank\" rel=\"noopener noreferrer\">Visa uppgifter om version %3$s</a>."
 
 #: inc/widgets.php:12
-#: sidebar.php:16
+#: sidebar.php:13
 msgid "Sidebar"
 msgstr "Sidopanel"
 
@@ -239,7 +234,7 @@ msgstr "Sidfot fyra"
 
 #: index.php:34
 #: search.php:37
-#: template-parts/content/content-page.php:42
+#: template-parts/content/content-page.php:40
 #: template-parts/content/content.php:54
 msgid "Page navigation"
 msgstr "Sidnavigering"
@@ -270,7 +265,7 @@ msgstr "Sök …"
 msgid "Search"
 msgstr "Sök"
 
-#: single.php:28
+#: single.php:26
 msgid "Post navigation"
 msgstr "Inläggsnavigering"
 
@@ -296,7 +291,7 @@ msgstr "Alternativ när inget hittas"
 msgid "It seems we cannot find what you are looking for. Perhaps a search can help."
 msgstr "Vi verkar inte hitta det du letar efter. Prova gärna att söka."
 
-#: template-parts/content/content-page.php:42
+#: template-parts/content/content-page.php:40
 #: template-parts/content/content.php:54
 msgid "Pages:"
 msgstr "Sidor:"

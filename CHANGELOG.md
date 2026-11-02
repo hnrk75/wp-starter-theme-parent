@@ -14,6 +14,22 @@ the new version.
 
 ## [Unreleased]
 
+## [3.0.0] - 2026-11-02
+
+**Breaking:** see Removed and the `wpst_hero_blocks` change below before updating a site.
+
+### Added
+- The child theme's blocks are registered automatically: every `blocks/{name}/block.json` (folders starting with `_` are skipped). ACF blocks are only registered while ACF PRO is active.
+- `wpst_footer_copyright_end` action at the end of the footer's copyright row.
+- HNRK Cookie Consent's "Manage cookies" link on the copyright row, when the plugin is set to **In the footer** (the theme declares `add_theme_support( 'hnrk-cookie-consent-footer' )`).
+- Styles for the Navigation Menu widget in footer widget areas.
+
+### Changed
+- `wpst_hero_blocks` is empty by default instead of `array( 'acf/hero-block' )`. A child theme with a hero block adds its block name with the filter — otherwise the page title is printed above the hero.
+
+### Removed
+- The "Footer menu" location and the menu on the copyright row. Put footer links in a **Navigation Menu** widget in a footer widget area instead (Appearance → Widgets).
+
 ## [2.0.0] - 2026-11-01
 
 Fixes from the first client site built on the theme (svenssonsmetropol).

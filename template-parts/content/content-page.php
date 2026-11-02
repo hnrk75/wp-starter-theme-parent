@@ -6,7 +6,7 @@
  */
 
 // A hero block first in the content must output the page's <h1> itself.
-$hero_blocks         = (array) apply_filters( 'wpst_hero_blocks', array( 'acf/hero-block' ) );
+$hero_blocks         = (array) apply_filters( 'wpst_hero_blocks', array() );
 $first_block_is_hero = false;
 foreach ( parse_blocks( get_the_content() ) as $block ) {
 	if ( ! empty( $block['blockName'] ) ) {

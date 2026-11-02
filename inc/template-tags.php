@@ -87,6 +87,28 @@ if ( ! function_exists( 'wpst_entry_footer' ) ) :
 	}
 endif;
 
+/**
+ * HNRK Cookie Consent's "Manage cookies" link, when the plugin is set to the footer.
+ */
+function wpst_footer_cookie_link() {
+	if ( ! function_exists( 'hnrk_cookie_manage_link' ) || ! function_exists( 'hnrk_cookie_manage_trigger' ) || 'footer' !== hnrk_cookie_manage_trigger() ) {
+		return;
+	}
+
+	echo wp_kses(
+		hnrk_cookie_manage_link( array( 'class' => 'site-footer__cookie-link' ) ),
+		array(
+			'a' => array(
+				'href'                => true,
+				'class'               => true,
+				'role'                => true,
+				'data-consent-reopen' => true,
+			),
+		)
+	);
+}
+add_action( 'wpst_footer_copyright_end', 'wpst_footer_cookie_link' );
+
 function wpst_categorized_blog() {
 	$all_the_cool_cats = get_transient( 'wpst_categories' );
 
