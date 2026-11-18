@@ -14,6 +14,21 @@ the new version.
 
 ## [Unreleased]
 
+## [3.5.0] - 2026-11-18
+
+### Added
+- Header and menu tokens: `custom.header` (background, borderBottom, paddingBlock, marginBottom) and `custom.nav` (gap, fontSize, fontWeight, textTransform, letterSpacing, color, hoverColor, activeColor, activeFontWeight, activeIndicator, panelBackground).
+- Footer tokens: `custom.footer` background, color, linkColor and paddingBlock.
+- The site name without a logo is a template part (`template-parts/components/site-title.php`), and can show the tagline under the name (`custom.logo.showTagline`), styled with `custom.logo.text` and `custom.logo.tagline`.
+- A menu item with the CSS class `menu-item-button` (or `menu-item-button-outline`) is shown as a button.
+- Widget areas "Header, after the menu" (`header-end`) and "Mobile menu footer" (`nav-footer`), with the hooks `wpst_header_end` and `wpst_nav_footer`. The mobile menu's empty footer is no longer printed.
+- Block-based footer, opt-in: with `parts/footer.html` in the child theme (or `add_theme_support( 'wpst-block-footer' )`), the footer is a template part edited under Appearance → Template Parts. The copyright row stays under it.
+
+### Changed
+- Menu links have the same color as the parent items (the text color) instead of the link color, and no link hover color; set `custom.nav.color` / `hoverColor` for other colors.
+- The focus ring of buttons and menu links uses `--focus-width`.
+- The text fallback for the site name has no `aria-label` any more; the visible text is its name.
+
 ## [3.4.0] - 2026-11-18
 
 ### Added

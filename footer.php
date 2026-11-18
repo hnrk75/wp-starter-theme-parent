@@ -5,6 +5,8 @@
  * @package WP Starter Theme
  */
 
+$block_footer = wpst_block_footer();
+
 // Pull footer widget areas directly from what is registered in inc/widgets.php.
 global $wp_registered_sidebars;
 $footer_widgets = array_filter(
@@ -16,7 +18,7 @@ $footer_widgets = array_filter(
 $active_sidebars   = array_filter( array_column( $footer_widgets, 'id' ), 'is_active_sidebar' );
 $active_count      = count( $active_sidebars );
 $has_active        = $active_count > 0;
-$show_placeholders = ! $has_active && current_user_can( 'edit_theme_options' );
+$show_placeholders = ! $block_footer && ! $has_active && current_user_can( 'edit_theme_options' );
 $col_count         = $has_active ? $active_count : count( $footer_widgets );
 $cols_class        = 'site-footer__widgets--cols-' . $col_count;
 ?>
@@ -25,7 +27,11 @@ $cols_class        = 'site-footer__widgets--cols-' . $col_count;
 
 	<footer id="colophon" class="site-footer">
 		<div class="container">
-			<?php if ( $has_active || $show_placeholders ) : ?>
+			<?php if ( $block_footer ) : ?>
+				<div class="site-footer__blocks">
+					<?php block_template_part( 'footer' ); ?>
+				</div>
+			<?php elseif ( $has_active || $show_placeholders ) : ?>
 			<div class="site-footer__widgets <?php echo esc_attr( $cols_class ); ?>">
 
 				<?php

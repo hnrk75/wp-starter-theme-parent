@@ -221,8 +221,14 @@ merged with the parent's — without rewriting CSS rules.
 | `custom.button.radius` / `padding` / `gap`, `sm` and `lg`: `padding` / `fontSize` | `--btn-*` | Button shape and sizes |
 | `custom.button.primaryHoverBackground` / `successHoverBackground` / `dangerHoverBackground` | `--btn-*-hover-bg` | Button hover colors |
 | `custom.focus.width` / `offset` | `--focus-width`, `--focus-offset` | Focus outline |
-| `custom.nav.itemPadding` / `hoverBackground` / `submenuWidth` / `submenuShadow` / `overlay` | `--nav-*` | Main menu |
+| `custom.header.background` / `borderBottom` / `paddingBlock` / `marginBottom` | `--header-*` | Site header |
+| `custom.nav.gap` / `itemPadding` / `hoverBackground` / `submenuWidth` / `submenuShadow` / `overlay` / `panelBackground` | `--nav-*` | Main menu: layout, the mobile panel and submenus |
+| `custom.nav.fontSize` / `fontWeight` / `textTransform` / `letterSpacing` / `color` / `hoverColor` / `activeColor` / `activeFontWeight` / `activeIndicator` | `--nav-*` | Main menu links. Unset = inherited from the page. `activeIndicator` is a `box-shadow`, e.g. `inset 0 -2px 0 currentcolor` for a line |
 | `custom.logo.height` / `color` | `--logo-height`, `--logo-color` | Logo (the SVG logo and the text fallback) |
+| `custom.logo.showTagline` | — | `true` shows the tagline (Settings → General) under the site name when there is no logo |
+| `custom.logo.text.fontFamily` / `fontSize` / `fontWeight` / `letterSpacing` / `textTransform` | `--logo-*` | The site name when there is no logo |
+| `custom.logo.tagline.fontFamily` / `fontStyle` / `fontSize` / `color` | `--tagline-*` | The tagline |
+| `custom.footer.background` / `color` / `linkColor` / `paddingBlock` | `--footer-*` | Site footer, classic or block-based |
 | `custom.footer.fontSize` | `--footer-font-size` | Footer copyright row |
 | `custom.transition.base` | `--transition-base` | Transitions |
 
@@ -262,6 +268,39 @@ Example — a child theme with lighter body text, uppercase headings (except h5)
 Only the keys you set are changed; the rest come from the parent. `spacingSizes`,
 `fontSizes` and `shadow.presets` are lists: a child theme's list replaces the parent's,
 so include every slug (`xs` … `xl` etc.).
+
+---
+
+## Header, menu and footer
+
+**A menu item as a button:** give the item the CSS class `menu-item-button` (or
+`menu-item-button-outline`) in **Appearance → Menus** (turn on **CSS Classes** under
+**Screen Options**). The link gets `.btn.btn-primary` (or `.btn-ghost`), with the button
+tokens; on large screens it sits a little apart from the other links, in the mobile menu
+it is full width.
+
+**Widget areas** (blocks can be used in them):
+
+| Area | ID | Shown |
+|------|----|-------|
+| Header, after the menu | `header-end` | After the menu on large screens (hidden on small screens) |
+| Mobile menu footer | `nav-footer` | At the bottom of the mobile menu |
+| Footer one … four | `footer-1` … `footer-4` | The classic footer |
+
+Each also has a hook, `wpst_header_end` and `wpst_nav_footer`. The wrappers are only
+printed when the area has widgets or the hook has a callback.
+
+**Site name without a logo:** `template-parts/components/site-title.php` prints the site
+name, and the tagline when `custom.logo.showTagline` is `true`. Copy the file to the child
+theme to change the markup.
+
+**Block-based footer (opt-in):** a child theme with `parts/footer.html` (or
+`add_theme_support( 'wpst-block-footer' )`) gets **Appearance → Template Parts**, where
+the footer is edited with blocks. `footer.php` prints the `footer` template part — the
+saved one, else the theme's file — instead of the footer widget areas. The copyright row
+with `wpst_footer_copyright_end` (and the cookie link) stays under it, so it can never be
+removed. Users need `edit_theme_options` to edit template parts. The header stays
+classic: the theme's menu is more accessible than the Navigation block.
 
 ---
 

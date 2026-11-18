@@ -74,7 +74,7 @@
 		inset-block: 0;
 		inset-inline-end: 0;
 		width: 100%;
-		background-color: $color-white;
+		background-color: var(--nav-panel-background);
 		box-shadow: var(--shadow-xl);
 		overflow: hidden;
 		display: flex;
@@ -173,6 +173,7 @@
 	@include mq-up(lg) {
 		display: flex;
 		align-items: center;
+		margin-inline-start: auto;
 	}
 
 	// --- Menu list -----------------------------------------------
@@ -183,7 +184,8 @@
 
 		@include mq-up(lg) {
 			display: flex;
-			gap: 0.25rem;
+			align-items: center;
+			gap: var(--nav-gap);
 		}
 	}
 
@@ -201,6 +203,10 @@
 		border: none;
 		border-radius: $radius-base;
 		font: inherit;
+		font-size: var(--nav-font-size);
+		font-weight: var(--nav-font-weight);
+		text-transform: var(--nav-text-transform);
+		letter-spacing: var(--nav-letter-spacing);
 		text-align: left;
 		text-decoration: none;
 		color: inherit;
@@ -215,7 +221,7 @@
 
 		&.is-active,
 		.is-active > & {
-			font-weight: $font-weight-bold;
+			font-weight: var(--nav-active-font-weight);
 		}
 
 		&--parent::after {
@@ -250,7 +256,7 @@
 			inset-block-start: 100%;
 			inset-inline-start: 0;
 			min-width: var(--nav-submenu-width);
-			background-color: $color-white;
+			background-color: var(--nav-panel-background);
 			border: 1px solid $color-gray-300;
 			border-radius: $radius-base;
 			box-shadow: var(--nav-submenu-shadow);
@@ -272,5 +278,42 @@
 // --- Active state --------------------------------------------
 .current-menu-item > .site-nav__link,
 .current-page-ancestor > .site-nav__link {
-	font-weight: $font-weight-bold;
+	font-weight: var(--nav-active-font-weight);
+}
+
+// --- Link colors ----------------------------------------------
+// Beats the global link color (a:not(.btn)), so the menu has its own tokens.
+.site-nav .site-nav__link {
+	color: var(--nav-color);
+}
+
+.site-nav .site-nav__link:hover {
+	color: var(--nav-hover-color);
+}
+
+.site-nav .site-nav__link.is-active {
+	color: var(--nav-active-color);
+}
+
+// The indicator is a box-shadow too; it steps aside for the focus ring.
+.site-nav .site-nav__link.is-active:not(:focus-visible) {
+	box-shadow: var(--nav-active-indicator);
+}
+
+// --- Menu item as a button (CSS class menu-item-button) --------
+.site-nav__item--button {
+	margin-block-start: var(--space-sm);
+
+	.site-nav__button {
+		width: 100%;
+	}
+
+	@include mq-up(lg) {
+		margin-block-start: 0;
+		margin-inline-start: var(--space-sm);
+
+		.site-nav__button {
+			width: auto;
+		}
+	}
 }

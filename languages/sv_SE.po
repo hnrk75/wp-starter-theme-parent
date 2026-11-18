@@ -8,7 +8,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-09-07T09:19:09+00:00\n"
-"PO-Revision-Date: 2026-11-02T11:06:19+00:00\n"
+"PO-Revision-Date: 2026-11-18T18:43:24+00:00\n"
 "Language: sv_SE\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
@@ -79,7 +79,7 @@ msgstr "Nästa sida"
 msgid "Post page navigation"
 msgstr "Navigering för inläggssidor"
 
-#: footer.php:46
+#: footer.php:52
 #: inc/widgets.php:14
 #: inc/widgets.php:26
 #: inc/widgets.php:38
@@ -153,31 +153,31 @@ msgstr "Integritetspolicy"
 msgid "Cookie Policy"
 msgstr "Cookiepolicy"
 
-#: inc/setup.php:78
+#: inc/setup.php:104
 msgid "1:1 Square (800×800)"
 msgstr "1:1 Kvadrat (800×800)"
 
-#: inc/setup.php:79
+#: inc/setup.php:105
 msgid "4:3 Landscape (800×600)"
 msgstr "4:3 Liggande (800×600)"
 
-#: inc/setup.php:80
+#: inc/setup.php:106
 msgid "3:4 Portrait (600×800)"
 msgstr "3:4 Stående (600×800)"
 
-#: inc/setup.php:81
+#: inc/setup.php:107
 msgid "16:9 Landscape (1280×720)"
 msgstr "16:9 Liggande (1280×720)"
 
-#: inc/setup.php:82
+#: inc/setup.php:108
 msgid "9:16 Portrait (720×1280)"
 msgstr "9:16 Stående (720×1280)"
 
-#: inc/setup.php:83
+#: inc/setup.php:109
 msgid "Hero (1920×1080)"
 msgstr "Hero (1920×1080)"
 
-#: inc/setup.php:84
+#: inc/setup.php:110
 msgid "Open Graph (1200×630)"
 msgstr "Open Graph (1200×630)"
 
@@ -231,6 +231,22 @@ msgstr "Sidfot tre"
 #: inc/widgets.php:60
 msgid "Footer four"
 msgstr "Sidfot fyra"
+
+#: inc/widgets.php:72
+msgid "Header, after the menu"
+msgstr "Sidhuvud, efter menyn"
+
+#: inc/widgets.php:74
+msgid "Shown after the menu on large screens, e.g. a phone number or a button. On small screens, use the mobile menu footer."
+msgstr "Visas efter menyn på stora skärmar, t.ex. ett telefonnummer eller en knapp. På små skärmar används mobilmenyns fot."
+
+#: inc/widgets.php:84
+msgid "Mobile menu footer"
+msgstr "Mobilmenyns fot"
+
+#: inc/widgets.php:86
+msgid "Shown at the bottom of the menu on small screens, e.g. contact details."
+msgstr "Visas längst ner i menyn på små skärmar, t.ex. kontaktuppgifter."
 
 #: index.php:34
 #: search.php:37
@@ -367,6 +383,26 @@ msgid "Small (caption)"
 msgstr "Liten (bildtext)"
 
 #: theme.json
+msgctxt "Shadow name"
+msgid "SM"
+msgstr ""
+
+#: theme.json
+msgctxt "Shadow name"
+msgid "MD"
+msgstr ""
+
+#: theme.json
+msgctxt "Shadow name"
+msgid "LG"
+msgstr ""
+
+#: theme.json
+msgctxt "Shadow name"
+msgid "XL"
+msgstr ""
+
+#: theme.json
 msgctxt "Space size name"
 msgid "XS"
 msgstr ""
@@ -495,3 +531,8 @@ msgstr "Info"
 msgctxt "Color name"
 msgid "Info Subtle"
 msgstr "Info (ljus)"
+
+#: theme.json
+msgctxt "Template part name"
+msgid "Footer"
+msgstr "Sidfot"

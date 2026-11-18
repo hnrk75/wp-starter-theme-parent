@@ -2,14 +2,14 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: WP Starter Theme 2.0.0\n"
+"Project-Id-Version: WP Starter Theme 3.4.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/wp-starter-theme-parent\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-11-02T11:06:18+00:00\n"
+"POT-Creation-Date: 2026-11-18T18:43:23+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: wp-starter-theme\n"
@@ -81,7 +81,7 @@ msgstr ""
 msgid "Post page navigation"
 msgstr ""
 
-#: footer.php:46
+#: footer.php:52
 #: inc/widgets.php:14
 #: inc/widgets.php:26
 #: inc/widgets.php:38
@@ -155,31 +155,31 @@ msgstr ""
 msgid "Cookie Policy"
 msgstr ""
 
-#: inc/setup.php:78
+#: inc/setup.php:104
 msgid "1:1 Square (800×800)"
 msgstr ""
 
-#: inc/setup.php:79
+#: inc/setup.php:105
 msgid "4:3 Landscape (800×600)"
 msgstr ""
 
-#: inc/setup.php:80
+#: inc/setup.php:106
 msgid "3:4 Portrait (600×800)"
 msgstr ""
 
-#: inc/setup.php:81
+#: inc/setup.php:107
 msgid "16:9 Landscape (1280×720)"
 msgstr ""
 
-#: inc/setup.php:82
+#: inc/setup.php:108
 msgid "9:16 Portrait (720×1280)"
 msgstr ""
 
-#: inc/setup.php:83
+#: inc/setup.php:109
 msgid "Hero (1920×1080)"
 msgstr ""
 
-#: inc/setup.php:84
+#: inc/setup.php:110
 msgid "Open Graph (1200×630)"
 msgstr ""
 
@@ -232,6 +232,22 @@ msgstr ""
 
 #: inc/widgets.php:60
 msgid "Footer four"
+msgstr ""
+
+#: inc/widgets.php:72
+msgid "Header, after the menu"
+msgstr ""
+
+#: inc/widgets.php:74
+msgid "Shown after the menu on large screens, e.g. a phone number or a button. On small screens, use the mobile menu footer."
+msgstr ""
+
+#: inc/widgets.php:84
+msgid "Mobile menu footer"
+msgstr ""
+
+#: inc/widgets.php:86
+msgid "Shown at the bottom of the menu on small screens, e.g. contact details."
 msgstr ""
 
 #: index.php:34
@@ -369,6 +385,26 @@ msgid "Small (caption)"
 msgstr ""
 
 #: theme.json
+msgctxt "Shadow name"
+msgid "SM"
+msgstr ""
+
+#: theme.json
+msgctxt "Shadow name"
+msgid "MD"
+msgstr ""
+
+#: theme.json
+msgctxt "Shadow name"
+msgid "LG"
+msgstr ""
+
+#: theme.json
+msgctxt "Shadow name"
+msgid "XL"
+msgstr ""
+
+#: theme.json
 msgctxt "Space size name"
 msgid "XS"
 msgstr ""
@@ -496,4 +532,9 @@ msgstr ""
 #: theme.json
 msgctxt "Color name"
 msgid "Info Subtle"
+msgstr ""
+
+#: theme.json
+msgctxt "Template part name"
+msgid "Footer"
 msgstr ""

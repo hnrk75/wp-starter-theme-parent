@@ -33,7 +33,7 @@
 				} elseif ( has_custom_logo() ) {
 					the_custom_logo();
 				} else {
-					echo '<a href="' . esc_url( home_url( '/' ) ) . '" class="custom-logo-link" rel="home" aria-label="' . esc_attr( get_bloginfo( 'name' ) ) . '">' . esc_html( get_bloginfo( 'name' ) ) . '</a>';
+					get_template_part( 'template-parts/components/site-title' );
 				}
 				?>
 
@@ -73,9 +73,21 @@
 						?>
 					</div>
 
-					<div class="site-nav__footer"></div>
+					<?php if ( is_active_sidebar( 'nav-footer' ) || has_action( 'wpst_nav_footer' ) ) : ?>
+						<div class="site-nav__footer">
+							<?php dynamic_sidebar( 'nav-footer' ); ?>
+							<?php do_action( 'wpst_nav_footer' ); ?>
+						</div>
+					<?php endif; ?>
 
 				</nav>
+
+				<?php if ( is_active_sidebar( 'header-end' ) || has_action( 'wpst_header_end' ) ) : ?>
+					<div class="site-header__end">
+						<?php dynamic_sidebar( 'header-end' ); ?>
+						<?php do_action( 'wpst_header_end' ); ?>
+					</div>
+				<?php endif; ?>
 
 			</div>
 		</div>

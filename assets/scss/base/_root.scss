@@ -140,7 +140,25 @@
 	--btn-lg-padding: var(--wp--custom--button--lg--padding, 0.75rem 2rem);
 	--btn-lg-font-size: var(--wp--custom--button--lg--font-size, 1.125rem);
 
+	// --- Header ---------------------------------------------------
+	--header-background:    var(--wp--custom--header--background, var(--color-gray-100));
+	--header-border-bottom: var(--wp--custom--header--border-bottom, none);
+	--header-padding-block: var(--wp--custom--header--padding-block, var(--space-sm));
+	--header-margin-bottom: var(--wp--custom--header--margin-bottom, var(--space-lg));
+
 	// --- Navigation -----------------------------------------------
+	// Without a fallback, an unset token leaves the property inherited.
+	--nav-gap:                var(--wp--custom--nav--gap, 0.25rem);
+	--nav-font-size:          var(--wp--custom--nav--font-size);
+	--nav-font-weight:        var(--wp--custom--nav--font-weight);
+	--nav-text-transform:     var(--wp--custom--nav--text-transform);
+	--nav-letter-spacing:     var(--wp--custom--nav--letter-spacing);
+	--nav-color:              var(--wp--custom--nav--color);
+	--nav-hover-color:        var(--wp--custom--nav--hover-color, var(--nav-color));
+	--nav-active-color:       var(--wp--custom--nav--active-color, var(--nav-color));
+	--nav-active-font-weight: var(--wp--custom--nav--active-font-weight, var(--font-weight-bold));
+	--nav-active-indicator:   var(--wp--custom--nav--active-indicator, none);
+	--nav-panel-background:   var(--wp--custom--nav--panel-background, var(--color-white));
 	--nav-item-padding:     var(--wp--custom--nav--item-padding, 0.5rem 0.75rem);
 	--nav-hover-background: var(--wp--custom--nav--hover-background, rgb(0 0 0 / 0.05));
 	--nav-submenu-width:    var(--wp--custom--nav--submenu-width, 12rem);
@@ -150,6 +168,19 @@
 	// --- Header and footer ----------------------------------------
 	--logo-height:      var(--wp--custom--logo--height, clamp(2rem, 4vw, 3rem));
 	--logo-color:       var(--wp--custom--logo--color, var(--color-gray-900));
+	--logo-font-family:    var(--wp--custom--logo--text--font-family, var(--font-family-heading));
+	--logo-font-size:      var(--wp--custom--logo--text--font-size, var(--wp--preset--font-size--h-3));
+	--logo-font-weight:    var(--wp--custom--logo--text--font-weight, var(--font-weight-bold));
+	--logo-letter-spacing: var(--wp--custom--logo--text--letter-spacing);
+	--logo-text-transform: var(--wp--custom--logo--text--text-transform);
+	--tagline-font-family: var(--wp--custom--logo--tagline--font-family, var(--font-family-body));
+	--tagline-font-style:  var(--wp--custom--logo--tagline--font-style, normal);
+	--tagline-font-size:   var(--wp--custom--logo--tagline--font-size, var(--wp--preset--font-size--small));
+	--tagline-color:       var(--wp--custom--logo--tagline--color, var(--color-gray-500));
+	--footer-background:   var(--wp--custom--footer--background, var(--color-gray-100));
+	--footer-padding-block: var(--wp--custom--footer--padding-block, var(--space-lg));
+	--footer-color:        var(--wp--custom--footer--color);
+	--footer-link-color:   var(--wp--custom--footer--link-color, var(--link-color));
 	--footer-font-size: var(--wp--custom--footer--font-size, 0.875rem);
 
 	// --- Transitions ----------------------------------------------

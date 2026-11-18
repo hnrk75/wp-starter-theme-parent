@@ -5,9 +5,14 @@
 // =============================================================
 
 .site-footer {
-	background-color: $color-gray-100;
+	background-color: var(--footer-background);
+	color: var(--footer-color);
 	margin-top: var(--space-lg);
-	padding-block: var(--space-lg);
+	padding-block: var(--footer-padding-block);
+
+	a:not(.btn) {
+		color: var(--footer-link-color);
+	}
 
 	&__widgets {
 		display: grid;

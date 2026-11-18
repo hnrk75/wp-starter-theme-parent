@@ -6,8 +6,9 @@
 
 .site-header {
 	position: relative;
-	background-color: $color-gray-100;
-	margin-bottom: var(--space-lg);
+	background-color: var(--header-background);
+	border-bottom: var(--header-border-bottom);
+	margin-bottom: var(--header-margin-bottom);
 
 	// Remove margin when hero is the first block
 	body:has(.has-hero-top) & {
@@ -19,14 +20,44 @@
 		align-items: center;
 		justify-content: space-between;
 		gap: var(--space-md);
-		padding-block: var(--space-sm);
+		padding-block: var(--header-padding-block);
+	}
+
+	// Widget area "Header, after the menu" (desktop; on mobile, use the menu footer)
+	&__end {
+		display: none;
+
+		@include mq-up(lg) {
+			display: flex;
+			align-items: center;
+			gap: var(--space-sm);
+		}
+
+		.widget {
+			margin: 0;
+		}
 	}
 
 	// Text fallback when no logo is uploaded
 	.custom-logo-link:not(:has(.custom-logo)) {
-		font-family: $font-family-heading;
-		font-weight: $font-weight-bold;
-		font-size: var(--wp--preset--font-size--h-3);
+		display: inline-flex;
+		flex-direction: column;
+		font-family: var(--logo-font-family);
+		font-weight: var(--logo-font-weight);
+		font-size: var(--logo-font-size);
+		letter-spacing: var(--logo-letter-spacing);
+		text-transform: var(--logo-text-transform);
+		line-height: var(--line-height-heading);
+	}
+
+	.site-tagline {
+		font-family: var(--tagline-font-family);
+		font-style: var(--tagline-font-style);
+		font-size: var(--tagline-font-size);
+		font-weight: var(--font-weight-regular);
+		letter-spacing: normal;
+		text-transform: none;
+		color: var(--tagline-color);
 	}
 
 	.custom-logo-link {

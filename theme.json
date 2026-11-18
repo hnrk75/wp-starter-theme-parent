@@ -137,15 +137,44 @@
         "sm": { "padding": "0.375rem 1rem", "fontSize": "0.875rem" },
         "lg": { "padding": "0.75rem 2rem", "fontSize": "1.125rem" }
       },
+      "header": {
+        "background": "var(--wp--preset--color--gray-100)",
+        "borderBottom": "none",
+        "paddingBlock": "var(--wp--preset--spacing--sm)",
+        "marginBottom": "var(--wp--preset--spacing--lg)"
+      },
       "nav": {
+        "gap": "0.25rem",
         "itemPadding": "0.5rem 0.75rem",
+        "activeFontWeight": "var(--wp--custom--font-weight--bold)",
+        "activeIndicator": "none",
+        "panelBackground": "var(--wp--preset--color--white)",
         "hoverBackground": "rgb(0 0 0 / 0.05)",
         "submenuWidth": "12rem",
         "submenuShadow": "0 4px 12px rgb(0 0 0 / 0.1)",
         "overlay": "rgb(0 0 0 / 0.4)"
       },
-      "logo": { "height": "clamp(2rem, 4vw, 3rem)", "color": "var(--wp--preset--color--gray-900)" },
-      "footer": { "fontSize": "0.875rem" }
+      "logo": {
+        "height": "clamp(2rem, 4vw, 3rem)",
+        "color": "var(--wp--preset--color--gray-900)",
+        "showTagline": false,
+        "text": {
+          "fontFamily": "var(--wp--preset--font-family--heading)",
+          "fontSize": "var(--wp--preset--font-size--h-3)",
+          "fontWeight": "var(--wp--custom--font-weight--bold)"
+        },
+        "tagline": {
+          "fontFamily": "var(--wp--preset--font-family--body)",
+          "fontStyle": "normal",
+          "fontSize": "var(--wp--preset--font-size--small)",
+          "color": "var(--wp--preset--color--gray-500)"
+        }
+      },
+      "footer": {
+        "background": "var(--wp--preset--color--gray-100)",
+        "paddingBlock": "var(--wp--preset--spacing--lg)",
+        "fontSize": "0.875rem"
+      }
     },
     "shadow": {
       "defaultPresets": false,
@@ -200,5 +229,8 @@
         { "slug": "info-subtle",    "color": "#e0f2fe", "name": "Info Subtle" }
       ]
     }
-  }
+  },
+  "templateParts": [
+    { "name": "footer", "title": "Footer", "area": "footer" }
+  ]
 }
