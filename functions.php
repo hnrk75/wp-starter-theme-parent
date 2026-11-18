@@ -14,6 +14,7 @@ require_once get_parent_theme_file_path( 'inc/blocks.php' );
 require_once get_parent_theme_file_path( 'inc/breadcrumbs.php' );
 require_once get_parent_theme_file_path( 'inc/helpers-buttons.php' );
 require_once get_parent_theme_file_path( 'inc/helpers-icon.php' );
+require_once get_parent_theme_file_path( 'inc/helpers-format.php' );
 require_once get_parent_theme_file_path( 'inc/enqueue.php' );
 require_once get_parent_theme_file_path( 'inc/template-tags.php' );
 require_once get_parent_theme_file_path( 'inc/widgets.php' );

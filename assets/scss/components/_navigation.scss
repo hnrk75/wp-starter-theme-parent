@@ -99,7 +99,7 @@
 			align-items: center;
 			justify-content: space-between;
 			flex-shrink: 0;
-			padding: var(--space-sm) var(--space-md);
+			padding: $space-sm $space-md;
 			border-bottom: 1px solid $color-gray-200;
 		}
 	}
@@ -154,7 +154,7 @@
 		@include mq-down(lg) {
 			flex: 1;
 			overflow-y: auto;
-			padding: var(--space-sm) var(--space-md);
+			padding: $space-sm $space-md;
 		}
 	}
 

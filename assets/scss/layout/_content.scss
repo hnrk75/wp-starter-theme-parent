@@ -9,7 +9,7 @@
 	overflow-wrap: anywhere;
 
 	[class*='wp-block-'] {
-		margin-block: var(--space-md);
+		margin-block: $space-md;
 	}
 
 	// Remove top-margin on first block when hero is at the top
@@ -20,13 +20,13 @@
 
 // Entry header → content spacing (h1 sits in entry-header, not entry-content)
 .entry-header + .entry-content {
-	margin-top: var(--space-sm);
+	margin-top: $space-sm;
 }
 
 .content-layout {
 	display: grid;
 	grid-template-columns: 1fr;
-	gap: var(--space-lg);
+	gap: $space-lg;
 
 	@include mq-up(md) {
 		grid-template-columns: 2fr 1fr;

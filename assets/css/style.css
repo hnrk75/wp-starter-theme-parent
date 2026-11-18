@@ -198,13 +198,6 @@ p:not(.has-text-align-center, .has-text-align-right, .has-background) {
   max-width: var(--measure);
 }
 
-p,
-li,
-blockquote,
-figcaption {
-  font-size: var(--wp--preset--font-size--medium);
-}
-
 li,
 blockquote,
 figcaption {

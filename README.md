@@ -125,7 +125,7 @@ Changing any of these is a **major** version:
 
 - PHP functions, hooks and filters (`wpst_*`), and the templates in `template-parts/`.
 - `assets/scss/abstracts/`: the variables (`$color-*`, `$font-*`, `$radius-*`,
-  `$breakpoints` …) and mixins (`mq-up()`, `focus-visible-shadow()`, `link-underline()` …).
+  `$space-*`, `$breakpoints` …) and mixins (`mq-up()`, `focus-visible-shadow()`, `link-underline()` …).
   Child themes `@forward` them in their own SCSS build, so they stay in the package.
 - The CSS custom properties in `base/_root.scss` and the `theme.json` slugs and
   `settings.custom` keys they read.
@@ -172,6 +172,10 @@ so the alignment and background apply across the content area.
 
 Body text uses `hyphens: manual`: automatic hyphenation makes text harder to read,
 e.g. for people with dyslexia. Editors can add soft hyphens (`&shy;`) where needed.
+
+The body text size (`medium`) is set on `body` only, so paragraphs and list items
+inherit it: a component that sets a smaller size on its container (a top bar, a card,
+the footer) gets it on the text inside too.
 
 ---
 
@@ -226,15 +230,15 @@ merged with the parent's — without rewriting CSS rules.
 | `custom.nav.fontSize` / `fontWeight` / `textTransform` / `letterSpacing` / `color` / `hoverColor` / `activeColor` / `activeFontWeight` / `activeIndicator` | `--nav-*` | Main menu links. Unset = inherited from the page. `activeIndicator` is a `box-shadow`, e.g. `inset 0 -2px 0 currentcolor` for a line |
 | `custom.logo.height` / `color` | `--logo-height`, `--logo-color` | Logo (the SVG logo and the text fallback) |
 | `custom.logo.text.fontFamily` / `fontSize` / `fontWeight` / `letterSpacing` / `textTransform` | `--logo-*` | The site name when there is no logo |
-| `custom.footer.background` / `color` / `linkColor` / `paddingBlock` | `--footer-*` | Site footer, classic or block-based |
+| `custom.footer.background` / `color` / `linkColor` / `paddingBlock` | `--footer-*` | Site footer |
 | `custom.footer.fontSize` | `--footer-font-size` | Footer copyright row |
 | `custom.transition.base` | `--transition-base` | Transitions |
 
 The hover colors default to a darker shade of the palette color (`color-mix()`), so
 they follow a new palette without being set.
 
-The SCSS abstracts have shorthands for the common ones (`$radius-*`, `$font-weight-*`,
-`$line-height-*`, `$transition-base`). Sass cannot compute with them — use `calc()`.
+The SCSS abstracts have shorthands for the common ones (`$space-xs` … `$space-xl`,
+`$radius-*`, `$font-weight-*`, `$line-height-*`, `$transition-base`). Sass cannot compute with them — use `calc()`.
 
 **Not tokens:** the breakpoints (`$breakpoints`) — CSS variables do not work in media
 queries — and pure mechanics such as the menu icon's lines.
@@ -493,3 +497,30 @@ wpst_icon( 'icon-intern-link', array( 'title' => 'Go to' ) );      // With a11y 
 |------|-------|
 | `icon-intern-link.svg` | Arrow — internal links |
 | `icon-extern-link.svg` | External icon — external links |
+
+---
+
+## Contact details (Swedish formats)
+
+`inc/helpers-format.php` has helpers that tidy contact details however they were typed.
+They have no output and do nothing on their own: call them on a value, or hook them to
+a field so the value is saved in the standard format. Foreign numbers are left as typed.
+Each is wrapped in `function_exists()`, so a child theme can replace it.
+
+| Function | Example |
+|------|-------|
+| `wpst_format_phone( $phone )` | `+46 70 123 45 67` → `070-123 45 67`, `08 12345678` → `08-123 456 78` |
+| `wpst_phone_href( $phone )` | `070-123 45 67` → `tel:+46701234567` (empty string without a number) |
+| `wpst_format_postcode( $postcode )` | `85234` → `852 34` |
+| `wpst_normalize_email( $email )` | ` Info@Firma.SE ` → `info@firma.se` |
+
+```php
+// Child theme: save the ACF fields in the standard format.
+add_filter( 'acf/update_value/key=field_contact_phone', 'wpst_format_phone' );
+add_filter( 'acf/update_value/key=field_contact_postcode', 'wpst_format_postcode' );
+add_filter( 'acf/update_value/key=field_contact_email', 'wpst_normalize_email' );
+```
+
+```php
+<a href="<?php echo esc_url( wpst_phone_href( $phone ) ); ?>"><?php echo esc_html( wpst_format_phone( $phone ) ); ?></a>
+```

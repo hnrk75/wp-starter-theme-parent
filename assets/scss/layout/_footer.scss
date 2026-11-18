@@ -7,7 +7,7 @@
 .site-footer {
 	background-color: var(--footer-background);
 	color: var(--footer-color);
-	margin-top: var(--space-lg);
+	margin-top: $space-lg;
 	padding-block: var(--footer-padding-block);
 
 	a:not(.btn) {
@@ -17,7 +17,7 @@
 	&__widgets {
 		display: grid;
 		grid-template-columns: 1fr;
-		gap: var(--space-md);
+		gap: $space-md;
 
 		// md: cap at 2 columns
 		@include mq-up(md) {
@@ -37,9 +37,9 @@
 	&__copyright {
 		display: flex;
 		flex-direction: column-reverse;
-		gap: var(--space-sm);
-		margin-top: var(--space-md);
-		padding-top: var(--space-md);
+		gap: $space-sm;
+		margin-top: $space-md;
+		padding-top: $space-md;
 		border-top: 1px solid $color-gray-200;
 		font-size: var(--footer-font-size);
 		color: $color-gray-500;
@@ -59,7 +59,7 @@
 	.widget_nav_menu ul {
 		display: flex;
 		flex-direction: column;
-		gap: var(--space-xs);
+		gap: $space-xs;
 		list-style: none;
 		margin: 0;
 		padding: 0;

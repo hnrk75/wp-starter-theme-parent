@@ -14,6 +14,15 @@ the new version.
 
 ## [Unreleased]
 
+## [3.7.0] - 2026-11-18
+
+### Added
+- `inc/helpers-format.php`: `wpst_format_phone()`, `wpst_phone_href()`, `wpst_format_postcode()` and `wpst_normalize_email()` for Swedish contact details. No output; a child theme calls them or hooks them to its fields.
+- SCSS variables `$space-xs` … `$space-xl` for the spacing scale, used in the parent's own partials.
+
+### Fixed
+- The body text size is set on `body` only. `p`, `li`, `blockquote` and `figcaption` inherit it, so a smaller size on a container (a top bar, a card) applies to the text inside.
+
 ## [3.6.2] - 2026-11-18
 
 ### Removed

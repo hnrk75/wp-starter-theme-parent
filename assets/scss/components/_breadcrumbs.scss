@@ -5,7 +5,7 @@
 // =============================================================
 
 .breadcrumb {
-	margin-block: var(--space-md);
+	margin-block: $space-md;
 
 	&-list {
 		display: flex;

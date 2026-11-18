@@ -29,13 +29,6 @@ p:not(.has-text-align-center, .has-text-align-right, .has-background) {
 	max-width: var(--measure);
 }
 
-p,
-li,
-blockquote,
-figcaption {
-	font-size: var(--wp--preset--font-size--medium);
-}
-
 li,
 blockquote,
 figcaption {
@@ -156,7 +149,7 @@ small {
 
 // --- Vertical rhythm -----------------------------------------
 // p + p {
-// 	margin-top: var(--space-sm);
+// 	margin-top: $space-sm;
 // }
 
 // h1,
@@ -168,7 +161,7 @@ small {
 // 	& + p,
 // 	& + ul,
 // 	& + ol {
-// 		margin-top: var(--space-xs);
+// 		margin-top: $space-xs;
 // 	}
 // }
 
@@ -178,7 +171,7 @@ small {
 // p + h4,
 // p + h5,
 // p + h6 {
-// 	margin-top: var(--space-md);
+// 	margin-top: $space-md;
 // }
 
 // --- Utilities -----------------------------------------------
