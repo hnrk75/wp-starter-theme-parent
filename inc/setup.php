@@ -69,32 +69,6 @@ if ( ! function_exists( 'wpst_setup' ) ) :
 endif;
 add_action( 'after_setup_theme', 'wpst_setup' );
 
-/**
- * Block-based footer, opt-in: a child theme declares add_theme_support( 'wpst-block-footer' )
- * or has parts/footer.html. Turns on Appearance → Template Parts.
- */
-function wpst_block_footer_setup() {
-	if ( current_theme_supports( 'wpst-block-footer' ) || is_readable( get_stylesheet_directory() . '/parts/footer.html' ) ) {
-		add_theme_support( 'block-template-parts' );
-	}
-}
-add_action( 'after_setup_theme', 'wpst_block_footer_setup', 20 );
-
-/**
- * The footer template part (from the theme's parts/footer.html or edited in the admin), or null.
- *
- * @return WP_Block_Template|null
- */
-function wpst_block_footer() {
-	if ( ! current_theme_supports( 'block-template-parts' ) ) {
-		return null;
-	}
-
-	$template = get_block_template( get_stylesheet() . '//footer', 'wp_template_part' );
-
-	return ( $template && '' !== trim( $template->content ) ) ? $template : null;
-}
-
 add_filter(
 	'image_size_names_choose',
 	function ( $sizes ) {

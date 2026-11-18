@@ -14,6 +14,11 @@ the new version.
 
 ## [Unreleased]
 
+## [3.5.1] - 2026-11-18
+
+### Removed
+- The block-based footer template part from 3.5.0 (`parts/footer.html`, `wpst-block-footer`, `wpst_block_footer()`), released the same day and not used by any site. The footer widget areas take blocks, and a child theme changes the footer with its own `footer.php`.
+
 ## [3.5.0] - 2026-11-18
 
 ### Added

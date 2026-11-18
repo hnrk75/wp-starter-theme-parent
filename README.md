@@ -294,13 +294,11 @@ printed when the area has widgets or the hook has a callback.
 name, and the tagline when `custom.logo.showTagline` is `true`. Copy the file to the child
 theme to change the markup.
 
-**Block-based footer (opt-in):** a child theme with `parts/footer.html` (or
-`add_theme_support( 'wpst-block-footer' )`) gets **Appearance → Template Parts**, where
-the footer is edited with blocks. `footer.php` prints the `footer` template part — the
-saved one, else the theme's file — instead of the footer widget areas. The copyright row
-with `wpst_footer_copyright_end` (and the cookie link) stays under it, so it can never be
-removed. Users need `edit_theme_options` to edit template parts. The header stays
-classic: the theme's menu is more accessible than the Navigation block.
+**Footer:** the widget areas take blocks (columns, headings, images, ACF blocks …), so the
+footer is built with blocks in **Appearance → Widgets**. For a different layout, copy
+`footer.php` to the child theme and change it — keep `wp_footer()` and
+`do_action( 'wpst_footer_copyright_end' )` (the cookie link is printed there). Register
+other widget areas in the child theme with `register_sidebar()`.
 
 ---
 

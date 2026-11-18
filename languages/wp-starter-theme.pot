@@ -2,14 +2,14 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: WP Starter Theme 3.4.0\n"
+"Project-Id-Version: WP Starter Theme 3.5.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/wp-starter-theme-parent\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-11-18T18:43:23+00:00\n"
+"POT-Creation-Date: 2026-11-18T18:49:08+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: wp-starter-theme\n"
@@ -81,7 +81,7 @@ msgstr ""
 msgid "Post page navigation"
 msgstr ""
 
-#: footer.php:52
+#: footer.php:46
 #: inc/widgets.php:14
 #: inc/widgets.php:26
 #: inc/widgets.php:38
@@ -155,31 +155,31 @@ msgstr ""
 msgid "Cookie Policy"
 msgstr ""
 
-#: inc/setup.php:104
+#: inc/setup.php:78
 msgid "1:1 Square (800×800)"
 msgstr ""
 
-#: inc/setup.php:105
+#: inc/setup.php:79
 msgid "4:3 Landscape (800×600)"
 msgstr ""
 
-#: inc/setup.php:106
+#: inc/setup.php:80
 msgid "3:4 Portrait (600×800)"
 msgstr ""
 
-#: inc/setup.php:107
+#: inc/setup.php:81
 msgid "16:9 Landscape (1280×720)"
 msgstr ""
 
-#: inc/setup.php:108
+#: inc/setup.php:82
 msgid "9:16 Portrait (720×1280)"
 msgstr ""
 
-#: inc/setup.php:109
+#: inc/setup.php:83
 msgid "Hero (1920×1080)"
 msgstr ""
 
-#: inc/setup.php:110
+#: inc/setup.php:84
 msgid "Open Graph (1200×630)"
 msgstr ""
 
@@ -532,9 +532,4 @@ msgstr ""
 #: theme.json
 msgctxt "Color name"
 msgid "Info Subtle"
-msgstr ""
-
-#: theme.json
-msgctxt "Template part name"
-msgid "Footer"
 msgstr ""

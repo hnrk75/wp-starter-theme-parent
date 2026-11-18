@@ -229,8 +229,5 @@
         { "slug": "info-subtle",    "color": "#e0f2fe", "name": "Info Subtle" }
       ]
     }
-  },
-  "templateParts": [
-    { "name": "footer", "title": "Footer", "area": "footer" }
-  ]
+  }
 }
