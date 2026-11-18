@@ -32,7 +32,7 @@
 	.custom-logo-link {
 		display: inline-block;
 		flex-shrink: 0;
-		color: $color-gray-900;
+		color: var(--logo-color);
 		text-decoration: none;
 
 		&::before {

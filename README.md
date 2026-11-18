@@ -203,6 +203,8 @@ merged with the parent's — without rewriting CSS rules.
 | `theme.json` | CSS variable | What |
 |------|------|------|
 | `color.palette` | `--color-*` | Colors (see [Colors](#colors)) |
+| `custom.color.background` / `text` / `heading` | `--background-color`, `--text-color`, `--heading-color` | Page background, body text and headings (headings inherit the text color by default) |
+| `custom.link.hoverColor` | `--link-hover-color` | Link hover color |
 | `typography.fontFamilies` (`body`, `heading`) | `--font-family-body`, `--font-family-heading` | Fonts (see [Fonts](#fonts)) |
 | `typography.fontSizes` | `--wp--preset--font-size--*` | Font sizes, `h-1` … `h-6`, `display-1`, `large`, `small` … |
 | `spacing.spacingSizes` (`xs` … `xl`) | `--space-xs` … `--space-xl` | Spacing scale, also in the editor |
@@ -212,18 +214,20 @@ merged with the parent's — without rewriting CSS rules.
 | `custom.lead.width` / `lineHeight` | `--lead-width`, `--lead-line-height` | `.ingress` |
 | `custom.fontWeight.regular` … `bold` | `--font-weight-*` | Font weights |
 | `custom.lineHeight.body` / `heading` | `--line-height-body`, `--line-height-heading` | Line heights |
-| `custom.display.lineHeight` / `letterSpacing` | `--display-*` | `.display-1` |
-| `custom.heading.h1` … `h6`: `fontWeight`, `lineHeight`, `letterSpacing` | `--h1-font-weight` … `--h6-letter-spacing` | Headings per level |
+| `custom.display.lineHeight` / `letterSpacing` / `textTransform` / `color` | `--display-*` | `.display-1` (transform and color default to the headings') |
+| `custom.heading.textTransform` | `--heading-text-transform` | All headings, e.g. `uppercase` |
+| `custom.heading.h1` … `h6`: `fontWeight`, `lineHeight`, `letterSpacing`, `textTransform`, `color` | `--h1-font-weight` … `--h6-color` | Headings per level |
 | `custom.radius.sm` / `base` / `md` / `lg` / `pill` | `--radius-*` | Corner radius |
 | `custom.button.radius` / `padding` / `gap`, `sm` and `lg`: `padding` / `fontSize` | `--btn-*` | Button shape and sizes |
+| `custom.button.primaryHoverBackground` / `successHoverBackground` / `dangerHoverBackground` | `--btn-*-hover-bg` | Button hover colors |
 | `custom.focus.width` / `offset` | `--focus-width`, `--focus-offset` | Focus outline |
 | `custom.nav.itemPadding` / `hoverBackground` / `submenuWidth` / `submenuShadow` / `overlay` | `--nav-*` | Main menu |
-| `custom.logo.height` | `--logo-height` | Logo height |
+| `custom.logo.height` / `color` | `--logo-height`, `--logo-color` | Logo (the SVG logo and the text fallback) |
 | `custom.footer.fontSize` | `--footer-font-size` | Footer copyright row |
 | `custom.transition.base` | `--transition-base` | Transitions |
 
-Hover colors are CSS variables too (`--link-hover-color`, `--btn-*-hover-bg`), computed
-from the palette; a child theme overrides them in its own CSS.
+The hover colors default to a darker shade of the palette color (`color-mix()`), so
+they follow a new palette without being set.
 
 The SCSS abstracts have shorthands for the common ones (`$radius-*`, `$font-weight-*`,
 `$line-height-*`, `$transition-base`). Sass cannot compute with them — use `calc()`.
@@ -234,18 +238,21 @@ queries — and pure mechanics such as the menu icon's lines.
 Keys with a digit become two words in the CSS variable: `heading.h1.lineHeight` is
 `--wp--custom--heading--h-1--line-height`.
 
-Example — a child theme with nearly square buttons, tighter headings and a wider page:
+Example — a child theme with lighter body text, uppercase headings (except h5), nearly square buttons and a wider page:
 
 ```json
 {
   "settings": {
     "layout": { "contentSize": "90rem" },
     "custom": {
+      "color": { "text": "var(--wp--preset--color--gray-600)", "heading": "var(--wp--preset--color--gray-900)" },
       "radius": { "base": "0" },
       "button": { "radius": "2px", "padding": "0.75rem 1.75rem" },
       "heading": {
+        "textTransform": "uppercase",
         "h1": { "lineHeight": "0.95", "letterSpacing": "0.01em" },
-        "h2": { "lineHeight": "1" }
+        "h2": { "lineHeight": "1" },
+        "h5": { "textTransform": "none" }
       }
     }
   }

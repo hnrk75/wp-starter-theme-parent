@@ -50,6 +50,8 @@ figcaption {
 	font-weight: $font-weight-bold;
 	line-height: var(--display-line-height);
 	letter-spacing: var(--display-letter-spacing);
+	text-transform: var(--display-text-transform);
+	color: var(--display-color);
 	text-wrap: balance;
 }
 
@@ -76,6 +78,8 @@ h1,
 	font-weight: var(--h1-font-weight);
 	line-height: var(--h1-line-height);
 	letter-spacing: var(--h1-letter-spacing);
+	text-transform: var(--h1-text-transform);
+	color: var(--h1-color);
 }
 
 h2,
@@ -84,6 +88,8 @@ h2,
 	font-weight: var(--h2-font-weight);
 	line-height: var(--h2-line-height);
 	letter-spacing: var(--h2-letter-spacing);
+	text-transform: var(--h2-text-transform);
+	color: var(--h2-color);
 }
 
 h3,
@@ -92,6 +98,8 @@ h3,
 	font-weight: var(--h3-font-weight);
 	line-height: var(--h3-line-height);
 	letter-spacing: var(--h3-letter-spacing);
+	text-transform: var(--h3-text-transform);
+	color: var(--h3-color);
 }
 
 h4,
@@ -100,6 +108,8 @@ h4,
 	font-weight: var(--h4-font-weight);
 	line-height: var(--h4-line-height);
 	letter-spacing: var(--h4-letter-spacing);
+	text-transform: var(--h4-text-transform);
+	color: var(--h4-color);
 }
 
 h5,
@@ -108,6 +118,8 @@ h5,
 	font-weight: var(--h5-font-weight);
 	line-height: var(--h5-line-height);
 	letter-spacing: var(--h5-letter-spacing);
+	text-transform: var(--h5-text-transform);
+	color: var(--h5-color);
 }
 
 h6,
@@ -116,6 +128,8 @@ h6,
 	font-weight: var(--h6-font-weight);
 	line-height: var(--h6-line-height);
 	letter-spacing: var(--h6-letter-spacing);
+	text-transform: var(--h6-text-transform);
+	color: var(--h6-color);
 }
 
 // --- Text styles ---------------------------------------------

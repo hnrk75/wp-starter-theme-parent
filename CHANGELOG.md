@@ -14,6 +14,14 @@ the new version.
 
 ## [Unreleased]
 
+## [3.4.0] - 2026-11-18
+
+### Added
+- `custom.color.background`, `text` and `heading` (`--background-color`, `--text-color`, `--heading-color`): the page background, body text and heading colors. Headings inherit the text color by default, as before.
+- `custom.heading.textTransform` and `textTransform` / `color` per level (`heading.h1` … `h6`) and for `.display-1` (`custom.display`).
+- `custom.link.hoverColor` and `custom.button.primaryHoverBackground` / `successHoverBackground` / `dangerHoverBackground`: hover colors in `theme.json`. The defaults are the same darker shades as before.
+- `custom.logo.color` (`--logo-color`).
+
 ## [3.3.0] - 2026-11-18
 
 The parent theme's design values are all tokens in `theme.json` now, so a child theme sets its own design there. The defaults are the same as before.
