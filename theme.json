@@ -157,17 +157,10 @@
       "logo": {
         "height": "clamp(2rem, 4vw, 3rem)",
         "color": "var(--wp--preset--color--gray-900)",
-        "showTagline": false,
         "text": {
           "fontFamily": "var(--wp--preset--font-family--heading)",
           "fontSize": "var(--wp--preset--font-size--h-3)",
           "fontWeight": "var(--wp--custom--font-weight--bold)"
-        },
-        "tagline": {
-          "fontFamily": "var(--wp--preset--font-family--body)",
-          "fontStyle": "normal",
-          "fontSize": "var(--wp--preset--font-size--small)",
-          "color": "var(--wp--preset--color--gray-500)"
         }
       },
       "footer": {

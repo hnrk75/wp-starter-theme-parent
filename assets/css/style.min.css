@@ -127,10 +127,6 @@
   --logo-font-weight: var(--wp--custom--logo--text--font-weight, var(--font-weight-bold));
   --logo-letter-spacing: var(--wp--custom--logo--text--letter-spacing);
   --logo-text-transform: var(--wp--custom--logo--text--text-transform);
-  --tagline-font-family: var(--wp--custom--logo--tagline--font-family, var(--font-family-body));
-  --tagline-font-style: var(--wp--custom--logo--tagline--font-style, normal);
-  --tagline-font-size: var(--wp--custom--logo--tagline--font-size, var(--wp--preset--font-size--small));
-  --tagline-color: var(--wp--custom--logo--tagline--color, var(--color-gray-500));
   --footer-background: var(--wp--custom--footer--background, var(--color-gray-100));
   --footer-padding-block: var(--wp--custom--footer--padding-block, var(--space-lg));
   --footer-color: var(--wp--custom--footer--color);
@@ -440,15 +436,6 @@ body:has(.has-hero-top) .site-header {
   letter-spacing: var(--logo-letter-spacing);
   text-transform: var(--logo-text-transform);
   line-height: var(--line-height-heading);
-}
-.site-header .site-tagline {
-  font-family: var(--tagline-font-family);
-  font-style: var(--tagline-font-style);
-  font-size: var(--tagline-font-size);
-  font-weight: var(--font-weight-regular);
-  letter-spacing: normal;
-  text-transform: none;
-  color: var(--tagline-color);
 }
 .site-header .custom-logo-link,
 .site-header .site-logo__link {

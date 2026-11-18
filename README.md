@@ -225,9 +225,7 @@ merged with the parent's — without rewriting CSS rules.
 | `custom.nav.gap` / `itemPadding` / `hoverBackground` / `submenuWidth` / `submenuShadow` / `overlay` / `panelBackground` | `--nav-*` | Main menu: layout, the mobile panel and submenus |
 | `custom.nav.fontSize` / `fontWeight` / `textTransform` / `letterSpacing` / `color` / `hoverColor` / `activeColor` / `activeFontWeight` / `activeIndicator` | `--nav-*` | Main menu links. Unset = inherited from the page. `activeIndicator` is a `box-shadow`, e.g. `inset 0 -2px 0 currentcolor` for a line |
 | `custom.logo.height` / `color` | `--logo-height`, `--logo-color` | Logo (the SVG logo and the text fallback) |
-| `custom.logo.showTagline` | — | `true` shows the tagline (Settings → General) under the site name when there is no logo |
 | `custom.logo.text.fontFamily` / `fontSize` / `fontWeight` / `letterSpacing` / `textTransform` | `--logo-*` | The site name when there is no logo |
-| `custom.logo.tagline.fontFamily` / `fontStyle` / `fontSize` / `color` | `--tagline-*` | The tagline |
 | `custom.footer.background` / `color` / `linkColor` / `paddingBlock` | `--footer-*` | Site footer, classic or block-based |
 | `custom.footer.fontSize` | `--footer-font-size` | Footer copyright row |
 | `custom.transition.base` | `--transition-base` | Transitions |
@@ -291,10 +289,10 @@ Each also has a hook, `wpst_header_end` and `wpst_nav_footer`. The wrappers are 
 printed when the area has widgets or the hook has a callback.
 
 **Logo and site name:** `template-parts/header/branding.php` picks the logo —
-`assets/svg/logo.svg`, else the uploaded logo, else the site name as text
-(`template-parts/components/site-title.php`, with the tagline when
-`custom.logo.showTagline` is `true`). A child theme copies `branding.php` to build its own
-header branding (e.g. a different logo on mobile) without copying `header.php`.
+`assets/svg/logo.svg`, else the uploaded logo, else the site title (Settings → General) as text
+(`template-parts/components/site-title.php`), as in a regular WordPress theme. A child
+theme copies `branding.php` to build its own header branding (e.g. the site name with the
+tagline, or a different logo on mobile) without copying `header.php`.
 
 **Footer:** the widget areas take blocks (columns, headings, images, ACF blocks …), so the
 footer is built with blocks in **Appearance → Widgets**. For a different layout, copy

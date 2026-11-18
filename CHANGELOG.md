@@ -14,6 +14,11 @@ the new version.
 
 ## [Unreleased]
 
+## [3.6.1] - 2026-11-18
+
+### Removed
+- `custom.logo.showTagline` and the `custom.logo.tagline` tokens from 3.5.0, released the same day: the tagline under the site name is a site's own choice. The default is the logo, else the site title, as in a regular WordPress theme; a child theme adds the tagline in its own `template-parts/header/branding.php`.
+
 ## [3.6.0] - 2026-11-18
 
 ### Added
