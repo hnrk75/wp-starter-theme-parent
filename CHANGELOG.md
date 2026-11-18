@@ -14,6 +14,14 @@ the new version.
 
 ## [Unreleased]
 
+## [3.6.0] - 2026-11-18
+
+### Added
+- `template-parts/header/branding.php`: the logo or site name in the header, as a file a child theme can override instead of copying `header.php`.
+
+### Fixed
+- The SVG logo (`assets/svg/logo.svg`) had no size and shrank to nothing in the header. It now has the logo height (`--logo-height`) and the same color, hover and focus ring as the other logos.
+
 ## [3.5.1] - 2026-11-18
 
 ### Removed

@@ -27,15 +27,7 @@
 		<div class="container">
 			<div class="site-header__inner">
 
-				<?php
-				if ( is_readable( get_theme_file_path( 'assets/svg/logo.svg' ) ) ) {
-					get_template_part( 'template-parts/components/logo' );
-				} elseif ( has_custom_logo() ) {
-					the_custom_logo();
-				} else {
-					get_template_part( 'template-parts/components/site-title' );
-				}
-				?>
+				<?php get_template_part( 'template-parts/header/branding' ); ?>
 
 				<button class="site-nav__toggle" type="button"
 					aria-controls="main-nav"

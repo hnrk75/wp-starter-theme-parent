@@ -60,8 +60,9 @@
 		color: var(--tagline-color);
 	}
 
-	.custom-logo-link {
-		display: inline-block;
+	.custom-logo-link,
+	.site-logo__link {
+		display: inline-flex;
 		flex-shrink: 0;
 		color: var(--logo-color);
 		text-decoration: none;
@@ -84,8 +85,13 @@
 	}
 }
 
-// SVG logo in the text color. Override in the child theme for a multi-color logo.
+// SVG logo in the logo color. Override in the child theme for a multi-color logo.
 .site-logo {
+	display: block;
+	height: var(--logo-height);
+	width: auto;
+	max-width: none;
+
 	[fill]:not([fill='none']) {
 		fill: currentcolor;
 	}

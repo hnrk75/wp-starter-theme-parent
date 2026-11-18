@@ -290,9 +290,11 @@ it is full width.
 Each also has a hook, `wpst_header_end` and `wpst_nav_footer`. The wrappers are only
 printed when the area has widgets or the hook has a callback.
 
-**Site name without a logo:** `template-parts/components/site-title.php` prints the site
-name, and the tagline when `custom.logo.showTagline` is `true`. Copy the file to the child
-theme to change the markup.
+**Logo and site name:** `template-parts/header/branding.php` picks the logo —
+`assets/svg/logo.svg`, else the uploaded logo, else the site name as text
+(`template-parts/components/site-title.php`, with the tagline when
+`custom.logo.showTagline` is `true`). A child theme copies `branding.php` to build its own
+header branding (e.g. a different logo on mobile) without copying `header.php`.
 
 **Footer:** the widget areas take blocks (columns, headings, images, ACF blocks …), so the
 footer is built with blocks in **Appearance → Widgets**. For a different layout, copy

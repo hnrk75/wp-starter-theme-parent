@@ -450,22 +450,26 @@ body:has(.has-hero-top) .site-header {
   text-transform: none;
   color: var(--tagline-color);
 }
-.site-header .custom-logo-link {
-  display: inline-block;
+.site-header .custom-logo-link,
+.site-header .site-logo__link {
+  display: inline-flex;
   flex-shrink: 0;
   color: var(--logo-color);
   text-decoration: none;
 }
-.site-header .custom-logo-link::before {
+.site-header .custom-logo-link::before,
+.site-header .site-logo__link::before {
   display: none;
 }
-.site-header .custom-logo-link:focus-visible {
+.site-header .custom-logo-link:focus-visible,
+.site-header .site-logo__link:focus-visible {
   outline: var(--focus-width, 0.125rem) solid var(--color-primary);
   outline-offset: 0.125rem;
   box-shadow: 0 0 0 calc(0.25rem + 0.125rem) color-mix(in srgb, var(--color-primary) 25%, transparent);
   transition: box-shadow 0.2s ease;
 }
-.site-header .custom-logo-link:hover {
+.site-header .custom-logo-link:hover,
+.site-header .site-logo__link:hover {
   opacity: 0.75;
 }
 .site-header .custom-logo {
@@ -474,6 +478,12 @@ body:has(.has-hero-top) .site-header {
   width: auto;
 }
 
+.site-logo {
+  display: block;
+  height: var(--logo-height);
+  width: auto;
+  max-width: none;
+}
 .site-logo [fill]:not([fill=none]) {
   fill: currentcolor;
 }
