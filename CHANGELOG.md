@@ -14,6 +14,15 @@ the new version.
 
 ## [Unreleased]
 
+## [3.2.0] - 2026-11-18
+
+### Added
+- Design tokens in `settings.custom` in `theme.json`: `radius` (sm, base, md, lg, pill), `transition.base`, `fontWeight` (regular, medium, semibold, bold) and `lineHeight` (body, heading). A child theme changes border radius, transitions, font weights and line heights in its own `theme.json`.
+- README: "Public API for child themes" — the SCSS abstracts and the font files are public API, changed only in a major version.
+
+### Changed
+- `$radius-*`, `$transition-base`, `$font-weight-*` and `$line-height-*` are CSS variables instead of compiled values. The look is unchanged, but Sass can no longer compute with them (use `calc()`). A child theme that `@forward`s the parent's abstracts and defines its own `$radius-pill` no longer needs `hide $radius-pill` if it uses the token instead.
+
 ## [3.1.0] - 2026-11-18
 
 ### Added

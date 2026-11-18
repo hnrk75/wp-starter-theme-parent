@@ -103,6 +103,12 @@
       "contentSize": "82.5rem",
       "wideSize": "100rem"
     },
+    "custom": {
+      "radius": { "sm": "0.25rem", "base": "0.375rem", "md": "0.5rem", "lg": "1rem", "pill": "50rem" },
+      "transition": { "base": "0.3s ease" },
+      "fontWeight": { "regular": "400", "medium": "500", "semibold": "600", "bold": "700" },
+      "lineHeight": { "body": "1.6", "heading": "1.2" }
+    },
     "spacing": {
       "customSpacing": false,
       "spacingScale": {

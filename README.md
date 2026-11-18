@@ -119,6 +119,19 @@ Workflow:
    `main`. Never create version tags by hand — the tag must match `style.css`.
    Composer reads the git tags as versions.
 
+### Public API for child themes
+
+Changing any of these is a **major** version:
+
+- PHP functions, hooks and filters (`wpst_*`), and the templates in `template-parts/`.
+- `assets/scss/abstracts/`: the variables (`$color-*`, `$font-*`, `$radius-*`,
+  `$breakpoints` …) and mixins (`mq-up()`, `focus-visible-shadow()`, `link-underline()` …).
+  Child themes `@forward` them in their own SCSS build, so they stay in the package.
+- The CSS custom properties in `base/_root.scss` and the `theme.json` slugs and
+  `settings.custom` keys they read.
+- The font files in `assets/fonts/`. A child theme's `theme.json` can point to them
+  with `file:./assets/fonts/…`, so renaming a file removes that font without an error.
+
 ---
 
 ## SCSS structure
@@ -178,6 +191,32 @@ work on them. Use `color-mix()` instead, e.g. a darker hover:
 
 ```scss
 background-color: color-mix(in srgb, #{$color-primary}, #000 15%);
+```
+
+## Design tokens
+
+The other tokens work the same way: they are in `settings.custom` in `theme.json`, which
+WordPress outputs as `--wp--custom--*`, and a child theme changes them in its own
+`theme.json` (merged with the parent's).
+
+| `theme.json` (`settings.custom`) | CSS variable | SCSS |
+|------|------|------|
+| `radius.sm` / `base` / `md` / `lg` / `pill` | `--radius-sm` … `--radius-pill` | `$radius-base`, `$radius-pill` |
+| `transition.base` | `--transition-base` | `$transition-base` |
+| `fontWeight.regular` / `medium` / `semibold` / `bold` | `--font-weight-*` | `$font-weight-*` |
+| `lineHeight.body` / `heading` | `--line-height-body`, `--line-height-heading` | `$line-height-*` |
+
+Example — square corners and softer headings in a child theme:
+
+```json
+{
+  "settings": {
+    "custom": {
+      "radius": { "base": "0", "pill": "0" },
+      "lineHeight": { "heading": "1.1" }
+    }
+  }
+}
 ```
 
 ---
