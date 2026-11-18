@@ -195,29 +195,66 @@ background-color: color-mix(in srgb, #{$color-primary}, #000 15%);
 
 ## Design tokens
 
-The other tokens work the same way: they are in `settings.custom` in `theme.json`, which
-WordPress outputs as `--wp--custom--*`, and a child theme changes them in its own
-`theme.json` (merged with the parent's).
+The parent theme is the structure; the design belongs to the child theme. Every design
+value is a token in `theme.json`, read by a CSS variable in `base/_root.scss` (with the
+same value as fallback), so a child theme changes the design in its own `theme.json` —
+merged with the parent's — without rewriting CSS rules.
 
-| `theme.json` (`settings.custom`) | CSS variable | SCSS |
+| `theme.json` | CSS variable | What |
 |------|------|------|
-| `radius.sm` / `base` / `md` / `lg` / `pill` | `--radius-sm` … `--radius-pill` | `$radius-base`, `$radius-pill` |
-| `transition.base` | `--transition-base` | `$transition-base` |
-| `fontWeight.regular` / `medium` / `semibold` / `bold` | `--font-weight-*` | `$font-weight-*` |
-| `lineHeight.body` / `heading` | `--line-height-body`, `--line-height-heading` | `$line-height-*` |
+| `color.palette` | `--color-*` | Colors (see [Colors](#colors)) |
+| `typography.fontFamilies` (`body`, `heading`) | `--font-family-body`, `--font-family-heading` | Fonts (see [Fonts](#fonts)) |
+| `typography.fontSizes` | `--wp--preset--font-size--*` | Font sizes, `h-1` … `h-6`, `display-1`, `large`, `small` … |
+| `spacing.spacingSizes` (`xs` … `xl`) | `--space-xs` … `--space-xl` | Spacing scale, also in the editor |
+| `layout.contentSize` | `--container-max-width` | Content width |
+| `shadow.presets` (`sm` … `xl`) | `--shadow-sm` … `--shadow-xl` | Shadows, also in the editor |
+| `custom.measure` | `--measure` | Line length of running text |
+| `custom.lead.width` / `lineHeight` | `--lead-width`, `--lead-line-height` | `.ingress` |
+| `custom.fontWeight.regular` … `bold` | `--font-weight-*` | Font weights |
+| `custom.lineHeight.body` / `heading` | `--line-height-body`, `--line-height-heading` | Line heights |
+| `custom.display.lineHeight` / `letterSpacing` | `--display-*` | `.display-1` |
+| `custom.heading.h1` … `h6`: `fontWeight`, `lineHeight`, `letterSpacing` | `--h1-font-weight` … `--h6-letter-spacing` | Headings per level |
+| `custom.radius.sm` / `base` / `md` / `lg` / `pill` | `--radius-*` | Corner radius |
+| `custom.button.radius` / `padding` / `gap`, `sm` and `lg`: `padding` / `fontSize` | `--btn-*` | Button shape and sizes |
+| `custom.focus.width` / `offset` | `--focus-width`, `--focus-offset` | Focus outline |
+| `custom.nav.itemPadding` / `hoverBackground` / `submenuWidth` / `submenuShadow` / `overlay` | `--nav-*` | Main menu |
+| `custom.logo.height` | `--logo-height` | Logo height |
+| `custom.footer.fontSize` | `--footer-font-size` | Footer copyright row |
+| `custom.transition.base` | `--transition-base` | Transitions |
 
-Example — square corners and softer headings in a child theme:
+Hover colors are CSS variables too (`--link-hover-color`, `--btn-*-hover-bg`), computed
+from the palette; a child theme overrides them in its own CSS.
+
+The SCSS abstracts have shorthands for the common ones (`$radius-*`, `$font-weight-*`,
+`$line-height-*`, `$transition-base`). Sass cannot compute with them — use `calc()`.
+
+**Not tokens:** the breakpoints (`$breakpoints`) — CSS variables do not work in media
+queries — and pure mechanics such as the menu icon's lines.
+
+Keys with a digit become two words in the CSS variable: `heading.h1.lineHeight` is
+`--wp--custom--heading--h-1--line-height`.
+
+Example — a child theme with nearly square buttons, tighter headings and a wider page:
 
 ```json
 {
   "settings": {
+    "layout": { "contentSize": "90rem" },
     "custom": {
-      "radius": { "base": "0", "pill": "0" },
-      "lineHeight": { "heading": "1.1" }
+      "radius": { "base": "0" },
+      "button": { "radius": "2px", "padding": "0.75rem 1.75rem" },
+      "heading": {
+        "h1": { "lineHeight": "0.95", "letterSpacing": "0.01em" },
+        "h2": { "lineHeight": "1" }
+      }
     }
   }
 }
 ```
+
+Only the keys you set are changed; the rest come from the parent. `spacingSizes`,
+`fontSizes` and `shadow.presets` are lists: a child theme's list replaces the parent's,
+so include every slug (`xs` … `xl` etc.).
 
 ---
 

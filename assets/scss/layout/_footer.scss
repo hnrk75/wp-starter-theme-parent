@@ -36,7 +36,7 @@
 		margin-top: var(--space-md);
 		padding-top: var(--space-md);
 		border-top: 1px solid $color-gray-200;
-		font-size: 0.875rem;
+		font-size: var(--footer-font-size);
 		color: $color-gray-500;
 
 		@include mq-up(md) {

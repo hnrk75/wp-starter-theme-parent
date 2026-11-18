@@ -53,13 +53,13 @@
 .site-nav-overlay {
 	position: fixed;
 	inset: 0;
-	background-color: rgb(0 0 0 / 0.4);
+	background-color: var(--nav-overlay);
 	z-index: 199;
 	opacity: 0;
 	visibility: hidden;
 	transition:
-		opacity 0.3s ease,
-		visibility 0.3s ease;
+		opacity $transition-base,
+		visibility $transition-base;
 
 	&.is-visible {
 		opacity: 1;
@@ -81,7 +81,7 @@
 		flex-direction: column;
 		z-index: 200;
 		transform: translateX(110%);
-		transition: transform 0.3s ease;
+		transition: transform $transition-base;
 		visibility: hidden;
 
 		&.is-open {
@@ -145,7 +145,7 @@
 		}
 
 		&:hover {
-			background-color: rgb(0 0 0 / 0.05);
+			background-color: var(--nav-hover-background);
 		}
 	}
 
@@ -196,7 +196,7 @@
 	&__link {
 		display: block;
 		width: 100%;
-		padding: 0.5rem 0.75rem;
+		padding: var(--nav-item-padding);
 		background: transparent;
 		border: none;
 		border-radius: $radius-base;
@@ -210,7 +210,7 @@
 		@include focus-visible-shadow;
 
 		&:hover {
-			background-color: rgb(0 0 0 / 0.05);
+			background-color: var(--nav-hover-background);
 		}
 
 		&.is-active,
@@ -249,11 +249,11 @@
 			position: absolute;
 			inset-block-start: 100%;
 			inset-inline-start: 0;
-			min-width: 12rem;
+			min-width: var(--nav-submenu-width);
 			background-color: $color-white;
 			border: 1px solid $color-gray-300;
 			border-radius: $radius-base;
-			box-shadow: 0 4px 12px rgb(0 0 0 / 0.1);
+			box-shadow: var(--nav-submenu-shadow);
 			z-index: 100;
 		}
 

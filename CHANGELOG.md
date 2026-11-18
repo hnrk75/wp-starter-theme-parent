@@ -14,6 +14,20 @@ the new version.
 
 ## [Unreleased]
 
+## [3.3.0] - 2026-11-18
+
+The parent theme's design values are all tokens in `theme.json` now, so a child theme sets its own design there. The defaults are the same as before.
+
+### Added
+- Tokens in `settings.custom`: `measure`, `lead` (width, lineHeight), `display` and `heading.h1` … `h6` (fontWeight, lineHeight, letterSpacing), `focus` (width, offset), `button` (padding, gap, `sm`/`lg` padding and fontSize), `nav` (itemPadding, hoverBackground, submenuWidth, submenuShadow, overlay), `logo.height` and `footer.fontSize`.
+- Shadow presets `sm` … `xl` in `theme.json` (`--shadow-*`), which also replace WordPress's default shadows in the editor.
+- `button.radius` in `settings.custom` (`--btn-radius`): the buttons' corner radius, set without changing `radius.pill`. Default: the pill radius, as before.
+- `$radius-sm`, `$radius-md` and `$radius-lg` in the SCSS abstracts.
+
+### Changed
+- `--space-*` read the `spacingSizes` in `theme.json` and `--container-max-width` reads `layout.contentSize`, so the editor's spacing and the theme's spacing are the same values.
+- The skip link's transition uses `--transition-base` (0.3 s instead of 0.2 s), and the menu's transitions use it too.
+
 ## [3.2.0] - 2026-11-18
 
 ### Added

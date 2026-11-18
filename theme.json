@@ -107,7 +107,44 @@
       "radius": { "sm": "0.25rem", "base": "0.375rem", "md": "0.5rem", "lg": "1rem", "pill": "50rem" },
       "transition": { "base": "0.3s ease" },
       "fontWeight": { "regular": "400", "medium": "500", "semibold": "600", "bold": "700" },
-      "lineHeight": { "body": "1.6", "heading": "1.2" }
+      "lineHeight": { "body": "1.6", "heading": "1.2" },
+      "measure": "42rem",
+      "lead": { "width": "45rem", "lineHeight": "1.55" },
+      "display": { "lineHeight": "1.1", "letterSpacing": "0" },
+      "heading": {
+        "h1": { "fontWeight": "var(--wp--custom--font-weight--bold)", "lineHeight": "1.1", "letterSpacing": "0" },
+        "h2": { "fontWeight": "var(--wp--custom--font-weight--bold)", "lineHeight": "1.15", "letterSpacing": "0" },
+        "h3": { "fontWeight": "var(--wp--custom--font-weight--semibold)", "lineHeight": "1.2", "letterSpacing": "0" },
+        "h4": { "fontWeight": "var(--wp--custom--font-weight--semibold)", "lineHeight": "1.25", "letterSpacing": "0.01em" },
+        "h5": { "fontWeight": "var(--wp--custom--font-weight--semibold)", "lineHeight": "1.3", "letterSpacing": "0.02em" },
+        "h6": { "fontWeight": "var(--wp--custom--font-weight--semibold)", "lineHeight": "1.35", "letterSpacing": "0.03em" }
+      },
+      "focus": { "width": "0.125rem", "offset": "0.1875rem" },
+      "button": {
+        "radius": "var(--wp--custom--radius--pill)",
+        "padding": "0.5rem 1.5rem",
+        "gap": "0.5rem",
+        "sm": { "padding": "0.375rem 1rem", "fontSize": "0.875rem" },
+        "lg": { "padding": "0.75rem 2rem", "fontSize": "1.125rem" }
+      },
+      "nav": {
+        "itemPadding": "0.5rem 0.75rem",
+        "hoverBackground": "rgb(0 0 0 / 0.05)",
+        "submenuWidth": "12rem",
+        "submenuShadow": "0 4px 12px rgb(0 0 0 / 0.1)",
+        "overlay": "rgb(0 0 0 / 0.4)"
+      },
+      "logo": { "height": "clamp(2rem, 4vw, 3rem)" },
+      "footer": { "fontSize": "0.875rem" }
+    },
+    "shadow": {
+      "defaultPresets": false,
+      "presets": [
+        { "slug": "sm", "name": "SM", "shadow": "0 0.0625rem 0.1875rem rgb(0 0 0 / 0.08), 0 0.0625rem 0.125rem rgb(0 0 0 / 0.06)" },
+        { "slug": "md", "name": "MD", "shadow": "0 0.25rem 0.75rem rgb(0 0 0 / 0.1), 0 0.125rem 0.25rem rgb(0 0 0 / 0.06)" },
+        { "slug": "lg", "name": "LG", "shadow": "0 0.625rem 1.875rem rgb(0 0 0 / 0.12), 0 0.25rem 0.5rem rgb(0 0 0 / 0.08)" },
+        { "slug": "xl", "name": "XL", "shadow": "0 1.25rem 3.75rem rgb(0 0 0 / 0.16), 0 0.5rem 1rem rgb(0 0 0 / 0.08)" }
+      ]
     },
     "spacing": {
       "customSpacing": false,

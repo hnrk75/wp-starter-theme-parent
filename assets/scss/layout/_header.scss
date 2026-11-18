@@ -48,7 +48,7 @@
 
 	.custom-logo {
 		display: block;
-		height: clamp(2rem, 4vw, 3rem);
+		height: var(--logo-height);
 		width: auto;
 	}
 }

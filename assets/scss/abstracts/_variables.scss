@@ -50,7 +50,10 @@ $letter-spacing-heading: -0.01em;
 $spacer: 1rem;
 
 // --- Borders --------------------------------------------------
+$radius-sm: var(--radius-sm);
 $radius-base: var(--radius-base);
+$radius-md: var(--radius-md);
+$radius-lg: var(--radius-lg);
 $radius-pill: var(--radius-pill);
 
 // --- Transitions ----------------------------------------------
