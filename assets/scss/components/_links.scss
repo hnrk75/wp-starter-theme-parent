@@ -12,7 +12,7 @@ a:not(.btn, .skip-link, .screen-reader-text) {
 
 	&:hover,
 	&:focus-visible {
-		color: color-mix(in srgb, #{$color-primary}, #000 25%);
+		color: var(--link-hover-color);
 	}
 }
 

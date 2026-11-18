@@ -197,8 +197,10 @@ Google, so no visitor IP addresses are sent to a third party (GDPR).
 Both are licensed under the SIL Open Font License (`assets/fonts/OFL-*.txt`).
 
 **Other fonts in a child theme:** put the woff2 files in the child theme's
-`assets/fonts/` and define `fontFamilies` with `fontFace` in the child's `theme.json`,
-then update `font-family` in the child's CSS. Latin covers Swedish (å, ä, ö); use the
+`assets/fonts/` and define `fontFamilies` with `fontFace` in the child's `theme.json`.
+The families with the slugs `body` and `heading` are the site's fonts — the theme's CSS
+uses them through `--font-family-body` and `--font-family-heading`, so no CSS changes
+are needed. Latin covers Swedish (å, ä, ö); use the
 `latin-ext` files if a site needs e.g. Polish or Czech characters.
 
 **Google Fonts anyway:** return a URL from the `wpst_google_fonts_url` filter.

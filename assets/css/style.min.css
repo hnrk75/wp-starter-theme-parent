@@ -21,8 +21,12 @@
   --color-info: var(--wp--preset--color--info, #0284c7);
   --color-info-subtle: var(--wp--preset--color--info-subtle, #e0f2fe);
   --link-color: var(--color-primary);
-  --font-family-body: Montserrat, sans-serif;
-  --font-family-heading: Fraunces, serif;
+  --link-hover-color: color-mix(in srgb, var(--color-primary), #000 25%);
+  --btn-primary-hover-bg: color-mix(in srgb, var(--color-primary), #000 15%);
+  --btn-success-hover-bg: color-mix(in srgb, var(--color-success), #000 15%);
+  --btn-danger-hover-bg: color-mix(in srgb, var(--color-error), #000 15%);
+  --font-family-body: var(--wp--preset--font-family--body, 'Montserrat', sans-serif);
+  --font-family-heading: var(--wp--preset--font-family--heading, 'Fraunces', serif);
   --font-weight-regular: 400;
   --font-weight-bold: 700;
   --line-height-body: 1.6;
@@ -80,7 +84,7 @@ h4,
 h5,
 h6 {
   margin: 0;
-  font-family: "Fraunces", serif;
+  font-family: var(--font-family-heading);
   font-weight: 700;
   line-height: 1.2;
 }
@@ -90,7 +94,7 @@ p {
 }
 
 body {
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--font-family-body);
   font-size: var(--wp--preset--font-size--medium);
   font-weight: 400;
   font-variant-numeric: lining-nums proportional-nums;
@@ -127,7 +131,7 @@ figcaption {
 .display-1,
 .has-display-1-font-size {
   font-size: var(--wp--preset--font-size--display-1);
-  font-family: "Fraunces", serif;
+  font-family: var(--font-family-heading);
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: 0;
@@ -146,7 +150,7 @@ h6,
 .h4,
 .h5,
 .h6 {
-  font-family: "Fraunces", serif;
+  font-family: var(--font-family-heading);
   text-wrap: balance;
 }
 
@@ -313,7 +317,7 @@ body:has(.has-hero-top) .site-header {
   padding-block: var(--space-sm);
 }
 .site-header .custom-logo-link:not(:has(.custom-logo)) {
-  font-family: "Fraunces", serif;
+  font-family: var(--font-family-heading);
   font-weight: 700;
   font-size: var(--wp--preset--font-size--h-3);
 }
@@ -472,7 +476,7 @@ a:not(.btn, .skip-link, .screen-reader-text) {
   transition: color 0.3s ease;
 }
 a:not(.btn, .skip-link, .screen-reader-text):hover, a:not(.btn, .skip-link, .screen-reader-text):focus-visible {
-  color: color-mix(in srgb, var(--color-primary), #000 25%);
+  color: var(--link-hover-color);
 }
 
 .link-animated {
@@ -548,7 +552,7 @@ a:not(.btn, .skip-link, .screen-reader-text):hover, a:not(.btn, .skip-link, .scr
   color: var(--color-white);
 }
 .btn.btn-primary:hover {
-  background-color: color-mix(in srgb, var(--color-primary), #000 15%);
+  background-color: var(--btn-primary-hover-bg);
 }
 .btn.btn-secondary {
   background-color: var(--color-gray-700);
@@ -584,14 +588,14 @@ a:not(.btn, .skip-link, .screen-reader-text):hover, a:not(.btn, .skip-link, .scr
   color: var(--color-white);
 }
 .btn.btn-success:hover {
-  background-color: color-mix(in srgb, var(--color-success), #000 15%);
+  background-color: var(--btn-success-hover-bg);
 }
 .btn.btn-danger {
   background-color: var(--color-error);
   color: var(--color-white);
 }
 .btn.btn-danger:hover {
-  background-color: color-mix(in srgb, var(--color-error), #000 15%);
+  background-color: var(--btn-danger-hover-bg);
 }
 .btn.btn-sm {
   padding: 0.375rem 1rem;
@@ -730,7 +734,7 @@ a:not(.btn, .skip-link, .screen-reader-text):hover, a:not(.btn, .skip-link, .scr
   }
 }
 .site-nav__title {
-  font-family: "Fraunces", serif;
+  font-family: var(--font-family-heading);
   font-weight: 700;
   font-size: var(--wp--preset--font-size--h-5);
 }

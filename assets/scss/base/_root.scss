@@ -36,10 +36,17 @@
 
 	// --- Links ----------------------------------------------------
 	--link-color: var(--color-primary);
+	--link-hover-color: color-mix(in srgb, var(--color-primary), #000 25%);
+
+	// --- Buttons --------------------------------------------------
+	--btn-primary-hover-bg: color-mix(in srgb, var(--color-primary), #000 15%);
+	--btn-success-hover-bg: color-mix(in srgb, var(--color-success), #000 15%);
+	--btn-danger-hover-bg:  color-mix(in srgb, var(--color-error), #000 15%);
 
 	// --- Typography -----------------------------------------------
-	--font-family-body:    #{$font-family-body};
-	--font-family-heading: #{$font-family-heading};
+	// The theme.json font families with the slugs body and heading.
+	--font-family-body:    var(--wp--preset--font-family--body, 'Montserrat', sans-serif);
+	--font-family-heading: var(--wp--preset--font-family--heading, 'Fraunces', serif);
 	--font-weight-regular: #{$font-weight-regular};
 	--font-weight-bold:    #{$font-weight-bold};
 	--line-height-body:    #{$line-height-body};

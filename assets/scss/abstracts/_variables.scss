@@ -36,8 +36,8 @@ $color-info-subtle: var(--color-info-subtle);
 $link-color: var(--link-color);
 
 // --- Typography -----------------------------------------------
-$font-family-body: 'Montserrat', sans-serif;
-$font-family-heading: 'Fraunces', serif;
+$font-family-body: var(--font-family-body);
+$font-family-heading: var(--font-family-heading);
 $font-weight-regular: 400;
 $font-weight-medium: 500;
 $font-weight-semibold: 600;

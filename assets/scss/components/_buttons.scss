@@ -51,7 +51,7 @@
 		color: $color-white;
 
 		&:hover {
-			background-color: color-mix(in srgb, #{$color-primary}, #000 15%);
+			background-color: var(--btn-primary-hover-bg);
 		}
 	}
 
@@ -99,7 +99,7 @@
 		color: $color-white;
 
 		&:hover {
-			background-color: color-mix(in srgb, #{$color-success}, #000 15%);
+			background-color: var(--btn-success-hover-bg);
 		}
 	}
 
@@ -108,7 +108,7 @@
 		color: $color-white;
 
 		&:hover {
-			background-color: color-mix(in srgb, #{$color-error}, #000 15%);
+			background-color: var(--btn-danger-hover-bg);
 		}
 	}
 

@@ -14,6 +14,14 @@ the new version.
 
 ## [Unreleased]
 
+## [3.1.0] - 2026-11-18
+
+### Added
+- `--link-hover-color`, `--btn-primary-hover-bg`, `--btn-success-hover-bg` and `--btn-danger-hover-bg`: a child theme can set its own hover colors in `:root`. The defaults are the same darker shades as before.
+
+### Changed
+- The fonts come from the `theme.json` font families with the slugs `body` and `heading` (`--font-family-body` / `--font-family-heading`). A child theme changes the site's fonts in its `theme.json` alone; before, headings, the logo text and the menu title kept Fraunces.
+
 ## [3.0.0] - 2026-11-02
 
 **Breaking:** see Removed and the `wpst_hero_blocks` change below before updating a site.
