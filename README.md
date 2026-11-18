@@ -271,22 +271,10 @@ so include every slug (`xs` … `xl` etc.).
 
 ## Header, menu and footer
 
-**A menu item as a button:** give the item the CSS class `menu-item-button` (or
-`menu-item-button-outline`) in **Appearance → Menus** (turn on **CSS Classes** under
-**Screen Options**). The link gets `.btn.btn-primary` (or `.btn-ghost`), with the button
-tokens; on large screens it sits a little apart from the other links, in the mobile menu
-it is full width.
-
-**Widget areas** (blocks can be used in them):
-
-| Area | ID | Shown |
-|------|----|-------|
-| Header, after the menu | `header-end` | After the menu on large screens (hidden on small screens) |
-| Mobile menu footer | `nav-footer` | At the bottom of the mobile menu |
-| Footer one … four | `footer-1` … `footer-4` | The classic footer |
-
-Each also has a hook, `wpst_header_end` and `wpst_nav_footer`. The wrappers are only
-printed when the area has widgets or the hook has a callback.
+**Widget areas** (blocks can be used in them): **Sidebar** (`sidebar-1`) and **Footer
+one … four** (`footer-1` … `footer-4`). The header has none; a child theme that needs
+something next to the menu overrides `template-parts/header/branding.php` or
+`header.php`.
 
 **Logo and site name:** `template-parts/header/branding.php` picks the logo —
 `assets/svg/logo.svg`, else the uploaded logo, else the site title (Settings → General) as text

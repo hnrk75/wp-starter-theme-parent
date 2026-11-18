@@ -23,21 +23,6 @@
 		padding-block: var(--header-padding-block);
 	}
 
-	// Widget area "Header, after the menu" (desktop; on mobile, use the menu footer)
-	&__end {
-		display: none;
-
-		@include mq-up(lg) {
-			display: flex;
-			align-items: center;
-			gap: var(--space-sm);
-		}
-
-		.widget {
-			margin: 0;
-		}
-	}
-
 	// Text fallback when no logo is uploaded
 	.custom-logo-link:not(:has(.custom-logo)) {
 		display: inline-flex;

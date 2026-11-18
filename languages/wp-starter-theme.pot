@@ -2,14 +2,14 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: WP Starter Theme 3.5.0\n"
+"Project-Id-Version: WP Starter Theme 3.6.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/wp-starter-theme-parent\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-11-18T18:49:08+00:00\n"
+"POT-Creation-Date: 2026-11-18T19:21:52+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: wp-starter-theme\n"
@@ -94,20 +94,20 @@ msgstr ""
 msgid "Skip to content"
 msgstr ""
 
-#: header.php:43
+#: header.php:35
 msgid "Open menu"
 msgstr ""
 
-#: header.php:49
+#: header.php:41
 #: inc/setup.php:54
 msgid "Main menu"
 msgstr ""
 
-#: header.php:52
+#: header.php:44
 msgid "Menu"
 msgstr ""
 
-#: header.php:53
+#: header.php:45
 msgid "Close menu"
 msgstr ""
 
@@ -232,22 +232,6 @@ msgstr ""
 
 #: inc/widgets.php:60
 msgid "Footer four"
-msgstr ""
-
-#: inc/widgets.php:72
-msgid "Header, after the menu"
-msgstr ""
-
-#: inc/widgets.php:74
-msgid "Shown after the menu on large screens, e.g. a phone number or a button. On small screens, use the mobile menu footer."
-msgstr ""
-
-#: inc/widgets.php:84
-msgid "Mobile menu footer"
-msgstr ""
-
-#: inc/widgets.php:86
-msgid "Shown at the bottom of the menu on small screens, e.g. contact details."
 msgstr ""
 
 #: index.php:34

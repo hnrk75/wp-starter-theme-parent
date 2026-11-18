@@ -8,7 +8,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-09-07T09:19:09+00:00\n"
-"PO-Revision-Date: 2026-11-18T18:49:09+00:00\n"
+"PO-Revision-Date: 2026-11-18T19:21:53+00:00\n"
 "Language: sv_SE\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
@@ -92,20 +92,20 @@ msgstr "Lägg till widgets här."
 msgid "Skip to content"
 msgstr "Hoppa till innehåll"
 
-#: header.php:43
+#: header.php:35
 msgid "Open menu"
 msgstr "Öppna meny"
 
-#: header.php:49
+#: header.php:41
 #: inc/setup.php:54
 msgid "Main menu"
 msgstr "Huvudmeny"
 
-#: header.php:52
+#: header.php:44
 msgid "Menu"
 msgstr "Meny"
 
-#: header.php:53
+#: header.php:45
 msgid "Close menu"
 msgstr "Stäng meny"
 
@@ -231,22 +231,6 @@ msgstr "Sidfot tre"
 #: inc/widgets.php:60
 msgid "Footer four"
 msgstr "Sidfot fyra"
-
-#: inc/widgets.php:72
-msgid "Header, after the menu"
-msgstr "Sidhuvud, efter menyn"
-
-#: inc/widgets.php:74
-msgid "Shown after the menu on large screens, e.g. a phone number or a button. On small screens, use the mobile menu footer."
-msgstr "Visas efter menyn på stora skärmar, t.ex. ett telefonnummer eller en knapp. På små skärmar används mobilmenyns fot."
-
-#: inc/widgets.php:84
-msgid "Mobile menu footer"
-msgstr "Mobilmenyns fot"
-
-#: inc/widgets.php:86
-msgid "Shown at the bottom of the menu on small screens, e.g. contact details."
-msgstr "Visas längst ner i menyn på små skärmar, t.ex. kontaktuppgifter."
 
 #: index.php:34
 #: search.php:37

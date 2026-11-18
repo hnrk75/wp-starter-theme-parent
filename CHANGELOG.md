@@ -14,6 +14,11 @@ the new version.
 
 ## [Unreleased]
 
+## [3.6.2] - 2026-11-18
+
+### Removed
+- The menu button class (`menu-item-button`), the widget areas "Header, after the menu" and "Mobile menu footer", and the hooks `wpst_header_end` / `wpst_nav_footer`, all from 3.5.0 and released the same day. A standard theme has widget areas in the sidebar and footer only; a child theme styles a menu item as a button with its own CSS. The mobile menu's empty footer element is gone.
+
 ## [3.6.1] - 2026-11-18
 
 ### Removed

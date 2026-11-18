@@ -158,22 +158,9 @@
 		}
 	}
 
-	// --- Off-canvas footer ---------------------------------------
-	&__footer {
-		display: none;
-
-		@include mq-down(lg) {
-			display: block;
-			flex-shrink: 0;
-			padding: var(--space-sm) var(--space-md);
-			border-top: 1px solid $color-gray-200;
-		}
-	}
-
 	@include mq-up(lg) {
 		display: flex;
 		align-items: center;
-		margin-inline-start: auto;
 	}
 
 	// --- Menu list -----------------------------------------------
@@ -298,22 +285,4 @@
 // The indicator is a box-shadow too; it steps aside for the focus ring.
 .site-nav .site-nav__link.is-active:not(:focus-visible) {
 	box-shadow: var(--nav-active-indicator);
-}
-
-// --- Menu item as a button (CSS class menu-item-button) --------
-.site-nav__item--button {
-	margin-block-start: var(--space-sm);
-
-	.site-nav__button {
-		width: 100%;
-	}
-
-	@include mq-up(lg) {
-		margin-block-start: 0;
-		margin-inline-start: var(--space-sm);
-
-		.site-nav__button {
-			width: auto;
-		}
-	}
 }

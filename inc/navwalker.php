@@ -40,20 +40,9 @@ class Wpst_Navwalker extends Walker_Nav_Menu {
 			in_array( 'current-post-ancestor', $item->classes, true )
 		);
 
-		// The CSS class menu-item-button (or -outline) in Appearance → Menus makes the link a button.
-		$button_variant = '';
-		if ( ! $has_child && in_array( 'menu-item-button', $classes, true ) ) {
-			$button_variant = 'btn-primary';
-		} elseif ( ! $has_child && in_array( 'menu-item-button-outline', $classes, true ) ) {
-			$button_variant = 'btn-ghost';
-		}
-
 		$classes[] = 'site-nav__item';
 		if ( $has_child ) {
 			$classes[] = 'has-children';
-		}
-		if ( $button_variant ) {
-			$classes[] = 'site-nav__item--button';
 		}
 		if ( $is_active ) {
 			$classes[] = 'is-active';
@@ -77,9 +66,6 @@ class Wpst_Navwalker extends Walker_Nav_Menu {
 		}
 		if ( $is_active ) {
 			$link_class .= ' is-active';
-		}
-		if ( $button_variant ) {
-			$link_class = 'btn ' . $button_variant . ' site-nav__button';
 		}
 
 		$item_output = $args->before;
