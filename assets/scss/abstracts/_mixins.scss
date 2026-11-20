@@ -1,5 +1,4 @@
 @use 'sass:map';
-@use 'sass:math';
 @use 'variables' as *;
 
 // =============================================================
@@ -7,13 +6,12 @@
 // =============================================================
 
 // --- Focus visible ring ---------------------------------------
-// The outline meets WCAG 3:1 and stays visible in forced-colors mode; $alpha is the halo.
-@mixin focus-visible-shadow($color: $color-primary, $alpha: 0.25, $size: 0.25rem) {
+// An outline, like the global focus rule, so a border drawn with box-shadow cannot hide it.
+// $alpha and $size are unused since 3.8.0 and kept so existing calls still compile.
+@mixin focus-visible-shadow($color: $color-primary, $alpha: null, $size: null) {
 	&:focus-visible {
 		outline: var(--focus-width, 0.125rem) solid #{$color};
-		outline-offset: 0.125rem;
-		box-shadow: 0 0 0 calc(#{$size} + 0.125rem) color-mix(in srgb, #{$color} #{math.percentage($alpha)}, transparent);
-		transition: box-shadow 0.2s ease;
+		outline-offset: var(--focus-offset, 0.1875rem);
 	}
 }
 

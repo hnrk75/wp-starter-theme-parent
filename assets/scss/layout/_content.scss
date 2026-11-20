@@ -7,20 +7,11 @@
 .site-content {
 	word-break: normal;
 	overflow-wrap: anywhere;
-
-	[class*='wp-block-'] {
-		margin-block: $space-md;
-	}
-
-	// Remove top-margin on first block when hero is at the top
-	.has-hero-top [class*='wp-block-']:first-child {
-		margin-block-start: 0;
-	}
 }
 
-// Entry header → content spacing (h1 sits in entry-header, not entry-content)
+// The title is the last child of .entry-header, so its own margin is 0.
 .entry-header + .entry-content {
-	margin-top: $space-sm;
+	margin-top: var(--heading-spacing);
 }
 
 .content-layout {

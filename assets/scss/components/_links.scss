@@ -5,7 +5,8 @@
 // =============================================================
 
 // --- Standard <a>: neutral -----------------------------------
-a:not(.btn, .skip-link, .screen-reader-text) {
+// :where() keeps this at (0,0,1), so any component class wins.
+a:where(:not(.btn, .skip-link, .screen-reader-text)) {
 	color: $link-color;
 	text-decoration: none;
 	transition: color $transition-base;

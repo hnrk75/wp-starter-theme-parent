@@ -25,7 +25,6 @@ export default [
 			sourceType: 'module',
 			globals: {
 				...globals.browser,
-				...globals.jquery,
 				wp: 'readonly',
 				ajaxurl: 'readonly',
 			},

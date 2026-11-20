@@ -177,6 +177,40 @@ The body text size (`medium`) is set on `body` only, so paragraphs and list item
 inherit it: a component that sets a smaller size on its container (a top bar, a card,
 the footer) gets it on the text inside too.
 
+### Spacing between text and blocks
+
+Text and blocks only have a margin **below** them, and the last element in a container
+has none, so the container's own padding decides the top and bottom edges:
+
+| Element | Margin below |
+|------|------|
+| `p` followed by another `p` | `--paragraph-spacing` (1rem) |
+| `p` followed by anything else (heading, list, image …) | `--flow-spacing` (1.5rem) |
+| `h1`–`h6` | `--heading-spacing` (1.5rem) |
+| `ul`, `ol`, `dl`, `blockquote`, `figure`, `pre`, `table`, and every child of `.entry-content` or `.flow` | `--flow-spacing` (1.5rem) |
+| The last element in its container | 0 |
+
+The rules are on the elements, not on block classes, so hard-coded HTML in a template
+or an own block gets the same spacing as editor content. Add the class `flow` to a
+hard-coded container to give its other children (e.g. `div`s) the same spacing as the
+blocks in `.entry-content`:
+
+```html
+<div class="flow">
+	<h2>Öppettider</h2>
+	<p>…</p>
+	<div class="hours">…</div>
+</div>
+```
+
+Change the values with the tokens `custom.paragraph.spacing`, `custom.flow.spacing` and
+`custom.heading.spacing` in the child theme's `theme.json`.
+
+The same rules apply inside Group and Column blocks: `settings.spacing.blockGap` is
+`null`, so WordPress does not add its own top margin to their children, and the editor
+has no "Block spacing" control. Columns, buttons and galleries keep WordPress's default
+gaps.
+
 ---
 
 ## Colors
@@ -220,9 +254,12 @@ merged with the parent's — without rewriting CSS rules.
 | `custom.lineHeight.body` / `heading` | `--line-height-body`, `--line-height-heading` | Line heights |
 | `custom.display.lineHeight` / `letterSpacing` / `textTransform` / `color` | `--display-*` | `.display-1` (transform and color default to the headings') |
 | `custom.heading.textTransform` | `--heading-text-transform` | All headings, e.g. `uppercase` |
+| `custom.paragraph.spacing` / `custom.flow.spacing` / `custom.heading.spacing` | `--paragraph-spacing`, `--flow-spacing`, `--heading-spacing` | Margin below text and blocks (see [Spacing between text and blocks](#spacing-between-text-and-blocks)) |
 | `custom.heading.h1` … `h6`: `fontWeight`, `lineHeight`, `letterSpacing`, `textTransform`, `color` | `--h1-font-weight` … `--h6-color` | Headings per level |
 | `custom.radius.sm` / `base` / `md` / `lg` / `pill` | `--radius-*` | Corner radius |
-| `custom.button.radius` / `padding` / `gap`, `sm` and `lg`: `padding` / `fontSize` | `--btn-*` | Button shape and sizes |
+| `custom.button.radius` / `padding` / `gap`, `sm` and `lg`: `padding` / `fontSize` | `--btn-*` | Button shape and sizes (`gap` is between the icon and the text) |
+| `custom.button.groupGap` | `--btn-group-gap` | Space between the buttons in `.btn-group` |
+| `custom.pill.background` / `color` / `radius`, `sm`, `md` and `lg`: `padding` / `fontSize` (`sm` also `fontWeight` / `letterSpacing` / `textTransform`) | `--pill-*` | Pills (see [Pills](#pills)) |
 | `custom.button.primaryHoverBackground` / `successHoverBackground` / `dangerHoverBackground` | `--btn-*-hover-bg` | Button hover colors |
 | `custom.focus.width` / `offset` | `--focus-width`, `--focus-offset` | Focus outline |
 | `custom.header.background` / `borderBottom` / `paddingBlock` / `marginBottom` | `--header-*` | Site header |
@@ -482,6 +519,44 @@ wpst_button( array(
 | `class` | `array()` | Extra CSS classes |
 | `aria_label` | `''` | Accessible label |
 | `display` | `true` | `false` returns HTML instead of echoing |
+
+`icon_html` keeps the SVG elements and attributes that icon sets such as Lucide use
+(`path`, `circle`, `line`, `polyline`, `polygon`, `rect`, `stroke-width`,
+`stroke-linecap`, `stroke-linejoin`).
+
+Put several buttons in a `.btn-group`, with the gap from `custom.button.groupGap`.
+
+The focus ring on buttons, menu links and the logo is an `outline`, like everywhere
+else, so a border drawn with `box-shadow` does not hide it.
+
+---
+
+### Pills
+
+A small rounded label, e.g. "New", a category or a status. A link when it has `href`.
+
+```php
+wpst_pill( array( 'text' => 'Nyhet' ) );
+wpst_pill( array(
+    'text'       => 'Event',
+    'size'       => 'md',
+    'background' => 'primary', // palette slug
+    'color'      => 'white',   // palette slug
+    'href'       => '/event/',
+) );
+```
+
+| Argument | Default | Description |
+|----------|---------|-------------|
+| `text` | `''` | Visible text; nothing is output when empty |
+| `size` | `'sm'` | `sm` (small caps-style label), `md` (button size), `lg` (heading size) |
+| `background` / `color` | `''` | Palette slugs. They use WordPress's `has-{slug}-background-color` / `has-{slug}-color` classes, so the child theme's palette works without CSS |
+| `href` | `''` | Renders `<a>` instead of `<span>` |
+| `class` | `''` | Extra CSS classes |
+| `display` | `true` | `false` returns HTML instead of echoing |
+
+The look is set with the `custom.pill` tokens. Site-specific touches, such as a tilt or
+another font on the large size, go in the child theme's CSS.
 
 ---
 

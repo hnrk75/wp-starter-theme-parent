@@ -55,7 +55,11 @@ if ( ! function_exists( 'wpst_button' ) ) {
 				'viewBox'      => true,
 				'viewbox'      => true,
 				'fill'         => true,
-				'stroke'       => true,
+				'stroke'            => true,
+				'stroke-width'      => true,
+				'stroke-linecap'    => true,
+				'stroke-linejoin'   => true,
+				'stroke-miterlimit' => true,
 				'xmlns'        => true,
 				'xmlns:xlink'  => true,
 				'role'         => true,
@@ -69,6 +73,7 @@ if ( ! function_exists( 'wpst_button' ) ) {
 				'stroke-width'    => true,
 				'stroke-linecap'  => true,
 				'stroke-linejoin' => true,
+				'stroke-miterlimit' => true,
 				'fill-rule'       => true,
 				'clip-rule'       => true,
 			),
@@ -77,6 +82,23 @@ if ( ! function_exists( 'wpst_button' ) ) {
 				'stroke' => true,
 			),
 		);
+
+		$shape_attrs = array(
+			'fill'            => true,
+			'stroke'          => true,
+			'stroke-width'    => true,
+			'stroke-linecap'  => true,
+			'stroke-linejoin' => true,
+		);
+		foreach ( array(
+			'circle'   => array( 'cx', 'cy', 'r' ),
+			'line'     => array( 'x1', 'y1', 'x2', 'y2' ),
+			'polyline' => array( 'points' ),
+			'polygon'  => array( 'points' ),
+			'rect'     => array( 'x', 'y', 'width', 'height', 'rx', 'ry' ),
+		) as $tag => $geometry ) {
+			$allowed_icon_tags[ $tag ] = $shape_attrs + array_fill_keys( $geometry, true );
+		}
 
 		$icon = '';
 		if ( ! empty( $a['icon_html'] ) ) {

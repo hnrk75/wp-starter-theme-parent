@@ -14,6 +14,26 @@ the new version.
 
 ## [Unreleased]
 
+## [3.8.0] - 2026-11-20
+
+### Added
+- `wpst_pill()` (`inc/helpers-pill.php`, `components/_pills.scss`): a small rounded label in three sizes, a link when it has `href`. Colors are palette slugs through WordPress's `has-{slug}-*-color` classes; the look comes from the new `custom.pill` tokens.
+- Tokens for the spacing between text and blocks: `custom.paragraph.spacing` (1rem), `custom.flow.spacing` (1.5rem) and `custom.heading.spacing` (1.5rem).
+- Token `custom.button.groupGap` (1rem) for the gap in `.btn-group`.
+- `.flow`: a container class that gives every child the same margin below as the blocks in `.entry-content`, for hard-coded HTML.
+
+### Changed
+- Text and blocks have a margin below only: 1rem between paragraphs, 1.5rem below a paragraph followed by something else, below headings, lists, quotes, figures, tables and top-level blocks, and 0 below the last element in a container. Replaces `margin-block: $space-md` on every `[class*='wp-block-']` in `.site-content`, which also hit nested blocks. The page title is 1.5rem (`--heading-spacing`) above the content.
+- `settings.spacing.blockGap` is `null`, so WordPress no longer adds its own `margin-block-start: 24px` to the children of Group and other flow-layout blocks (with a specificity that overrode the theme). The editor's "Block spacing" control is gone; columns, buttons and galleries keep WordPress's default gaps.
+- The focus ring on `.btn`, the menu toggle, menu links and the logo is an outline with `--focus-offset`, like the global focus rule, without the box-shadow halo. `focus-visible-shadow()` ignores `$alpha` and `$size`.
+- The link rule is `a:where(:not(.btn, .skip-link, .screen-reader-text))`, specificity (0,0,1), so any component class wins over the link color.
+- ESLint no longer allows the jQuery globals (`$`, `jQuery`): the theme's JavaScript is vanilla only.
+
+### Fixed
+- Paragraphs had no space between them.
+- `wpst_button()` removed `stroke-width`, `stroke-linecap` and `stroke-linejoin` from an icon's `<svg>`, and `circle`, `line`, `polyline`, `polygon` and `rect`, so Lucide icons were drawn thin or not at all.
+- A button whose variant draws its border with an inset `box-shadow` had no visible keyboard focus.
+
 ## [3.7.0] - 2026-11-18
 
 ### Added
